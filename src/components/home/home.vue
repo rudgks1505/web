@@ -85,44 +85,53 @@ export default {
         });
       }
       home_con_item_slide_item[0].addEventListener("click", () => {
-        home_con_h[0].style.transform = "translateY(300px)";
-        home_con_h[0].style.opacity = "1";
-        home_con_h[1].style.transform = "translateY(320px)";
-        home_con_h[1].style.opacity = "0";
-        home_con_h[2].style.transform = "translateY(320px)";
-        home_con_h[2].style.opacity = "0";
-        home_con_h[3].style.transform = "translateY(320px)";
-        home_con_h[3].style.opacity = "0";
+        setTimeout(() => {
+          home_con_h[0].style.transform = "translateY(300px)";
+          home_con_h[0].style.opacity = "1";
+          home_con_h[1].style.transform = "translateY(320px)";
+          home_con_h[1].style.opacity = "0";
+          home_con_h[2].style.transform = "translateY(320px)";
+          home_con_h[2].style.opacity = "0";
+          home_con_h[3].style.transform = "translateY(320px)";
+          home_con_h[3].style.opacity = "0";
+        }, 500);
       });
+
       home_con_item_slide_item[1].addEventListener("click", () => {
-        home_con_h[1].style.transform = "translateY(300px)";
-        home_con_h[1].style.opacity = "1";
-        home_con_h[0].style.transform = "translateY(320px)";
-        home_con_h[0].style.opacity = "0";
-        home_con_h[2].style.transform = "translateY(320px)";
-        home_con_h[2].style.opacity = "0";
-        home_con_h[3].style.transform = "translateY(320px)";
-        home_con_h[3].style.opacity = "0";
+        setTimeout(() => {
+          home_con_h[1].style.transform = "translateY(300px)";
+          home_con_h[1].style.opacity = "1";
+          home_con_h[0].style.transform = "translateY(320px)";
+          home_con_h[0].style.opacity = "0";
+          home_con_h[2].style.transform = "translateY(320px)";
+          home_con_h[2].style.opacity = "0";
+          home_con_h[3].style.transform = "translateY(320px)";
+          home_con_h[3].style.opacity = "0";
+        }, 500);
       });
       home_con_item_slide_item[2].addEventListener("click", () => {
-        home_con_h[2].style.transform = "translateY(300px)";
-        home_con_h[2].style.opacity = "1";
-        home_con_h[0].style.transform = "translateY(320px)";
-        home_con_h[0].style.opacity = "0";
-        home_con_h[1].style.transform = "translateY(320px)";
-        home_con_h[1].style.opacity = "0";
-        home_con_h[3].style.transform = "translateY(320px)";
-        home_con_h[3].style.opacity = "0";
+        setTimeout(() => {
+          home_con_h[2].style.transform = "translateY(300px)";
+          home_con_h[2].style.opacity = "1";
+          home_con_h[0].style.transform = "translateY(320px)";
+          home_con_h[0].style.opacity = "0";
+          home_con_h[1].style.transform = "translateY(320px)";
+          home_con_h[1].style.opacity = "0";
+          home_con_h[3].style.transform = "translateY(320px)";
+          home_con_h[3].style.opacity = "0";
+        }, 500);
       });
       home_con_item_slide_item[3].addEventListener("click", () => {
-        home_con_h[3].style.transform = "translateY(300px)";
-        home_con_h[3].style.opacity = "1";
-        home_con_h[0].style.transform = "translateY(320px)";
-        home_con_h[0].style.opacity = "0";
-        home_con_h[1].style.transform = "translateY(320px)";
-        home_con_h[1].style.opacity = "0";
-        home_con_h[2].style.transform = "translateY(320px)";
-        home_con_h[2].style.opacity = "0";
+        setTimeout(() => {
+          home_con_h[3].style.transform = "translateY(300px)";
+          home_con_h[3].style.opacity = "1";
+          home_con_h[0].style.transform = "translateY(320px)";
+          home_con_h[0].style.opacity = "0";
+          home_con_h[1].style.transform = "translateY(320px)";
+          home_con_h[1].style.opacity = "0";
+          home_con_h[2].style.transform = "translateY(320px)";
+          home_con_h[2].style.opacity = "0";
+        }, 500);
       });
     });
 
