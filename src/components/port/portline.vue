@@ -34,7 +34,7 @@ export default {
 .port_div {
   display: flex;
   width: 0;
-  color: white;
+  color: black;
   align-items: center;
   overflow: hidden;
   transition: all 2s;
@@ -45,7 +45,7 @@ export default {
 .port_line {
   width: 1000px;
   height: 10px;
-  background: white;
+  background: black;
   margin-left: 30px;
 }
 </style>
