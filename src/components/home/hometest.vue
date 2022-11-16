@@ -63,22 +63,22 @@
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            <h4 style="margin-top: 0px">aaaaa</h4>
+            <h3 style="margin-top: 0px">aaaaa</h3>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            <h4 style="margin-top: 0px">vvvv</h4>
+            <h3 style="margin-top: 0px">vvvv</h3>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            <h4 style="margin-top: 0px">bbbbb</h4>
+            <h3 style="margin-top: 0px">bbbbb</h3>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            <h4 style="margin-top: 0px">qqqq</h4>
+            <h3 style="margin-top: 0px">qqqq</h3>
           </div>
         </div>
       </div>
@@ -118,6 +118,10 @@
       </div>
     </div>
   </div>
+
+  <div class="home_con">
+    <footer-1></footer-1>
+  </div>
 </template>
 
 <script>
@@ -128,6 +132,7 @@ import Port2 from "../port/port2.vue";
 import Portline from "../port/portline.vue";
 import Portline1 from "../port/portline1.vue";
 import Port3 from "../port/port3.vue";
+import footer1 from "../footer/footer1.vue";
 
 export default {
   components: {
@@ -137,6 +142,7 @@ export default {
     Portline,
     Portline1,
     Port3,
+    footer1,
   },
 
   setup() {
@@ -162,6 +168,18 @@ export default {
         setTimeout(() => {
           scrollTo(0, 0);
         }, 100);
+      });
+
+      window.addEventListener("wheel", () => {
+        if (scrollY === 0) {
+          scrollTo({ left: 0, top: window.innerHeight, behavior: "smooth" });
+        } else if (scrollY === window.innerHeight) {
+          scrollTo({
+            left: 0,
+            top: window.innerHeight * 2,
+            behavior: "smooth",
+          });
+        }
       });
 
       slide_f();
@@ -276,7 +294,7 @@ export default {
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 0px;
+  bottom: 10%;
 }
 .home_con_item {
   width: 1400px;

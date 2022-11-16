@@ -23,8 +23,6 @@ export default {
       window.addEventListener("scroll", () => {
         if (scrollY >= window.innerHeight * 1.5) {
           port_div1.style.width = "100%";
-        } else if (scrollY < window.innerHeight * 1.5) {
-          port_div1.style.width = "0%";
         }
       });
     });

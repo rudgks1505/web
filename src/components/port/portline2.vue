@@ -1,8 +1,8 @@
 <template>
-  <div style="position: relative">
-    <div class="port_div">
-      <h1 style="font-size: 70px">VISION</h1>
-      <div class="port_line"></div>
+  <div>
+    <div class="port_div1">
+      <h1 style="font-size: 70px">PORTFOLIO</h1>
+      <div class="port_line1"></div>
     </div>
   </div>
 </template>
@@ -17,12 +17,12 @@ export default {
     });
 
     onMounted(() => {
-      var port_line = document.querySelector(".port_line");
-      var port_div = document.querySelector(".port_div");
+      var port_line1 = document.querySelector(".port_line1");
+      var port_div1 = document.querySelector(".port_div1");
 
       window.addEventListener("scroll", () => {
-        if (scrollY >= window.innerHeight * 0.9) {
-          port_div.style.width = "100%";
+        if (scrollY >= window.innerHeight * 2) {
+          port_div1.style.width = "100%";
         }
       });
     });
@@ -35,23 +35,21 @@ export default {
 </script>
 
 <style scoped>
-.port_div {
+.port_div1 {
   display: flex;
-  width: 0;
-  color: white;
+  width: 0%;
+  color: black;
   align-items: center;
   overflow: hidden;
   transition: all 3s;
-  position: absolute;
-  top: -100px;
 }
-.port_div_h1 {
+.port_div1_h1 {
   font-size: 60px;
 }
-.port_line {
+.port_line1 {
   width: 100%;
   height: 6px;
-  background: white;
+  background: black;
   margin-left: 30px;
 }
 </style>
