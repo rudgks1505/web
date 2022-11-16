@@ -84,9 +84,27 @@
       </div>
     </div>
   </div>
+
+  <div class="home_con">
+    <div class="home_con_img">
+      <div class="home_con_img_cover"></div>
+    </div>
+  </div>
+
+  <div class="home_con">
+    <div class="home_con_item">
+      <port-1></port-1>
+    </div>
+  </div>
   <div class="home_con">
     <div class="home_con_item">
       <portline></portline>
+    </div>
+  </div>
+
+  <div class="home_con">
+    <div class="home_con_item">
+      <port-2></port-2>
     </div>
   </div>
 </template>
@@ -94,11 +112,15 @@
 <script>
 import { onMounted, reactive } from "vue";
 import Nav from "../nav/nav.vue";
+import Port1 from "../port/port1.vue";
+import Port2 from "../port/port2.vue";
 import Portline from "../port/portline.vue";
 
 export default {
   components: {
     Nav,
+    Port1,
+    Port2,
     Portline,
   },
 
@@ -117,11 +139,21 @@ export default {
       var home_back4 = document.querySelector(".home_back4");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
+      var home_con_img = document.querySelector(".home_con_img");
 
       window.addEventListener("load", () => {
         home_back_con[0].style.top = "40%";
         home_back_con[0].style.opacity = "1";
         slide_line1[0].style.width = "80%";
+        setTimeout(() => {
+          scrollTo(0, 0);
+        }, 100);
+      });
+
+      window.addEventListener("scroll", () => {
+        if (scrollY > window.innerHeight / 2) {
+          home_con_img.style.width = `${scrollY / 10}`;
+        }
       });
 
       slide_f();
@@ -342,5 +374,16 @@ export default {
   top: 0;
   z-index: 3;
   transition: all 2s;
+}
+.home_con_img {
+  width: 0%;
+  height: 560px;
+  background-image: url("../../assets/port/vision.png");
+  background-size: cover;
+}
+.home_con_img_cover {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
 }
 </style>

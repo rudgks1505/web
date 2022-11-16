@@ -1,7 +1,8 @@
 <template>
-  <div class="port_div">
-    <h1 class="port_div_h1">NEWPORT</h1>
-    <div class="port_line"></div>
+  <div>
+    <div class="port_div">
+      <div class="port_line"></div>
+    </div>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
       var port_div = document.querySelector(".port_div");
 
       window.addEventListener("scroll", () => {
-        if (scrollY > 100) {
+        if (scrollY >= window.innerHeight / 2) {
           port_div.style.width = "100%";
         }
       });
@@ -36,7 +37,7 @@ export default {
 .port_div {
   display: flex;
   width: 0;
-  color: black;
+  color: white;
   align-items: center;
   overflow: hidden;
   transition: all 2s;
@@ -45,9 +46,9 @@ export default {
   font-size: 60px;
 }
 .port_line {
-  width: 1000px;
-  height: 10px;
-  background: black;
+  width: 100%;
+  height: 5px;
+  background: white;
   margin-left: 30px;
 }
 </style>
