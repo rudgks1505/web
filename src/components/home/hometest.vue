@@ -124,78 +124,95 @@ export default {
         slide_line1[0].style.width = "80%";
       });
 
-      home_con_item_slide_item[0].addEventListener("click", () => {
-        home_back.style.transform = "translateX(0%)";
-        home_back2.style.transform = "translateX(0%)";
-        home_back3.style.transform = "translateX(0%)";
-        home_back4.style.transform = "translateX(0%)";
-        home_back_con[0].style.top = "40%";
-        home_back_con[0].style.opacity = "1";
-        home_back_con[1].style.top = "50%";
-        home_back_con[1].style.opacity = "0";
-        home_back_con[2].style.top = "50%";
-        home_back_con[2].style.opacity = "0";
-        home_back_con[3].style.top = "50%";
-        home_back_con[3].style.opacity = "0";
-        slide_line1[0].style.width = "80%";
-        slide_line1[1].style.width = "0%";
-        slide_line1[2].style.width = "0%";
-        slide_line1[3].style.width = "0%";
-      });
-      home_con_item_slide_item[1].addEventListener("click", () => {
-        home_back.style.transform = "translateX(-100%)";
-        home_back2.style.transform = "translateX(-100%)";
-        home_back3.style.transform = "translateX(-100%)";
-        home_back4.style.transform = "translateX(-100%)";
-        home_back_con[1].style.top = "40%";
-        home_back_con[1].style.opacity = "1";
-        home_back_con[0].style.top = "50%";
-        home_back_con[0].style.opacity = "0";
-        home_back_con[2].style.top = "50%";
-        home_back_con[2].style.opacity = "0";
-        home_back_con[3].style.top = "50%";
-        home_back_con[3].style.opacity = "0";
-        slide_line1[1].style.width = "80%";
-        slide_line1[0].style.width = "0%";
-        slide_line1[2].style.width = "0%";
-        slide_line1[3].style.width = "0%";
-      });
-      home_con_item_slide_item[2].addEventListener("click", () => {
-        home_back.style.transform = "translateX(-200%)";
-        home_back2.style.transform = "translateX(-200%)";
-        home_back3.style.transform = "translateX(-200%)";
-        home_back4.style.transform = "translateX(-200%)";
-        home_back_con[2].style.top = "40%";
-        home_back_con[2].style.opacity = "1";
-        home_back_con[1].style.top = "50%";
-        home_back_con[1].style.opacity = "0";
-        home_back_con[0].style.top = "50%";
-        home_back_con[0].style.opacity = "0";
-        home_back_con[3].style.top = "50%";
-        home_back_con[3].style.opacity = "0";
-        slide_line1[2].style.width = "80%";
-        slide_line1[1].style.width = "0%";
-        slide_line1[0].style.width = "0%";
-        slide_line1[3].style.width = "0%";
-      });
-      home_con_item_slide_item[3].addEventListener("click", () => {
-        home_back.style.transform = "translateX(-300%)";
-        home_back2.style.transform = "translateX(-300%)";
-        home_back3.style.transform = "translateX(-300%)";
-        home_back4.style.transform = "translateX(-300%)";
-        home_back_con[3].style.top = "40%";
-        home_back_con[3].style.opacity = "1";
-        home_back_con[1].style.top = "50%";
-        home_back_con[1].style.opacity = "0";
-        home_back_con[2].style.top = "50%";
-        home_back_con[2].style.opacity = "0";
-        home_back_con[0].style.top = "50%";
-        home_back_con[0].style.opacity = "0";
-        slide_line1[3].style.width = "80%";
-        slide_line1[1].style.width = "0%";
-        slide_line1[2].style.width = "0%";
-        slide_line1[0].style.width = "0%";
-      });
+      slide_f();
+
+      function slide_f(params) {
+        home_con_item_slide_item[0].addEventListener("click", () => {
+          home_back.style.transform = "translateX(0%)";
+          home_back2.style.transform = "translateX(0%)";
+          home_back3.style.transform = "translateX(0%)";
+          home_back4.style.transform = "translateX(0%)";
+
+          setTimeout(() => {
+            home_back_con[0].style.top = "40%";
+            home_back_con[0].style.opacity = "1";
+          }, 800);
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+
+          slide_line1[0].style.width = "80%";
+          slide_line1[1].style.width = "0%";
+          slide_line1[2].style.width = "0%";
+          slide_line1[3].style.width = "0%";
+        });
+        home_con_item_slide_item[1].addEventListener("click", () => {
+          home_back.style.transform = "translateX(-100%)";
+          home_back2.style.transform = "translateX(-100%)";
+          home_back3.style.transform = "translateX(-100%)";
+          home_back4.style.transform = "translateX(-100%)";
+          setTimeout(() => {
+            home_back_con[1].style.top = "40%";
+            home_back_con[1].style.opacity = "1";
+          }, 800);
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+
+          slide_line1[1].style.width = "80%";
+          slide_line1[0].style.width = "0%";
+          slide_line1[2].style.width = "0%";
+          slide_line1[3].style.width = "0%";
+        });
+        home_con_item_slide_item[2].addEventListener("click", () => {
+          home_back.style.transform = "translateX(-200%)";
+          home_back2.style.transform = "translateX(-200%)";
+          home_back3.style.transform = "translateX(-200%)";
+          home_back4.style.transform = "translateX(-200%)";
+          setTimeout(() => {
+            home_back_con[2].style.top = "40%";
+            home_back_con[2].style.opacity = "1";
+          }, 800);
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+
+          slide_line1[2].style.width = "80%";
+          slide_line1[1].style.width = "0%";
+          slide_line1[0].style.width = "0%";
+          slide_line1[3].style.width = "0%";
+        });
+        home_con_item_slide_item[3].addEventListener("click", () => {
+          home_back.style.transform = "translateX(-300%)";
+          home_back2.style.transform = "translateX(-300%)";
+          home_back3.style.transform = "translateX(-300%)";
+          home_back4.style.transform = "translateX(-300%)";
+          setTimeout(() => {
+            home_back_con[3].style.top = "40%";
+            home_back_con[3].style.opacity = "1";
+          }, 800);
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
+
+          slide_line1[3].style.width = "80%";
+          slide_line1[1].style.width = "0%";
+          slide_line1[2].style.width = "0%";
+          slide_line1[0].style.width = "0%";
+        });
+      }
     });
 
     return {
@@ -266,7 +283,7 @@ export default {
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  transition: all 1.5s;
+  transition: all 1.2s;
 }
 .home_back2 {
   background-image: url("../../assets/slide/slide2.jpg");
@@ -275,7 +292,7 @@ export default {
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  transition: all 1.5s;
+  transition: all 1.2s;
 }
 .home_back3 {
   background-image: url("../../assets/slide/slide3.jpg");
@@ -284,7 +301,7 @@ export default {
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  transition: all 1.5s;
+  transition: all 1.2s;
 }
 .home_back4 {
   background-image: url("../../assets/slide/slide4.jpg");
@@ -293,7 +310,7 @@ export default {
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-  transition: all 1.5s;
+  transition: all 1.2s;
 }
 .home_flex {
   width: 100%;
@@ -307,7 +324,7 @@ export default {
   justify-content: center;
   position: relative;
   top: 50%;
-  transition: all 1.5s;
+  transition: all 1.2s;
   opacity: 0;
 }
 .slide_line {
@@ -320,7 +337,7 @@ export default {
 .slide_line1 {
   width: 0%;
   height: 2px;
-  background: #3885f6;
+  background: #0053c9;
   position: absolute;
   top: 0;
   z-index: 3;

@@ -18,8 +18,10 @@ export default {
       var port_line = document.querySelector(".port_line");
       var port_div = document.querySelector(".port_div");
 
-      window.addEventListener("load", () => {
-        port_div.style.width = "100%";
+      window.addEventListener("scroll", () => {
+        if (scrollY > 100) {
+          port_div.style.width = "100%";
+        }
       });
     });
 
