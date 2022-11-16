@@ -36,9 +36,12 @@ export default {
       var port1_item = document.querySelector(".port1_item");
 
       window.addEventListener("scroll", () => {
-        if (scrollY > window.innerHeight / 2) {
+        if (scrollY >= window.innerHeight * 0.4) {
           port1_item.style.transform = "translateY(0)";
           port1_item.style.opacity = "1";
+        } else if (scrollY < window.innerHeight * 0.4) {
+          port1_item.style.transform = "translateY(150px)";
+          port1_item.style.opacity = "0";
         }
       });
     });

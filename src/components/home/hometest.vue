@@ -63,22 +63,22 @@
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            제목1
+            <h4 style="margin-top: 0px">aaaaa</h4>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            제목2
+            <h4 style="margin-top: 0px">vvvv</h4>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            제목3
+            <h4 style="margin-top: 0px">bbbbb</h4>
           </div>
           <div class="home_con_item_slide_item">
             <div class="slide_line"></div>
             <div class="slide_line1"></div>
-            제목4
+            <h4 style="margin-top: 0px">qqqq</h4>
           </div>
         </div>
       </div>
@@ -87,24 +87,35 @@
 
   <div class="home_con">
     <div class="home_con_item">
-      <video src="../../assets/aa.mp4" autoplay></video>
-    </div>
-  </div>
-
-  <div class="home_con">
-    <div class="home_con_item">
       <port-1></port-1>
     </div>
   </div>
-  <div class="home_con">
-    <div class="home_con_item">
-      <portline></portline>
+
+  <div class="vision_back">
+    <div class="home_con">
+      <div class="home_con_item">
+        <portline></portline>
+      </div>
+    </div>
+    <div class="home_con">
+      <div class="home_con_item">
+        <port-3></port-3>
+      </div>
     </div>
   </div>
 
-  <div class="home_con">
-    <div class="home_con_item">
-      <port-2></port-2>
+  <div style="background: white">
+    <div class="home_con">
+      <div class="home_con_item">
+        <portline-1></portline-1>
+      </div>
+    </div>
+  </div>
+  <div style="background: white">
+    <div class="home_con">
+      <div class="home_con_item">
+        <port-2></port-2>
+      </div>
     </div>
   </div>
 </template>
@@ -115,6 +126,8 @@ import Nav from "../nav/nav.vue";
 import Port1 from "../port/port1.vue";
 import Port2 from "../port/port2.vue";
 import Portline from "../port/portline.vue";
+import Portline1 from "../port/portline1.vue";
+import Port3 from "../port/port3.vue";
 
 export default {
   components: {
@@ -122,6 +135,8 @@ export default {
     Port1,
     Port2,
     Portline,
+    Portline1,
+    Port3,
   },
 
   setup() {
@@ -143,7 +158,7 @@ export default {
       window.addEventListener("load", () => {
         home_back_con[0].style.top = "40%";
         home_back_con[0].style.opacity = "1";
-        slide_line1[0].style.width = "80%";
+        slide_line1[0].style.width = "90%";
         setTimeout(() => {
           scrollTo(0, 0);
         }, 100);
@@ -169,7 +184,7 @@ export default {
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
 
-          slide_line1[0].style.width = "80%";
+          slide_line1[0].style.width = "90%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -190,7 +205,7 @@ export default {
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
 
-          slide_line1[1].style.width = "80%";
+          slide_line1[1].style.width = "90%";
           slide_line1[0].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -211,7 +226,7 @@ export default {
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
 
-          slide_line1[2].style.width = "80%";
+          slide_line1[2].style.width = "90%";
           slide_line1[1].style.width = "0%";
           slide_line1[0].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -232,7 +247,7 @@ export default {
           home_back_con[0].style.top = "50%";
           home_back_con[0].style.opacity = "0";
 
-          slide_line1[3].style.width = "80%";
+          slide_line1[3].style.width = "90%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[0].style.width = "0%";
@@ -248,6 +263,9 @@ export default {
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
 .home_con {
   width: 100%;
   display: flex;
@@ -261,7 +279,7 @@ export default {
   bottom: 0px;
 }
 .home_con_item {
-  width: 1200px;
+  width: 1400px;
 }
 .home_wrap {
   width: 100%;
@@ -282,6 +300,7 @@ export default {
   color: white;
   cursor: pointer;
   position: relative;
+  text-align: center;
 }
 .home_con_h {
   font-size: 70px;
@@ -353,11 +372,12 @@ export default {
   opacity: 0;
 }
 .slide_line {
-  width: 80%;
+  width: 90%;
   height: 2px;
   background: gray;
   position: absolute;
   top: 0;
+  left: 15px;
 }
 .slide_line1 {
   width: 0%;
@@ -367,5 +387,11 @@ export default {
   top: 0;
   z-index: 3;
   transition: all 2s;
+  left: 15px;
+}
+.vision_back {
+  /* background: url("../../assets/port/vision.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>
