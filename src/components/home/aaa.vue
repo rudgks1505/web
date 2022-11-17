@@ -298,8 +298,9 @@ export default {
       var tete = 0;
 
       window.addEventListener("wheel", (e) => {
+        console.log(e);
         if (tete === 0) {
-          if (e.wheelDeltaY === -120) {
+          if (e.wheelDeltaY < 0) {
             setTimeout(() => {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
@@ -312,7 +313,7 @@ export default {
                 portline_wrap.style.width = "100%";
               }, 1000);
             }, 100);
-          } else if (e.wheelDeltaY === 120) {
+          } else if (e.wheelDeltaY > 0) {
             setTimeout(() => {
               aaa1.style.transform = `translateY(${0}px)`;
               aaa2.style.transform = `translateY(${0}px)`;
@@ -322,7 +323,7 @@ export default {
             }, 100);
           }
         } else if (tete === 1) {
-          if (e.wheelDeltaY === -120) {
+          if (e.wheelDeltaY < 0) {
             setTimeout(() => {
               aaa1.style.transform = `translateY(${-(
                 window.innerHeight * 2
@@ -344,7 +345,7 @@ export default {
                 port2_item1_r.style.opacity = "1";
               }, 1000);
             }, 100);
-          } else if (e.wheelDeltaY === 120) {
+          } else if (e.wheelDeltaY > 0) {
             setTimeout(() => {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
@@ -353,7 +354,7 @@ export default {
             }, 100);
           }
         } else if (tete === 2) {
-          if (e.wheelDeltaY === 120) {
+          if (e.wheelDeltaY > 0) {
             setTimeout(() => {
               aaa1.style.transform = `translateY(${-(
                 window.innerHeight * 2
