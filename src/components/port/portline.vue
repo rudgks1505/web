@@ -1,9 +1,7 @@
 <template>
-  <div style="position: relative">
-    <div class="port_div">
-      <h1 style="font-size: 70px">VISION</h1>
-      <div class="port_line"></div>
-    </div>
+  <div class="port_div">
+    <h1 style="font-size: 70px">VISION</h1>
+    <div class="port_line"></div>
   </div>
 </template>
 
@@ -16,16 +14,7 @@ export default {
       count: 0,
     });
 
-    onMounted(() => {
-      var port_line = document.querySelector(".port_line");
-      var port_div = document.querySelector(".port_div");
-
-      window.addEventListener("scroll", () => {
-        if (scrollY >= window.innerHeight * 0.9) {
-          port_div.style.width = "100%";
-        }
-      });
-    });
+    onMounted(() => {});
 
     return {
       state,
@@ -37,13 +26,11 @@ export default {
 <style scoped>
 .port_div {
   display: flex;
-  width: 0;
+  width: 100%;
   color: white;
   align-items: center;
   overflow: hidden;
   transition: all 3s;
-  position: absolute;
-  top: -100px;
 }
 .port_div_h1 {
   font-size: 60px;

@@ -98,20 +98,20 @@ export default {
   transition: all 3s;
   transform: translateY(150px);
   color: black;
-  opacity: 0;
+  opacity: 1;
 }
 .port2_item1_l {
   width: 50%;
   text-align: center;
   transition: all 4s;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(-50px);
 }
 .port2_item1_r {
   width: 50%;
   text-align: center;
   transition: all 4s;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(-50px);
 }
 </style>

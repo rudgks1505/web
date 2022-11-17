@@ -37,7 +37,7 @@ export default {
 <style scoped>
 .port_div1 {
   display: flex;
-  width: 0%;
+  width: 100%;
   color: black;
   align-items: center;
   overflow: hidden;

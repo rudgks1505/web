@@ -1,12 +1,15 @@
 <template>
   <div class="nav_con">
+    <div class="nav_con_gra"></div>
     <div class="nav_con_div">
       <img src="../../assets/nav/logo.png" alt="" class="nav_con_img" />
     </div>
 
     <div class="nav_con_center">
       <div class="nav_con_div">
-        <h1 class="nav_con_div_h">회사소개</h1>
+        <h1 class="nav_con_div_h" style="width: 200px; text-align: center">
+          회사소개
+        </h1>
         <div class="nav_con_line"></div>
         <div class="nav_con_div_dropmenu">
           <h1 class="nav_con_div_dropmenu_h">CEO인사말</h1>
@@ -112,6 +115,7 @@ export default {
   height: 120px;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .nav_con_img {
   width: 150px;
@@ -160,5 +164,11 @@ export default {
 }
 .nav_con_center {
   display: flex;
+}
+.nav_con_gra {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.5));
 }
 </style>

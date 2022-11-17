@@ -21,6 +21,18 @@
         20대의 트렌디함과 30대의 노련함이 합쳐친 팀원들의 웹/앱 서비스를 제공
         받아 보세요.
       </h3>
+      <!-- <h3>
+        게임인스는 고객을 위한 웹/앱 맞춤 설계, 유지보수 서비스를 제공합니다.
+        또한, 다양한 분야에서 사람들의 일상을
+      </h3>
+      <h3>
+        더 편리하도록 돕는 자사 서비스들을 계속해서 늘려갈 계획입니다. 2~30대의
+        젊은 팀원들로 구성된 게임인스는 웹/앱 서비스 시장의
+      </h3>
+      <h3>
+        선발주자는 아닐지라도 게임인스만의 선한 가치를 추구하는 지향점의
+        선두주자가 되기위해 한걸음씩 나아갈 것 입니다.
+      </h3> -->
     </div>
   </div>
 </template>
@@ -34,16 +46,7 @@ export default {
       count: 0,
     });
 
-    onMounted(() => {
-      var port1_item = document.querySelector(".port1_item");
-
-      window.addEventListener("scroll", () => {
-        if (scrollY >= window.innerHeight * 0.4) {
-          port1_item.style.transform = "translateY(0)";
-          port1_item.style.opacity = "1";
-        }
-      });
-    });
+    onMounted(() => {});
 
     return {
       state,
@@ -55,15 +58,14 @@ export default {
 <style scoped>
 .port1_con {
   text-align: center;
-  height: 600px;
+  height: 90vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .port1_item {
   transition: all 2s;
   transform: translateY(150px);
   color: white;
-  opacity: 0;
+  opacity: 1;
 }
 </style>

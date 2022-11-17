@@ -85,37 +85,37 @@
     </div>
   </div>
 
+  <div style="background: black">
+    <div class="home_con">
+      <div class="home_con_item">
+        <port-1></port-1>
+      </div>
+    </div>
+
+    <div class="vision_back">
+      <div class="home_con">
+        <div class="home_con_item">
+          <portline></portline>
+        </div>
+      </div>
+
+      <div class="home_con">
+        <div class="home_con_item">
+          <port-3></port-3>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="home_con">
     <div class="home_con_item">
-      <port-1></port-1>
+      <portline-1></portline-1>
     </div>
   </div>
 
-  <div class="vision_back">
-    <div class="home_con">
-      <div class="home_con_item">
-        <portline></portline>
-      </div>
-    </div>
-    <div class="home_con">
-      <div class="home_con_item">
-        <port-3></port-3>
-      </div>
-    </div>
-  </div>
-
-  <div style="background: white">
-    <div class="home_con">
-      <div class="home_con_item">
-        <portline-1></portline-1>
-      </div>
-    </div>
-  </div>
-  <div style="background: white">
-    <div class="home_con">
-      <div class="home_con_item">
-        <port-2></port-2>
-      </div>
+  <div class="home_con">
+    <div class="home_con_item">
+      <port-2></port-2>
     </div>
   </div>
 
@@ -168,18 +168,6 @@ export default {
         setTimeout(() => {
           scrollTo(0, 0);
         }, 100);
-      });
-
-      window.addEventListener("wheel", () => {
-        if (scrollY === 0) {
-          scrollTo({ left: 0, top: window.innerHeight, behavior: "smooth" });
-        } else if (scrollY === window.innerHeight) {
-          scrollTo({
-            left: 0,
-            top: window.innerHeight * 2,
-            behavior: "smooth",
-          });
-        }
       });
 
       slide_f();
