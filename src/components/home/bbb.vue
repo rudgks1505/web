@@ -251,7 +251,7 @@ export default {
       function vvv() {
         if (tete === 0) {
           window.addEventListener("wheel", (e) => {
-            if (e.wheelDeltaY === -120) {
+            if (e.wheelDeltaY < 0) {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
@@ -266,13 +266,13 @@ export default {
           });
         } else if (tete === 1) {
           window.addEventListener("wheel", (e) => {
-            if (e.wheelDeltaY === 120) {
+            if (e.wheelDeltaY > 0) {
               aaa1.style.transform = `translateY(${0}px)`;
               aaa2.style.transform = `translateY(${0}px)`;
               aaa3.style.transform = `translateY(${0}px)`;
               aaa4.style.transform = `translateY(${0}px)`;
               tete = 0;
-            } else if (e.wheelDeltaY === -120) {
+            } else if (e.wheelDeltaY < 0) {
               aaa1.style.transform = `translateY(${-window.innerHeight * 2}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight * 2}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight * 2}px)`;
@@ -282,7 +282,7 @@ export default {
           });
         } else if (tete === 2) {
           window.addEventListener("wheel", (e) => {
-            if (e.wheelDeltaY === 120) {
+            if (e.wheelDeltaY > 0) {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
