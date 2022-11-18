@@ -86,62 +86,55 @@
         </div>
       </div>
     </div>
-    <div class="aaa2">
-      <div class="home_con">
-        <div class="home_con_item">
-          <portline class="portline_wrap"></portline>
-          <port-1 class="port1_wrap"></port-1>
-        </div>
-      </div>
-    </div>
+    <div class="aaa2"></div>
 
     <div class="aaa3">
-      <div class="home_con" style="width: 100%; height: 90vh">
-        <div class="home_con_item">
-          <portline-1 class="portline1_wrap"></portline-1>
-          <div class="port2_con">
-            <div class="port2_item">
-              <div class="port2_item_item">
-                <h3 style="margin: 0px">
-                  다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
-                  능동적으로 대응하며,
-                </h3>
-                <h3>
-                  커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
-                  이어나갑니다.
-                </h3>
+      <div class="home_con" style="height: 100vh">
+        <div class="home_con_item" style="display: flex">
+          <div style="width: 100%">
+            <portline-1 class="portline1_wrap"></portline-1>
+            <div class="port2_con">
+              <div class="port2_item">
+                <div class="port2_item_item">
+                  <h3 style="margin: 0px">
+                    다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
+                    능동적으로 대응하며,
+                  </h3>
+                  <h3>
+                    커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
+                    이어나갑니다.
+                  </h3>
+                </div>
               </div>
-            </div>
-            <div class="port2_item1">
-              <div class="port2_item1_l">
-                <img
-                  src="../../assets/port2/img1.png"
-                  alt=""
-                  class="port2_item1_img"
-                />
-                <h1>웹/앱 서비스 개발</h1>
-                <h3>
-                  웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든 형태의
-                  서비스 개발
-                </h3>
-              </div>
-              <div class="port2_item1_r">
-                <img
-                  src="../../assets/port2/img2.png"
-                  alt=""
-                  class="port2_item1_img"
-                />
-                <h1>UI/UX 디자인</h1>
-                <h3>브랜드 가치를 높일 수 있는 모던 UI/UX개발</h3>
+              <div class="port2_item1">
+                <div class="port2_item1_l">
+                  <img
+                    src="../../assets/port2/img1.png"
+                    alt=""
+                    class="port2_item1_img"
+                  />
+                  <h1>웹/앱 서비스 개발</h1>
+                  <h3>
+                    웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든 형태의
+                    서비스 개발
+                  </h3>
+                </div>
+                <div class="port2_item1_r">
+                  <img
+                    src="../../assets/port2/img2.png"
+                    alt=""
+                    class="port2_item1_img"
+                  />
+                  <h1>UI/UX 디자인</h1>
+                  <h3>브랜드 가치를 높일 수 있는 모던 UI/UX개발</h3>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="home_con" style="height: 10vh">
-        <footer-1></footer-1>
-      </div>
+      <footer-1></footer-1>
     </div>
   </div>
 </template>
@@ -183,17 +176,82 @@ export default {
       var home_back4 = document.querySelector(".home_back4");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
+      var aaa = document.querySelector(".aaa");
+      var aaa1 = document.querySelector(".aaa1");
+      var aaa2 = document.querySelector(".aaa2");
+      var aaa3 = document.querySelector(".aaa3");
+      var port1_con = document.querySelector(".port1_con");
+      var port2_wrap = document.querySelector(".port2_wrap");
+      var portline_wrap = document.querySelector(".portline_wrap");
+      var portline1_wrap = document.querySelector(".portline1_wrap");
+      var port2_item_item = document.querySelector(".port2_item_item");
+      var port2_item1_l = document.querySelector(".port2_item1_l");
+      var port2_item1_r = document.querySelector(".port2_item1_r");
+      var max_600px = window.matchMedia("screen and (max-width: 600px)");
+      var min_600px_max_1000px = window.matchMedia(
+        "screen and (min-width: 600px) and (max-width: 1025px)"
+      );
+      var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
 
-      window.addEventListener("load", () => {
-        home_back_con[0].style.top = "40%";
-        home_back_con[0].style.opacity = "1";
-        slide_line1[0].style.width = "90%";
-        setTimeout(() => {
-          scrollTo(0, 0);
-        }, 100);
-      });
+      var tete = 0;
 
       slide_f();
+
+      function aaa_slide(e) {
+        if (tete === 0) {
+          if (e.wheelDeltaY === -120) {
+            aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
+            aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
+            aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
+
+            setTimeout(() => {
+              tete = 1;
+            }, 1000);
+          } else if (e.wheelDeltaY === 120) {
+            aaa1.style.transform = `translateY(${0}px)`;
+            aaa2.style.transform = `translateY(${0}px)`;
+            aaa3.style.transform = `translateY(${0}px)`;
+
+            setTimeout(() => {
+              tete = 0;
+            }, 1000);
+          }
+        } else if (tete === 1) {
+          if (e.wheelDeltaY === -120) {
+            aaa1.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+            aaa2.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+            aaa3.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+
+            setTimeout(() => {
+              tete = 2;
+
+              portline1_wrap.style.width = "100%";
+
+              port2_item_item.style.opacity = "1";
+
+              port2_item1_l.style.opacity = "1";
+
+              port2_item1_r.style.opacity = "1";
+            }, 1000);
+          } else if (e.wheelDeltaY === 120) {
+            aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
+            aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
+            aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
+            setTimeout(() => {
+              tete = 0;
+            }, 1000);
+          }
+        } else if (tete === 2) {
+          if (e.wheelDeltaY === 120) {
+            aaa1.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+            aaa2.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+            aaa3.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
+            setTimeout(() => {
+              tete = 1;
+            }, 1000);
+          }
+        }
+      }
 
       function slide_f(params) {
         home_con_item_slide_item[0].addEventListener("click", () => {
@@ -283,91 +341,19 @@ export default {
         });
       }
 
-      //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-      var aaa = document.querySelector(".aaa");
-      var aaa1 = document.querySelector(".aaa1");
-      var aaa2 = document.querySelector(".aaa2");
-      var aaa3 = document.querySelector(".aaa3");
-      var port1_wrap = document.querySelector(".port1_wrap");
-      var port2_wrap = document.querySelector(".port2_wrap");
-      var portline_wrap = document.querySelector(".portline_wrap");
-      var portline1_wrap = document.querySelector(".portline1_wrap");
-      var port2_item_item = document.querySelector(".port2_item_item");
-      var port2_item1_l = document.querySelector(".port2_item1_l");
-      var port2_item1_r = document.querySelector(".port2_item1_r");
-      var tete = 0;
-
       window.addEventListener("wheel", (e) => {
-        if (tete === 0) {
-          if (e.wheelDeltaY === -120) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
+        setTimeout(() => {
+          aaa_slide(e);
+        }, 100);
+      });
 
-              tete = 1;
-              setTimeout(() => {
-                port1_wrap.style.opacity = "1";
-                port1_wrap.style.transform = "translateY(0)";
-                portline_wrap.style.width = "100%";
-              }, 1000);
-            }, 100);
-          } else if (e.wheelDeltaY === 120) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${0}px)`;
-              aaa2.style.transform = `translateY(${0}px)`;
-              aaa3.style.transform = `translateY(${0}px)`;
-
-              tete = 0;
-            }, 100);
-          }
-        } else if (tete === 1) {
-          if (e.wheelDeltaY === -120) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa2.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa3.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              tete = 2;
-              setTimeout(() => {
-                portline1_wrap.style.width = "100%";
-                port2_item_item.style.transform = "translateY(0)";
-                port2_item_item.style.opacity = "1";
-                port2_item1_l.style.transform = "translateY(0)";
-                port2_item1_l.style.opacity = "1";
-                port2_item1_r.style.transform = "translateY(0)";
-                port2_item1_r.style.opacity = "1";
-              }, 1000);
-            }, 100);
-          } else if (e.wheelDeltaY === 120) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-              tete = 0;
-            }, 100);
-          }
-        } else if (tete === 2) {
-          if (e.wheelDeltaY === 120) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa2.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa3.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              tete = 1;
-            }, 100);
-          }
-        }
+      window.addEventListener("load", () => {
+        home_back_con[0].style.top = "40%";
+        home_back_con[0].style.opacity = "1";
+        slide_line1[0].style.width = "90%";
+        setTimeout(() => {
+          scrollTo(0, 0);
+        }, 100);
       });
     });
 
@@ -379,6 +365,15 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+}
+
+@media screen and (min-width: 1025px) {
+}
+/* 스크롤배경움직이기 */
 .aaa_nav {
   position: fixed;
   top: 0px;
@@ -399,6 +394,7 @@ export default {
   width: 100%;
   height: 100vh;
   transition: all 1s;
+  position: relative;
 }
 .aaa4 {
   width: 100%;
@@ -413,20 +409,25 @@ export default {
 * {
   box-sizing: border-box;
 }
+/* 배경전체틀 */
 .home_con {
   width: 100%;
   display: flex;
   justify-content: center;
 }
+.home_con_item {
+  width: 1400px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 슬라이더클릭 */
 .home_con_slide {
   width: 100%;
   display: flex;
   justify-content: center;
   position: absolute;
   bottom: 10%;
-}
-.home_con_item {
-  width: 1400px;
 }
 .home_wrap {
   width: 100%;
@@ -449,6 +450,25 @@ export default {
   position: relative;
   text-align: center;
 }
+.slide_line {
+  width: 90%;
+  height: 2px;
+  background: gray;
+  position: absolute;
+  top: 0;
+  left: 15px;
+}
+.slide_line1 {
+  width: 0%;
+  height: 2px;
+  background: #0053c9;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  transition: all 2s;
+  left: 15px;
+}
+/* 슬라이더 */
 .home_con_h {
   font-size: 70px;
   color: white;
@@ -518,49 +538,16 @@ export default {
   transition: all 1.2s;
   opacity: 0;
 }
-.slide_line {
-  width: 90%;
-  height: 2px;
-  background: gray;
-  position: absolute;
-  top: 0;
-  left: 15px;
-}
-.slide_line1 {
-  width: 0%;
-  height: 2px;
-  background: #0053c9;
-  position: absolute;
-  top: 0;
-  z-index: 3;
-  transition: all 2s;
-  left: 15px;
-}
-.vision_back {
-  /* background: url("../../assets/port/vision.png"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@prot@ */
-.port1_wrap {
-  transform: translateY(150px);
-  opacity: 0;
-  transition: all 1s;
-}
-/* @@@@@@@@@@@@@@@@@@@@@@@@line */
-.portline_wrap {
-  width: 0%;
-  transition: all 1s;
-  height: 10vh;
-}
+
+/* portline */
 .portline1_wrap {
   width: 0%;
   transition: all 1s;
 }
-/* port2@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/* port2 */
 .port2_con {
   width: 100%;
-  margin-bottom: 300px;
 }
 .port2_item {
   width: 100%;
@@ -587,23 +574,21 @@ export default {
   text-align: center;
 }
 .port2_item_item {
-  transition: all 2s;
-  transform: translateY(150px);
+  transition: all 1s;
   color: black;
   opacity: 0;
 }
 .port2_item1_l {
   width: 50%;
   text-align: center;
-  transition: all 3s;
+  transition: all 1s;
   opacity: 0;
-  transform: translateY(-50px);
 }
 .port2_item1_r {
   width: 50%;
   text-align: center;
-  transition: all 3s;
+  transition: all 1s;
   opacity: 0;
-  transform: translateY(-50px);
 }
+/* //footer */
 </style>

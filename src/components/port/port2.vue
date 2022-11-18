@@ -38,25 +38,7 @@ export default {
       count: 0,
     });
 
-    onMounted(() => {
-      var port2_item_item = document.querySelector(".port2_item_item");
-      var port2_item1_l = document.querySelector(".port2_item1_l");
-      var port2_item1_r = document.querySelector(".port2_item1_r");
-
-      window.addEventListener("scroll", () => {
-        if (scrollY >= window.innerHeight * 1.5) {
-          port2_item_item.style.transform = "translateY(0)";
-          port2_item_item.style.opacity = "1";
-
-          setTimeout(() => {
-            port2_item1_l.style.transform = "translateY(0)";
-            port2_item1_l.style.opacity = "1";
-            port2_item1_r.style.transform = "translateY(0)";
-            port2_item1_r.style.opacity = "1";
-          }, 500);
-        }
-      });
-    });
+    onMounted(() => {});
 
     return {
       state,

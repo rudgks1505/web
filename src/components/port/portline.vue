@@ -1,6 +1,6 @@
 <template>
   <div class="port_div">
-    <h1 style="font-size: 70px">VISION</h1>
+    <h1 class="port_div_h1">VISION</h1>
     <div class="port_line"></div>
   </div>
 </template>
@@ -30,10 +30,11 @@ export default {
   color: white;
   align-items: center;
   overflow: hidden;
-  transition: all 3s;
+  transition: all 1s;
 }
 .port_div_h1 {
   font-size: 60px;
+  margin: 0px;
 }
 .port_line {
   width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="port_div1">
-      <h1 style="font-size: 70px">SERVICE</h1>
+      <h1 class="port_div1_h1">SERVICE</h1>
       <div class="port_line1"></div>
     </div>
   </div>
@@ -41,10 +41,11 @@ export default {
   color: black;
   align-items: center;
   overflow: hidden;
-  transition: all 3s;
+  transition: all 1s;
 }
 .port_div1_h1 {
   font-size: 60px;
+  margin: 0px;
 }
 .port_line1 {
   width: 100%;
