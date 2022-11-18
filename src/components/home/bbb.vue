@@ -299,7 +299,7 @@ export default {
         }
         timer = setTimeout(() => {
           vvv();
-        }, 300);
+        }, 600);
       });
       window.addEventListener("load", () => {
         home_back_con[0].style.top = "40%";
