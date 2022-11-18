@@ -256,12 +256,12 @@ export default {
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa4.style.transform = `translateY(${-window.innerHeight}px)`;
-
               tete = 1;
-
-              portline.style.width = "100%";
-              port1.style.transform = "translateX(0px)";
-              port1.style.opacity = "1";
+              setTimeout(() => {
+                portline.style.width = "100%";
+                port1.style.transform = "translateX(0px)";
+                port1.style.opacity = "1";
+              }, 1000);
             }
           });
         } else if (tete === 1) {
@@ -271,14 +271,12 @@ export default {
               aaa2.style.transform = `translateY(${0}px)`;
               aaa3.style.transform = `translateY(${0}px)`;
               aaa4.style.transform = `translateY(${0}px)`;
-
-              tete = 1;
+              tete = 0;
             } else if (e.wheelDeltaY === -120) {
               aaa1.style.transform = `translateY(${-window.innerHeight * 2}px)`;
               aaa2.style.transform = `translateY(${-window.innerHeight * 2}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight * 2}px)`;
               aaa4.style.transform = `translateY(${-window.innerHeight * 2}px)`;
-
               tete = 2;
             }
           });
@@ -289,7 +287,6 @@ export default {
               aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
               aaa4.style.transform = `translateY(${-window.innerHeight}px)`;
-
               tete = 1;
             }
           });
