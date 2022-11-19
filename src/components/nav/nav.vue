@@ -139,7 +139,7 @@ export default {
 }
 .nav_con_line {
   width: 0px;
-  height: 1px;
+  height: 2px;
   background: white;
   position: absolute;
   top: 35px;

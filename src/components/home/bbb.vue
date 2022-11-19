@@ -1,5 +1,12 @@
 <template>
   <Nav class="aaa_nav"></Nav>
+  <div class="gage">
+    <h1 class="gage_h">01</h1>
+    <div class="gage_item">
+      <div class="gage_item_color"></div>
+    </div>
+    <h1 class="gage_h">04</h1>
+  </div>
   <div class="aaa">
     <div class="aaa1">
       <div class="home_flex">
@@ -144,6 +151,8 @@ export default {
       var home_back4 = document.querySelector(".home_back4");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
+      var gage_h = document.querySelectorAll(".gage_h");
+      var gage_item_color = document.querySelector(".gage_item_color");
       var port1 = document.querySelector(".port1");
       var portline = document.querySelector(".portline");
       var portline1_wrap = document.querySelector(".portline1_wrap");
@@ -250,6 +259,10 @@ export default {
       // 스크롤함수
       function vvv() {
         if (tete === 0) {
+          gage_h[0].innerText = "01";
+          gage_h[0].style.color = "white";
+          gage_h[1].style.color = "white";
+          gage_item_color.style.transform = "translateY(0%)";
           window.addEventListener("wheel", (e) => {
             if (e.wheelDeltaY < 0) {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
@@ -265,6 +278,10 @@ export default {
             }
           });
         } else if (tete === 1) {
+          gage_h[0].innerText = "02";
+          gage_h[0].style.color = "white";
+          gage_h[1].style.color = "white";
+          gage_item_color.style.transform = "translateY(100%)";
           window.addEventListener("wheel", (e) => {
             if (e.wheelDeltaY > 0) {
               aaa1.style.transform = `translateY(${0}px)`;
@@ -281,6 +298,10 @@ export default {
             }
           });
         } else if (tete === 2) {
+          gage_h[0].innerText = "03";
+          gage_h[0].style.color = "black";
+          gage_h[1].style.color = "black";
+          gage_item_color.style.transform = "translateY(200%)";
           window.addEventListener("wheel", (e) => {
             if (e.wheelDeltaY > 0) {
               aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
@@ -501,5 +522,31 @@ export default {
 .portline1 {
   width: 0px;
   margin-bottom: 50px;
+}
+/* 게이지 */
+.gage {
+  position: fixed;
+  width: 100px;
+  z-index: 100;
+  top: 30%;
+  left: 100px;
+}
+.gage_item {
+  width: 5px;
+  height: 150px;
+  background: #808080;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gage_h {
+  text-align: center;
+  color: white;
+  transition: all 0.5s;
+}
+.gage_item_color {
+  width: 5px;
+  height: 25%;
+  background: #0053c9;
+  transition: all 1s;
 }
 </style>
