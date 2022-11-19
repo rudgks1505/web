@@ -1,11 +1,11 @@
 <template>
   <Nav class="aaa_nav"></Nav>
   <div class="gage">
-    <h1 class="gage_h">01</h1>
+    <h1 class="gage_h">1</h1>
     <div class="gage_item">
       <div class="gage_item_color"></div>
     </div>
-    <h1 class="gage_h">04</h1>
+    <h1 class="gage_h">4</h1>
   </div>
   <div class="aaa">
     <div class="aaa1">
@@ -113,7 +113,7 @@
         </div>
       </div>
     </div>
-    <div class="aaa4"></div>
+    <div class="aaa4"><footer-1></footer-1></div>
   </div>
 </template>
 
@@ -123,12 +123,14 @@ import Nav from "../nav/nav.vue";
 import Portline from "../port/portline.vue";
 import Port1 from "../port/port1.vue";
 import Portline1 from "../port/portline1.vue";
+import Footer1 from "../footer/footer1.vue";
 export default {
   components: {
     Nav,
     Portline,
     Port1,
     Portline1,
+    Footer1,
   },
 
   setup() {
@@ -259,16 +261,16 @@ export default {
       // 스크롤함수
       function vvv() {
         if (tete === 0) {
-          gage_h[0].innerText = "01";
+          gage_h[0].innerText = "1";
           gage_h[0].style.color = "white";
           gage_h[1].style.color = "white";
           gage_item_color.style.transform = "translateY(0%)";
           window.addEventListener("wheel", (e) => {
             if (e.wheelDeltaY < 0) {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa4.style.transform = `translateY(${-window.innerHeight}px)`;
+              aaa1.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight}px)`;
               tete = 1;
               setTimeout(() => {
                 portline.style.width = "100%";
@@ -278,7 +280,7 @@ export default {
             }
           });
         } else if (tete === 1) {
-          gage_h[0].innerText = "02";
+          gage_h[0].innerText = "2";
           gage_h[0].style.color = "white";
           gage_h[1].style.color = "white";
           gage_item_color.style.transform = "translateY(100%)";
@@ -290,38 +292,69 @@ export default {
               aaa4.style.transform = `translateY(${0}px)`;
               tete = 0;
             } else if (e.wheelDeltaY < 0) {
-              aaa1.style.transform = `translateY(${-window.innerHeight * 2}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight * 2}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight * 2}px)`;
-              aaa4.style.transform = `translateY(${-window.innerHeight * 2}px)`;
+              aaa1.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight * 2}px)`;
               tete = 2;
             }
           });
         } else if (tete === 2) {
-          gage_h[0].innerText = "03";
+          gage_h[0].innerText = "3";
           gage_h[0].style.color = "black";
           gage_h[1].style.color = "black";
           gage_item_color.style.transform = "translateY(200%)";
           window.addEventListener("wheel", (e) => {
             if (e.wheelDeltaY > 0) {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa4.style.transform = `translateY(${-window.innerHeight}px)`;
+              aaa1.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight}px)`;
               tete = 1;
+            } else if (e.wheelDeltaY < 0) {
+              aaa1.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa2.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa3.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa4.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              tete = 3;
+            }
+          });
+        } else if (tete === 3) {
+          gage_h[0].innerText = "4";
+          gage_item_color.style.transform = "translateY(300%)";
+          window.addEventListener("wheel", (e) => {
+            if (e.wheelDeltaY > 0) {
+              aaa1.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              tete = 2;
             }
           });
         }
       }
 
-      window.addEventListener("wheel", () => {
-        if (timer) {
-          clearTimeout(timer);
-        }
-        timer = setTimeout(() => {
-          vvv();
-        }, 500);
-      });
+      // 휠함수
+      wheel_f();
+      function wheel_f(params) {
+        window.addEventListener("wheel", () => {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            vvv();
+          }, 500);
+        });
+      }
+
       window.addEventListener("load", () => {
         home_back_con[0].style.top = "40%";
         home_back_con[0].style.opacity = "1";
@@ -372,6 +405,10 @@ export default {
 .aaa3 {
   width: 100%;
   height: 100vh;
+  transition: all 1s;
+}
+.aaa4 {
+  width: 100%;
   transition: all 1s;
 }
 .aaa {

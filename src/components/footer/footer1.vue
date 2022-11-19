@@ -101,8 +101,6 @@ export default {
   background: #212121;
   justify-content: center;
   text-align: center;
-  position: absolute;
-  bottom: 0px;
 }
 
 .bottom_nav_item {
