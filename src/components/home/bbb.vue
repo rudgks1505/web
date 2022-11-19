@@ -351,7 +351,7 @@ export default {
           }
           timer = setTimeout(() => {
             vvv();
-          }, 150);
+          }, 300);
         });
       }
 
