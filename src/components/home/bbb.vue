@@ -351,11 +351,12 @@ export default {
           }
           timer = setTimeout(() => {
             vvv();
-          }, 500);
+          }, 150);
         });
       }
 
       window.addEventListener("load", () => {
+        vvv();
         home_back_con[0].style.top = "40%";
         home_back_con[0].style.opacity = "1";
         slide_line1[0].style.width = "90%";
