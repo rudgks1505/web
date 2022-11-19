@@ -20,12 +20,24 @@ export default {
       var box1 = document.querySelector(".box1");
       var box2 = document.querySelector(".box2");
       var box3 = document.querySelector(".box3");
+      var touch_arr = [];
+
+      box1.addEventListener("touchmove", (e) => {
+        touch_arr.push(e.targetTouches[0].clientY);
+
+        if (touch_arr[0] < touch_arr[1]) {
+          box1.style.transform = "translateY(100px)";
+          touch_arr = [];
+        } else if (touch_arr[0] > touch_arr[1]) {
+          box1.style.transform = "translateY(-100px)";
+          touch_arr = [];
+        }
+      });
 
       box1.addEventListener("touchstart", () => {
-        console.log(box1.pageY);
-      });
-      box1.addEventListener("touchend", () => {
-        console.log(screenY);
+        if (touch_arr[0]) {
+          touch_arr = [];
+        }
       });
     });
 
