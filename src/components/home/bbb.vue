@@ -375,12 +375,21 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  .home_con_h {
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
+  .home_con_h {
+    font-size: 40px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
+  .home_con_h {
+    font-size: 70px;
+  }
 }
 * {
   box-sizing: border-box;
@@ -479,7 +488,6 @@ export default {
 }
 /* 슬라이더 */
 .home_con_h {
-  font-size: 70px;
   color: white;
   position: absolute;
   margin: 0px;

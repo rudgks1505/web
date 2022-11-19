@@ -54,10 +54,31 @@ export default {
       const nav_con_div_dropmenu_h = document.querySelectorAll(
         ".nav_con_div_dropmenu_h"
       );
+      const nav_con_center = document.querySelector(".nav_con_center");
       const nav_con_div_dropmenu = document.querySelector(
         ".nav_con_div_dropmenu"
       );
+      var max_600px = window.matchMedia("screen and (max-width: 600px)");
+      var min_600px_max_1000px = window.matchMedia(
+        "screen and (min-width: 600px) and (max-width: 1025px)"
+      );
+      var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
 
+      // 반응형
+      window.addEventListener("resize", () => {
+        respon_f();
+      });
+      respon_f();
+      function respon_f(params) {
+        if (max_600px.matches) {
+          nav_con_center.style.display = "none";
+        } else if (min_600px_max_1000px.matches) {
+          nav_con_center.style.display = "none";
+        } else if (min_1000px.matches) {
+          nav_con_center.style.display = "flex";
+        }
+      }
+      //네브바효과
       for (let index = 0; index < nav_con_div_h.length; index++) {
         nav_con_div_h[index].addEventListener("mouseenter", () => {
           nav_con_line[index].style.width = "60px";
