@@ -1,5 +1,12 @@
 <template>
   <Nav class="aaa_nav"></Nav>
+  <div class="gage">
+    <h1 class="gage_h">1</h1>
+    <div class="gage_item">
+      <div class="gage_item_color"></div>
+    </div>
+    <h1 class="gage_h">4</h1>
+  </div>
   <div class="aaa">
     <div class="aaa1">
       <div class="home_flex">
@@ -86,78 +93,44 @@
         </div>
       </div>
     </div>
-    <div class="aaa2"></div>
-
-    <div class="aaa3">
-      <div class="home_con" style="height: 100vh">
+    <div class="aaa2">
+      <div class="home_con" style="height: 100%">
         <div class="home_con_item" style="display: flex">
-          <div style="width: 100%">
-            <portline-1 class="portline1_wrap"></portline-1>
-            <div class="port2_con">
-              <div class="port2_item">
-                <div class="port2_item_item">
-                  <h3 style="margin: 0px">
-                    다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
-                    능동적으로 대응하며,
-                  </h3>
-                  <h3>
-                    커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
-                    이어나갑니다.
-                  </h3>
-                </div>
-              </div>
-              <div class="port2_item1">
-                <div class="port2_item1_l">
-                  <img
-                    src="../../assets/port2/img1.png"
-                    alt=""
-                    class="port2_item1_img"
-                  />
-                  <h1>웹/앱 서비스 개발</h1>
-                  <h3>
-                    웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든 형태의
-                    서비스 개발
-                  </h3>
-                </div>
-                <div class="port2_item1_r">
-                  <img
-                    src="../../assets/port2/img2.png"
-                    alt=""
-                    class="port2_item1_img"
-                  />
-                  <h1>UI/UX 디자인</h1>
-                  <h3>브랜드 가치를 높일 수 있는 모던 UI/UX개발</h3>
-                </div>
-              </div>
-            </div>
+          <div>
+            <portline class="portline"></portline>
+            <port-1 class="port1"></port-1>
           </div>
         </div>
       </div>
-
-      <footer-1></footer-1>
     </div>
+    <div class="aaa3">
+      <div class="home_con" style="height: 100%">
+        <div class="home_con_item" style="display: flex">
+          <div>
+            <portline-1 class="portline1"></portline-1>
+            <port-1 class="port1"></port-1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aaa4"><footer-1></footer-1></div>
   </div>
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
 import Nav from "../nav/nav.vue";
-import Port1 from "../port/port1.vue";
-import Port2 from "../port/port2.vue";
 import Portline from "../port/portline.vue";
+import Port1 from "../port/port1.vue";
 import Portline1 from "../port/portline1.vue";
-import Port3 from "../port/port3.vue";
-import footer1 from "../footer/footer1.vue";
-
+import Footer1 from "../footer/footer1.vue";
 export default {
   components: {
     Nav,
-    Port1,
-    Port2,
     Portline,
+    Port1,
     Portline1,
-    Port3,
-    footer1,
+    Footer1,
   },
 
   setup() {
@@ -166,7 +139,11 @@ export default {
     });
 
     onMounted(() => {
-      //   port@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      var aaa = document.querySelector(".aaa");
+      var aaa1 = document.querySelector(".aaa1");
+      var aaa2 = document.querySelector(".aaa2");
+      var aaa3 = document.querySelector(".aaa3");
+      var aaa4 = document.querySelector(".aaa4");
       var home_con_item_slide_item = document.querySelectorAll(
         ".home_con_item_slide_item"
       );
@@ -176,13 +153,10 @@ export default {
       var home_back4 = document.querySelector(".home_back4");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
-      var aaa = document.querySelector(".aaa");
-      var aaa1 = document.querySelector(".aaa1");
-      var aaa2 = document.querySelector(".aaa2");
-      var aaa3 = document.querySelector(".aaa3");
-      var port1_con = document.querySelector(".port1_con");
-      var port2_wrap = document.querySelector(".port2_wrap");
-      var portline_wrap = document.querySelector(".portline_wrap");
+      var gage_h = document.querySelectorAll(".gage_h");
+      var gage_item_color = document.querySelector(".gage_item_color");
+      var port1 = document.querySelector(".port1");
+      var portline = document.querySelector(".portline");
       var portline1_wrap = document.querySelector(".portline1_wrap");
       var port2_item_item = document.querySelector(".port2_item_item");
       var port2_item1_l = document.querySelector(".port2_item1_l");
@@ -192,67 +166,11 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
-
       var tete = 0;
+      let timer;
 
+      // 슬라이더함수
       slide_f();
-
-      function aaa_slide(e) {
-        if (tete === 0) {
-          if (e.wheelDeltaY === -120) {
-            aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-            aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-            aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-
-            setTimeout(() => {
-              tete = 1;
-            }, 1000);
-          } else if (e.wheelDeltaY === 120) {
-            aaa1.style.transform = `translateY(${0}px)`;
-            aaa2.style.transform = `translateY(${0}px)`;
-            aaa3.style.transform = `translateY(${0}px)`;
-
-            setTimeout(() => {
-              tete = 0;
-            }, 1000);
-          }
-        } else if (tete === 1) {
-          if (e.wheelDeltaY === -120) {
-            aaa1.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-            aaa2.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-            aaa3.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-
-            setTimeout(() => {
-              tete = 2;
-
-              portline1_wrap.style.width = "100%";
-
-              port2_item_item.style.opacity = "1";
-
-              port2_item1_l.style.opacity = "1";
-
-              port2_item1_r.style.opacity = "1";
-            }, 1000);
-          } else if (e.wheelDeltaY === 120) {
-            aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-            aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-            aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-            setTimeout(() => {
-              tete = 0;
-            }, 1000);
-          }
-        } else if (tete === 2) {
-          if (e.wheelDeltaY === 120) {
-            aaa1.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-            aaa2.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-            aaa3.style.transform = `translateY(${-(window.innerHeight * 2)}px)`;
-            setTimeout(() => {
-              tete = 1;
-            }, 1000);
-          }
-        }
-      }
-
       function slide_f(params) {
         home_con_item_slide_item[0].addEventListener("click", () => {
           home_back.style.transform = "translateX(0%)";
@@ -340,79 +258,100 @@ export default {
           slide_line1[0].style.width = "0%";
         });
       }
-
-      window.addEventListener("wheel", (e) => {
-        console.log(e);
+      // 스크롤함수
+      function vvv() {
         if (tete === 0) {
-          if (e.wheelDeltaY < 0) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-
+          gage_h[0].innerText = "1";
+          gage_h[0].style.color = "white";
+          gage_h[1].style.color = "white";
+          gage_item_color.style.transform = "translateY(0%)";
+          window.addEventListener("wheel", (e) => {
+            if (e.wheelDeltaY < 0 && aaa1.getBoundingClientRect().y === 0) {
+              aaa1.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight}px)`;
               tete = 1;
               setTimeout(() => {
-                port1_wrap.style.opacity = "1";
-                port1_wrap.style.transform = "translateY(0)";
-                portline_wrap.style.width = "100%";
+                portline.style.width = "100%";
+                port1.style.transform = "translateX(0px)";
+                port1.style.opacity = "1";
               }, 1000);
-            }, 100);
-          } else if (e.wheelDeltaY > 0) {
-            setTimeout(() => {
+            }
+          });
+        } else if (tete === 1 && aaa2.getBoundingClientRect().y === 0) {
+          gage_h[0].innerText = "2";
+          gage_h[0].style.color = "white";
+          gage_h[1].style.color = "white";
+          gage_item_color.style.transform = "translateY(100%)";
+          window.addEventListener("wheel", (e) => {
+            if (e.wheelDeltaY > 0) {
               aaa1.style.transform = `translateY(${0}px)`;
               aaa2.style.transform = `translateY(${0}px)`;
               aaa3.style.transform = `translateY(${0}px)`;
-
+              aaa4.style.transform = `translateY(${0}px)`;
               tete = 0;
-            }, 100);
-          }
-        } else if (tete === 1) {
-          if (e.wheelDeltaY < 0) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa2.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa3.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
+            } else if (e.wheelDeltaY < 0) {
+              aaa1.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight * 2}px)`;
               tete = 2;
-              setTimeout(() => {
-                portline1_wrap.style.width = "100%";
-                port2_item_item.style.transform = "translateY(0)";
-                port2_item_item.style.opacity = "1";
-                port2_item1_l.style.transform = "translateY(0)";
-                port2_item1_l.style.opacity = "1";
-                port2_item1_r.style.transform = "translateY(0)";
-                port2_item1_r.style.opacity = "1";
-              }, 1000);
-            }, 100);
-          } else if (e.wheelDeltaY > 0) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa2.style.transform = `translateY(${-window.innerHeight}px)`;
-              aaa3.style.transform = `translateY(${-window.innerHeight}px)`;
-              tete = 0;
-            }, 100);
-          }
-        } else if (tete === 2) {
-          if (e.wheelDeltaY > 0) {
-            setTimeout(() => {
-              aaa1.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa2.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
-              aaa3.style.transform = `translateY(${-(
-                window.innerHeight * 2
-              )}px)`;
+            }
+          });
+        } else if (tete === 2 && aaa3.getBoundingClientRect().y === 0) {
+          gage_h[0].innerText = "3";
+          gage_h[0].style.color = "black";
+          gage_h[1].style.color = "black";
+          gage_item_color.style.transform = "translateY(200%)";
+          window.addEventListener("wheel", (e) => {
+            if (e.wheelDeltaY > 0) {
+              aaa1.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight}px)`;
               tete = 1;
-            }, 100);
-          }
+            } else if (e.wheelDeltaY < 0) {
+              aaa1.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa2.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa3.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              aaa4.style.transform = `translateY(-${
+                window.innerHeight * 2 + aaa4.clientHeight
+              }px)`;
+              tete = 3;
+            }
+          });
+        } else if (tete === 3 && aaa4.getBoundingClientRect().y === 0) {
+          gage_h[0].innerText = "4";
+          gage_item_color.style.transform = "translateY(300%)";
+          window.addEventListener("wheel", (e) => {
+            if (e.wheelDeltaY > 0) {
+              aaa1.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa2.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa3.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              aaa4.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+              tete = 2;
+            }
+          });
         }
+      }
+      window.addEventListener("wheel", () => {
+        vvv();
+      });
+
+      window.addEventListener("load", () => {
+        home_back_con[0].style.top = "40%";
+        home_back_con[0].style.opacity = "1";
+        slide_line1[0].style.width = "90%";
+        setTimeout(() => {
+          scrollTo(0, 0);
+        }, 100);
       });
     });
 
@@ -425,12 +364,24 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  .home_con_h {
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
+  .home_con_h {
+    font-size: 40px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
+  .home_con_h {
+    font-size: 70px;
+  }
+}
+* {
+  box-sizing: border-box;
 }
 /* 스크롤배경움직이기 */
 .aaa_nav {
@@ -445,19 +396,18 @@ export default {
 }
 .aaa2 {
   width: 100%;
-  background: black;
   height: 100vh;
   transition: all 1s;
+  background: black;
+  color: white;
 }
 .aaa3 {
   width: 100%;
   height: 100vh;
   transition: all 1s;
-  position: relative;
 }
 .aaa4 {
   width: 100%;
-  height: 100vh;
   transition: all 1s;
 }
 .aaa {
@@ -465,9 +415,7 @@ export default {
   height: 100vh;
   width: 100%;
 }
-* {
-  box-sizing: border-box;
-}
+
 /* 배경전체틀 */
 .home_con {
   width: 100%;
@@ -529,7 +477,6 @@ export default {
 }
 /* 슬라이더 */
 .home_con_h {
-  font-size: 70px;
   color: white;
   position: absolute;
   margin: 0px;
@@ -597,57 +544,44 @@ export default {
   transition: all 1.2s;
   opacity: 0;
 }
-
-/* portline */
-.portline1_wrap {
-  width: 0%;
+/* 포트라인 */
+.portline {
+  width: 0px;
+  margin-bottom: 50px;
+}
+.port1 {
+  transform: translateX(200px);
   transition: all 1s;
+  opacity: 0;
 }
-
-/* port2 */
-.port2_con {
-  width: 100%;
+.portline1 {
+  width: 0px;
+  margin-bottom: 50px;
 }
-.port2_item {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
+/* 게이지 */
+.gage {
+  position: fixed;
+  width: 100px;
+  z-index: 100;
+  top: 30%;
+  left: 100px;
 }
-.port2_item1 {
-  width: 100%;
-  display: flex;
-  color: black;
-}
-.port2_item1_img {
-  width: 360px;
-  height: 360px;
-  display: block;
+.gage_item {
+  width: 5px;
+  height: 150px;
+  background: #808080;
   margin-left: auto;
   margin-right: auto;
 }
-.port2_item1_h {
+.gage_h {
   text-align: center;
+  color: white;
+  transition: all 0.5s;
 }
-.port2_item_item {
+.gage_item_color {
+  width: 5px;
+  height: 25%;
+  background: #0053c9;
   transition: all 1s;
-  color: black;
-  opacity: 0;
 }
-.port2_item1_l {
-  width: 50%;
-  text-align: center;
-  transition: all 1s;
-  opacity: 0;
-}
-.port2_item1_r {
-  width: 50%;
-  text-align: center;
-  transition: all 1s;
-  opacity: 0;
-}
-/* //footer */
 </style>
