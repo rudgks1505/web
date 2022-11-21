@@ -106,7 +106,52 @@
           </div>
         </div>
       </div>
-      <div class="box3"></div>
+      <div class="box3">
+        <div class="home_con" style="height: 100%">
+          <div class="home_con_item" style="display: flex">
+            <div>
+              <portline-1 class="portline_1"></portline-1>
+              <div class="port2_con">
+                <div class="port2_item">
+                  <div class="port2_item_item">
+                    <h3 style="margin: 0px">
+                      다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
+                      능동적으로 대응하며,
+                    </h3>
+                    <h3>
+                      커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
+                      이어나갑니다.
+                    </h3>
+                  </div>
+                </div>
+                <div class="port2_item1">
+                  <div class="port2_item1_l">
+                    <img
+                      src="../../assets/port2/img1.png"
+                      alt=""
+                      class="port2_item1_img"
+                    />
+                    <h1>웹/앱 서비스 개발</h1>
+                    <h3>
+                      웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든
+                      형태의 서비스 개발
+                    </h3>
+                  </div>
+                  <div class="port2_item1_r">
+                    <img
+                      src="../../assets/port2/img2.png"
+                      alt=""
+                      class="port2_item1_img"
+                    />
+                    <h1>UI/UX 디자인</h1>
+                    <h3>브랜드 가치를 높일 수 있는 모던 UI/UX개발</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="box4"><footer-1></footer-1></div>
     </div>
   </div>
@@ -118,12 +163,14 @@ import Footer1 from "../footer/footer1.vue";
 import Nav from "../nav/nav.vue";
 import Portline from "../port/portline.vue";
 import Port1 from "../port/port1.vue";
+import Portline1 from "../port/portline1.vue";
 export default {
   components: {
     Footer1,
     Nav,
     Portline,
     Port1,
+    Portline1,
   },
 
   setup() {
@@ -151,7 +198,7 @@ export default {
       var gage_item_color = document.querySelector(".gage_item_color");
       var port1 = document.querySelector(".port1");
       var portline = document.querySelector(".portline");
-      var portline1_wrap = document.querySelector(".portline1_wrap");
+      var portline_1 = document.querySelector(".portline_1");
       var port2_item_item = document.querySelector(".port2_item_item");
       var port2_item1_l = document.querySelector(".port2_item1_l");
       var port2_item1_r = document.querySelector(".port2_item1_r");
@@ -287,6 +334,15 @@ export default {
             box_wrap.style.transform = `translateY(-${
               window.innerHeight * 2
             }px)`;
+            setTimeout(() => {
+              portline_1.style.width = "100%";
+              port2_item_item.style.transform = "translateY(0px)";
+              port2_item_item.style.opacity = "1";
+              port2_item1_l.style.transform = "translateY(0px)";
+              port2_item1_l.style.opacity = "1";
+              port2_item1_r.style.transform = "translateY(0px)";
+              port2_item1_r.style.opacity = "1";
+            }, 1000);
           }
         } else if (box3.getBoundingClientRect().y === 0) {
           if (e.wheelDeltaY > 0) {
@@ -327,7 +383,13 @@ export default {
 <style scoped>
 @media screen and (max-width: 600px) {
   .home_con_h {
-    font-size: 20px;
+    font-size: 30px;
+  }
+  .gage {
+    display: none;
+  }
+  .home_con_item {
+    width: 300px;
   }
 }
 
@@ -335,11 +397,23 @@ export default {
   .home_con_h {
     font-size: 40px;
   }
+  .gage {
+    display: none;
+  }
+  .home_con_item {
+    width: 600px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
   .home_con_h {
     font-size: 70px;
+  }
+  .gage {
+    display: block;
+  }
+  .home_con_item {
+    width: 1400px;
   }
 }
 * {
@@ -374,7 +448,6 @@ export default {
   justify-content: center;
 }
 .home_con_item {
-  width: 1400px;
   align-items: center;
   justify-content: center;
 }
@@ -530,6 +603,12 @@ export default {
 .portline {
   width: 0px;
   margin-bottom: 50px;
+  transition: all 1s;
+}
+.portline_1 {
+  width: 0px;
+  margin-bottom: 50px;
+  transition: all 1s;
 }
 .port1 {
   transform: translateX(200px);
@@ -540,5 +619,53 @@ export default {
 .portline1 {
   width: 0px;
   margin-bottom: 50px;
+}
+/* 포트2 */
+.port2_con {
+  width: 100%;
+}
+.port2_item {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+.port2_item1 {
+  width: 100%;
+  display: flex;
+  color: black;
+}
+.port2_item1_img {
+  width: 360px;
+  height: 360px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.port2_item1_h {
+  text-align: center;
+}
+.port2_item_item {
+  transition: all 1s;
+  transform: translateY(50px);
+  color: black;
+  opacity: 0;
+}
+.port2_item1_l {
+  width: 50%;
+  text-align: center;
+  transition: all 1s;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+.port2_item1_r {
+  width: 50%;
+  text-align: center;
+  transition: all 1s;
+  opacity: 0;
+  transform: translateY(-50px);
 }
 </style>

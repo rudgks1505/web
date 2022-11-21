@@ -48,10 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.port2_con {
-  width: 100%;
-  margin-bottom: 300px;
-}
 .port2_item {
   width: 100%;
   height: 200px;
