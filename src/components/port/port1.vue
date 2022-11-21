@@ -57,17 +57,29 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  .port1_h1 {
+    font-size: 18px;
+  }
+  .port1_h3 {
+    font-size: 5px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
+  .port1_h1 {
+    font-size: 28px;
+  }
+  .port1_h3 {
+    font-size: 15px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
-  html {
-    font-size: 20px;
-  }
   .port1_h1 {
-    font-size: 1rem;
+    font-size: 32px;
+  }
+  .port1_h3 {
+    font-size: 18.72px;
   }
 }
 </style>

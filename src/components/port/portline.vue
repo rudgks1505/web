@@ -24,6 +24,23 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+  .port_div_h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .port_div_h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .port_div_h1 {
+    font-size: 60px;
+  }
+}
 .port_div {
   display: flex;
   width: 100%;
@@ -33,7 +50,6 @@ export default {
   transition: all 1s;
 }
 .port_div_h1 {
-  font-size: 60px;
   margin: 0px;
 }
 .port_line {

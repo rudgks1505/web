@@ -48,6 +48,23 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+  .port2_item1_img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .port2_item1_img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .port2_item1_img {
+    display: block;
+  }
+}
 .port2_item {
   width: 100%;
   height: 200px;
@@ -65,7 +82,6 @@ export default {
 .port2_item1_img {
   width: 360px;
   height: 360px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }

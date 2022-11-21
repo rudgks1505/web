@@ -112,18 +112,17 @@
             <div>
               <portline-1 class="portline_1"></portline-1>
               <div class="port2_con">
-                <div class="port2_item">
-                  <div class="port2_item_item">
-                    <h3 style="margin: 0px">
-                      다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
-                      능동적으로 대응하며,
-                    </h3>
-                    <h3>
-                      커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
-                      이어나갑니다.
-                    </h3>
-                  </div>
+                <div class="port2_item_item">
+                  <h3 style="margin: 0px" class="port2_h3">
+                    다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
+                    능동적으로 대응하며,
+                  </h3>
+                  <h3 class="port2_h3">
+                    커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
+                    이어나갑니다.
+                  </h3>
                 </div>
+
                 <div class="port2_item1">
                   <div class="port2_item1_l">
                     <img
@@ -131,8 +130,8 @@
                       alt=""
                       class="port2_item1_img"
                     />
-                    <h1>웹/앱 서비스 개발</h1>
-                    <h3>
+                    <h1 class="port2_h1">웹/앱 서비스 개발</h1>
+                    <h3 class="port2_h3">
                       웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든
                       형태의 서비스 개발
                     </h3>
@@ -143,8 +142,10 @@
                       alt=""
                       class="port2_item1_img"
                     />
-                    <h1>UI/UX 디자인</h1>
-                    <h3>브랜드 가치를 높일 수 있는 모던 UI/UX개발</h3>
+                    <h1 class="port2_h1">UI/UX 디자인</h1>
+                    <h3 class="port2_h3">
+                      브랜드 가치를 높일 수 있는 모던 UI/UX개발
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -207,6 +208,44 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+
+      //반응형
+      window.addEventListener("resize", () => {
+        respon_f();
+      });
+
+      respon_f();
+      function respon_f(params) {
+        if (max_600px.matches) {
+          repon_scroll();
+        }
+        if (min_600px_max_1000px.matches) {
+          repon_scroll();
+        }
+        if (min_1000px.matches) {
+          wheel_f();
+        }
+      }
+
+      //태블릿,모바일에서 스크롤이벤트
+      function repon_scroll(params) {
+        box.addEventListener("scroll", () => {
+          if (scrollY >= window.innerHeight / 2) {
+            portline.style.width = "100%";
+            port1.style.transform = "translateX(0px)";
+            port1.style.opacity = "1";
+          }
+          // if (scrollY >= window.innerHeight) {
+          //   portline_1.style.width = "100%";
+          //   port2_item_item.style.transform = "translateY(0px)";
+          //   port2_item_item.style.opacity = "1";
+          //   port2_item1_l.style.transform = "translateY(0px)";
+          //   port2_item1_l.style.opacity = "1";
+          //   port2_item1_r.style.transform = "translateY(0px)";
+          //   port2_item1_r.style.opacity = "1";
+          // }
+        });
+      }
 
       // 슬라이더함수
       slide_f();
@@ -309,68 +348,71 @@ export default {
       });
 
       //  스크롤
-      window.addEventListener("wheel", (e) => {
-        if (box1.getBoundingClientRect().y === 0) {
-          if (e.wheelDeltaY < 0) {
-            gage_h[0].innerText = "2";
-            gage_item_color.style.transform = "translateY(100%)";
-            box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
-            setTimeout(() => {
-              portline.style.width = "100%";
-              port1.style.transform = "translateX(0px)";
-              port1.style.opacity = "1";
-            }, 1000);
+
+      function wheel_f(params) {
+        window.addEventListener("wheel", (e) => {
+          if (box1.getBoundingClientRect().y === 0) {
+            if (e.wheelDeltaY < 0) {
+              gage_h[0].innerText = "2";
+              gage_item_color.style.transform = "translateY(100%)";
+              box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
+              setTimeout(() => {
+                portline.style.width = "100%";
+                port1.style.transform = "translateX(0px)";
+                port1.style.opacity = "1";
+              }, 1000);
+            }
+          } else if (box2.getBoundingClientRect().y === 0) {
+            if (e.wheelDeltaY > 0) {
+              gage_h[0].innerText = "1";
+              gage_item_color.style.transform = "translateY(0%)";
+              box_wrap.style.transform = `translateY(0px)`;
+            } else if (e.wheelDeltaY < 0) {
+              gage_h[0].innerText = "3";
+              gage_h[0].style.color = "black";
+              gage_h[1].style.color = "black";
+              gage_item_color.style.transform = "translateY(200%)";
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 2
+              }px)`;
+              setTimeout(() => {
+                portline_1.style.width = "100%";
+                port2_item_item.style.transform = "translateY(0px)";
+                port2_item_item.style.opacity = "1";
+                port2_item1_l.style.transform = "translateY(0px)";
+                port2_item1_l.style.opacity = "1";
+                port2_item1_r.style.transform = "translateY(0px)";
+                port2_item1_r.style.opacity = "1";
+              }, 1000);
+            }
+          } else if (box3.getBoundingClientRect().y === 0) {
+            if (e.wheelDeltaY > 0) {
+              gage_h[0].innerText = "2";
+              gage_h[0].style.color = "white";
+              gage_h[1].style.color = "white";
+              gage_item_color.style.transform = "translateY(100%)";
+              box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
+            } else if (e.wheelDeltaY < 0) {
+              gage_h[0].innerText = "4";
+              gage_item_color.style.transform = "translateY(300%)";
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 2 + box4.clientHeight
+              }px)`;
+            }
+          } else if (
+            box4.getBoundingClientRect().y ===
+            window.innerHeight - box4.clientHeight
+          ) {
+            if (e.wheelDeltaY > 0) {
+              gage_h[0].innerText = "3";
+              gage_item_color.style.transform = "translateY(200%)";
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 2
+              }px)`;
+            }
           }
-        } else if (box2.getBoundingClientRect().y === 0) {
-          if (e.wheelDeltaY > 0) {
-            gage_h[0].innerText = "1";
-            gage_item_color.style.transform = "translateY(0%)";
-            box_wrap.style.transform = `translateY(0px)`;
-          } else if (e.wheelDeltaY < 0) {
-            gage_h[0].innerText = "3";
-            gage_h[0].style.color = "black";
-            gage_h[1].style.color = "black";
-            gage_item_color.style.transform = "translateY(200%)";
-            box_wrap.style.transform = `translateY(-${
-              window.innerHeight * 2
-            }px)`;
-            setTimeout(() => {
-              portline_1.style.width = "100%";
-              port2_item_item.style.transform = "translateY(0px)";
-              port2_item_item.style.opacity = "1";
-              port2_item1_l.style.transform = "translateY(0px)";
-              port2_item1_l.style.opacity = "1";
-              port2_item1_r.style.transform = "translateY(0px)";
-              port2_item1_r.style.opacity = "1";
-            }, 1000);
-          }
-        } else if (box3.getBoundingClientRect().y === 0) {
-          if (e.wheelDeltaY > 0) {
-            gage_h[0].innerText = "2";
-            gage_h[0].style.color = "white";
-            gage_h[1].style.color = "white";
-            gage_item_color.style.transform = "translateY(100%)";
-            box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
-          } else if (e.wheelDeltaY < 0) {
-            gage_h[0].innerText = "4";
-            gage_item_color.style.transform = "translateY(300%)";
-            box_wrap.style.transform = `translateY(-${
-              window.innerHeight * 2 + box4.clientHeight
-            }px)`;
-          }
-        } else if (
-          box4.getBoundingClientRect().y ===
-          window.innerHeight - box4.clientHeight
-        ) {
-          if (e.wheelDeltaY > 0) {
-            gage_h[0].innerText = "3";
-            gage_item_color.style.transform = "translateY(200%)";
-            box_wrap.style.transform = `translateY(-${
-              window.innerHeight * 2
-            }px)`;
-          }
-        }
-      });
+        });
+      }
     });
 
     return {
@@ -391,6 +433,20 @@ export default {
   .home_con_item {
     width: 300px;
   }
+  .port2_item1_img {
+    width: 100px;
+    height: 100px;
+  }
+  .port2_h1 {
+    font-size: 18px;
+  }
+  .port2_h3 {
+    font-size: 5px;
+  }
+  .box {
+    overflow: scroll;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
@@ -402,6 +458,20 @@ export default {
   }
   .home_con_item {
     width: 600px;
+  }
+  .port2_item1_img {
+    width: 185.57px;
+    height: 185.57px;
+  }
+  .port2_h1 {
+    font-size: 28px;
+  }
+  .port2_h3 {
+    font-size: 15px;
+  }
+  .box {
+    overflow: scroll;
+    height: auto;
   }
 }
 
@@ -415,6 +485,20 @@ export default {
   .home_con_item {
     width: 1400px;
   }
+  .port2_item1_img {
+    width: 360px;
+    height: 360px;
+  }
+  .port2_h1 {
+    font-size: 32px;
+  }
+  .port2_h3 {
+    font-size: 18.72px;
+  }
+  .box {
+    overflow: hidden;
+    height: 100vh;
+  }
 }
 * {
   box-sizing: border-box;
@@ -422,8 +506,6 @@ export default {
 /* 레이아웃 */
 .box {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
 }
 .box1 {
   width: 100%;
@@ -492,7 +574,7 @@ export default {
   background: gray;
   position: absolute;
   top: 0;
-  left: 15px;
+  left: 5%;
 }
 .slide_line1 {
   width: 0%;
@@ -502,7 +584,7 @@ export default {
   top: 0;
   z-index: 3;
   transition: all 2s;
-  left: 15px;
+  left: 5%;
 }
 /* 슬라이더 */
 .home_con_h {
@@ -624,23 +706,12 @@ export default {
 .port2_con {
   width: 100%;
 }
-.port2_item {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-}
 .port2_item1 {
   width: 100%;
   display: flex;
   color: black;
 }
 .port2_item1_img {
-  width: 360px;
-  height: 360px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -653,6 +724,7 @@ export default {
   transform: translateY(50px);
   color: black;
   opacity: 0;
+  margin-bottom: 60px;
 }
 .port2_item1_l {
   width: 50%;

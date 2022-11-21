@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="port_div1">
-      <h1 class="port_div1_h1">SERVICE</h1>
+    <div class="port2_div">
+      <h1 class="port2_div_h1">SERVICE</h1>
       <div class="port_line1"></div>
     </div>
   </div>
@@ -16,16 +16,7 @@ export default {
       count: 0,
     });
 
-    onMounted(() => {
-      var port_line1 = document.querySelector(".port_line1");
-      var port_div1 = document.querySelector(".port_div1");
-
-      window.addEventListener("scroll", () => {
-        if (scrollY >= window.innerHeight * 1.5) {
-          port_div1.style.width = "100%";
-        }
-      });
-    });
+    onMounted(() => {});
 
     return {
       state,
@@ -35,7 +26,24 @@ export default {
 </script>
 
 <style scoped>
-.port_div1 {
+@media screen and (max-width: 600px) {
+  .port2_div_h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .port2_div_h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .port2_div_h1 {
+    font-size: 60px;
+  }
+}
+.port2_div {
   display: flex;
   width: 100%;
   color: black;
@@ -43,8 +51,7 @@ export default {
   overflow: hidden;
   transition: all 1s;
 }
-.port_div1_h1 {
-  font-size: 60px;
+.port2_div_h1 {
   margin: 0px;
 }
 .port_line1 {

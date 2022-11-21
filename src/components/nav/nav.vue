@@ -3,6 +3,8 @@
     <div class="nav_con_gra"></div>
     <div class="nav_con_div">
       <img src="../../assets/nav/logo.png" alt="" class="nav_con_img" />
+      <img src="../../assets/nav/mlogo.png" alt="" class="nav_con_img_m" />
+      <img src="../../assets/nav/tlogo.png" alt="" class="nav_con_img_t" />
     </div>
 
     <div class="nav_con_center">
@@ -122,18 +124,62 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  .nav_con_img {
+    display: none;
+  }
+  .nav_con_img_m {
+    display: block;
+  }
+  .nav_con_img_t {
+    display: none;
+  }
+  .nav_con_div {
+    width: 100px;
+  }
+  .nav_con {
+    height: 50px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
+  .nav_con_img {
+    display: none;
+  }
+  .nav_con_img_m {
+    display: none;
+  }
+  .nav_con_img_t {
+    display: block;
+  }
+  .nav_con_div {
+    width: 200px;
+  }
+  .nav_con {
+    height: 80px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
+  .nav_con_img {
+    display: block;
+  }
+  .nav_con_img_m {
+    display: none;
+  }
+  .nav_con_img_t {
+    display: none;
+  }
+  .nav_con_div {
+    width: 200px;
+  }
+  .nav_con {
+    height: 120px;
+  }
 }
 
 .nav_con {
   width: 100%;
   display: flex;
-  height: 120px;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -142,8 +188,15 @@ export default {
   width: 150px;
   height: 38px;
 }
+.nav_con_img_m {
+  width: 80px;
+  height: 19.56px;
+}
+.nav_con_img_t {
+  width: 100px;
+  height: 25.39px;
+}
 .nav_con_div {
-  width: 200px;
   display: flex;
   justify-content: center;
   position: relative;
