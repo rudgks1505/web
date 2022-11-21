@@ -1,4 +1,18 @@
 <template>
+  <div class="spinner">
+    <video
+      src="../../assets/explore/Ocean.mp4"
+      autoplay
+      loop
+      muted
+      class="spinner_video"
+    ></video>
+    <div class="spinner_div1"></div>
+    <div class="spinner_div2"></div>
+    <div class="spinner_div3"></div>
+    <div class="spinner_div4"></div>
+  </div>
+
   <Nav class="aaa_nav"></Nav>
 
   <div class="gage">
@@ -165,6 +179,7 @@ import Nav from "../nav/nav.vue";
 import Portline from "../port/portline.vue";
 import Port1 from "../port/port1.vue";
 import Portline1 from "../port/portline1.vue";
+import { useRouter } from "vue-router";
 export default {
   components: {
     Footer1,
@@ -175,12 +190,15 @@ export default {
   },
 
   setup() {
+    const router = useRouter();
     const state = reactive({
       count: 0,
     });
 
     onMounted(() => {
       var box = document.querySelector(".box");
+      var spinner = document.querySelector(".spinner");
+      var spinner_video = document.querySelector(".spinner_video");
       var box1 = document.querySelector(".box1");
       var box2 = document.querySelector(".box2");
       var box3 = document.querySelector(".box3");
@@ -338,18 +356,34 @@ export default {
       }
 
       //로드시
+
       window.addEventListener("load", () => {
-        home_back_con[0].style.top = "40%";
-        home_back_con[0].style.opacity = "1";
-        slide_line1[0].style.width = "90%";
         setTimeout(() => {
-          scrollTo(0, 0);
-        }, 100);
+          setTimeout(() => {
+            // spinner_video.style.padding = "0%";
+            // setTimeout(() => {
+            //   spinner.style.background = "black";
+            // }, 999);
+            // setTimeout(() => {
+            //   spinner.style.transition = "all 0.5s";
+            //   spinner.style.opacity = "0";
+            //   spinner_video.style.opacity = "0";
+            // }, 1000);
+            // gage_h[0].innerText = "1";
+            // gage_item_color.style.transform = "translateY(0%)";
+            // box_wrap.style.transform = `translateY(0px)`;
+          }, 1000);
+          home_back_con[0].style.top = "40%";
+          home_back_con[0].style.opacity = "1";
+          slide_line1[0].style.width = "90%";
+          setTimeout(() => {
+            scrollTo(0, 0);
+          }, 100);
+        }, 1000);
       });
 
       //  스크롤
-
-      function wheel_f(params) {
+      function wheel_f() {
         window.addEventListener("wheel", (e) => {
           if (box1.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY < 0) {
@@ -739,5 +773,56 @@ export default {
   transition: all 1s;
   opacity: 0;
   transform: translateY(-50px);
+}
+/* 스피너 */
+.spinner {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  z-index: 300;
+  transition: all 2s;
+  background: white;
+  overflow: hidden;
+}
+
+.spinner_video {
+  width: 100%;
+  height: 100vh;
+  transition: all 1s;
+  padding: 0px;
+  object-fit: cover;
+}
+.spinner_div1 {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 0px;
+  background: white;
+  z-index: 400;
+}
+.spinner_div2 {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  background: white;
+  z-index: 400;
+}
+.spinner_div3 {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  background: white;
+  z-index: 400;
+}
+.spinner_div4 {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  background: white;
+  z-index: 400;
 }
 </style>

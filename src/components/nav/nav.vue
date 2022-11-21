@@ -14,7 +14,9 @@
         </h1>
         <div class="nav_con_line"></div>
         <div class="nav_con_div_dropmenu">
-          <h1 class="nav_con_div_dropmenu_h">CEO인사말</h1>
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move()">
+            CEO인사말
+          </h1>
           <h1 class="nav_con_div_dropmenu_h">연혁</h1>
           <h1 class="nav_con_div_dropmenu_h">조직도</h1>
           <h1 class="nav_con_div_dropmenu_h">CI소개</h1>
@@ -50,6 +52,10 @@ export default {
       count: 0,
     });
 
+    //링크이동
+    function intro_move(params) {
+      location.href = "/intro";
+    }
     onMounted(() => {
       const nav_con_div_h = document.querySelectorAll(".nav_con_div_h");
       const nav_con_line = document.querySelectorAll(".nav_con_line");
@@ -117,6 +123,7 @@ export default {
 
     return {
       state,
+      intro_move,
     };
   },
 };
