@@ -2,15 +2,11 @@
   <div class="spinner">
     <video
       src="../../assets/explore/Ocean.mp4"
+      class="spinner_video_video"
       autoplay
-      loop
       muted
-      class="spinner_video"
     ></video>
-    <div class="spinner_div1"></div>
-    <div class="spinner_div2"></div>
-    <div class="spinner_div3"></div>
-    <div class="spinner_div4"></div>
+    <div class="spinner_video"></div>
   </div>
 
   <Nav class="aaa_nav"></Nav>
@@ -359,27 +355,18 @@ export default {
 
       window.addEventListener("load", () => {
         setTimeout(() => {
+          spinner_video.style.border = "100px solid white";
           setTimeout(() => {
-            spinner_video.style.padding = "0%";
-            setTimeout(() => {
-              spinner.style.background = "black";
-            }, 999);
-            setTimeout(() => {
-              spinner.style.transition = "all 0.5s";
-              spinner.style.opacity = "0";
-              spinner_video.style.opacity = "0";
-            }, 1000);
-            gage_h[0].innerText = "1";
-            gage_item_color.style.transform = "translateY(0%)";
-            box_wrap.style.transform = `translateY(0px)`;
-          }, 1000);
-          home_back_con[0].style.top = "40%";
-          home_back_con[0].style.opacity = "1";
-          slide_line1[0].style.width = "90%";
+            spinner_video.style.border = "0px solid white";
+          }, 4000);
+          //휠돌렷을시
+          gage_h[0].innerText = "1";
+          gage_item_color.style.transform = "translateY(0%)";
+          box_wrap.style.transform = `translateY(0px)`;
           setTimeout(() => {
             scrollTo(0, 0);
           }, 100);
-        }, 1000);
+        }, 2000);
       });
 
       //  스크롤
@@ -781,16 +768,25 @@ export default {
   position: absolute;
   top: 0px;
   z-index: 300;
-  transition: all 2s;
   background: white;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .spinner_video {
   width: 100%;
-  height: 100vh;
-  transition: all 1s;
-  padding: 50px;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0px;
+  border: 0px solid white;
+  transition: all 2s;
+}
+.spinner_video_video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 </style>
