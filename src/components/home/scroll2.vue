@@ -288,7 +288,7 @@ export default {
         home_back2.style.transform = "translateX(0%)";
         home_back3.style.transform = "translateX(0%)";
         home_back4.style.transform = "translateX(0%)";
-        slide_line1[0].style.width = "90%";
+        slide_line1[0].style.width = "40%";
         slide_line1[1].style.width = "0%";
         slide_line1[2].style.width = "0%";
         slide_line1[3].style.width = "0%";
@@ -308,8 +308,8 @@ export default {
           home_back2.style.transform = "translateX(-100%)";
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
-          slide_line1[0].style.width = "90%";
-          slide_line1[1].style.width = "90%";
+          slide_line1[0].style.width = "40%";
+          slide_line1[1].style.width = "40%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
@@ -327,9 +327,9 @@ export default {
             home_back2.style.transform = "translateX(-200%)";
             home_back3.style.transform = "translateX(-200%)";
             home_back4.style.transform = "translateX(-200%)";
-            slide_line1[0].style.width = "90%";
-            slide_line1[1].style.width = "90%";
-            slide_line1[2].style.width = "90%";
+            slide_line1[0].style.width = "40%";
+            slide_line1[1].style.width = "40%";
+            slide_line1[2].style.width = "40%";
             slide_line1[3].style.width = "0%";
             setTimeout(() => {
               home_back_con[2].style.top = "40%";
@@ -346,10 +346,10 @@ export default {
               home_back2.style.transform = "translateX(-300%)";
               home_back3.style.transform = "translateX(-300%)";
               home_back4.style.transform = "translateX(-300%)";
-              slide_line1[0].style.width = "90%";
-              slide_line1[1].style.width = "90%";
-              slide_line1[2].style.width = "90%";
-              slide_line1[3].style.width = "90%";
+              slide_line1[0].style.width = "40%";
+              slide_line1[1].style.width = "40%";
+              slide_line1[2].style.width = "40%";
+              slide_line1[3].style.width = "40%";
               setTimeout(() => {
                 home_back_con[3].style.top = "40%";
                 home_back_con[3].style.opacity = "1";
@@ -393,7 +393,7 @@ export default {
           home_back2.style.transform = "translateX(0%)";
           home_back3.style.transform = "translateX(0%)";
           home_back4.style.transform = "translateX(0%)";
-          slide_line1[0].style.width = "90%";
+          slide_line1[0].style.width = "40%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -417,8 +417,8 @@ export default {
           home_back2.style.transform = "translateX(-100%)";
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
-          slide_line1[0].style.width = "90%";
-          slide_line1[1].style.width = "90%";
+          slide_line1[0].style.width = "40%";
+          slide_line1[1].style.width = "40%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
@@ -441,9 +441,9 @@ export default {
           home_back2.style.transform = "translateX(-200%)";
           home_back3.style.transform = "translateX(-200%)";
           home_back4.style.transform = "translateX(-200%)";
-          slide_line1[0].style.width = "90%";
-          slide_line1[1].style.width = "90%";
-          slide_line1[2].style.width = "90%";
+          slide_line1[0].style.width = "40%";
+          slide_line1[1].style.width = "40%";
+          slide_line1[2].style.width = "40%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
             home_back_con[2].style.top = "40%";
@@ -465,10 +465,10 @@ export default {
           home_back2.style.transform = "translateX(-300%)";
           home_back3.style.transform = "translateX(-300%)";
           home_back4.style.transform = "translateX(-300%)";
-          slide_line1[0].style.width = "90%";
-          slide_line1[1].style.width = "90%";
-          slide_line1[2].style.width = "90%";
-          slide_line1[3].style.width = "90%";
+          slide_line1[0].style.width = "40%";
+          slide_line1[1].style.width = "40%";
+          slide_line1[2].style.width = "40%";
+          slide_line1[3].style.width = "40%";
           setTimeout(() => {
             home_back_con[3].style.top = "40%";
             home_back_con[3].style.opacity = "1";
@@ -724,12 +724,12 @@ export default {
   text-align: center;
 }
 .slide_line {
-  width: 90%;
+  width: 40%;
   height: 2px;
   background: gray;
   position: absolute;
   top: 0;
-  left: 5%;
+  left: 30%;
 }
 .slide_line1 {
   width: 0%;
@@ -739,7 +739,7 @@ export default {
   top: 0;
   z-index: 3;
   transition: all 4s;
-  left: 5%;
+  left: 30%;
 }
 /* 슬라이더 */
 .home_con_h {

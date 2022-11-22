@@ -118,15 +118,6 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
-
-      var top_img_bottom_gra_menu_centerdiv = document.querySelectorAll(
-        ".top_img_bottom_gra_menu_centerdiv"
-      );
-      var top_img_bottom_gra_menu_centerdiv_p = document.querySelectorAll(
-        ".top_img_bottom_gra_menu_centerdiv_p"
-      );
-      var body = document.querySelector("body");
-      body.style.overflowY = "scroll";
     });
 
     return {

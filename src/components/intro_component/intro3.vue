@@ -97,15 +97,6 @@ export default {
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
 
-      var top_img_bottom_gra_menu_centerdiv = document.querySelectorAll(
-        ".top_img_bottom_gra_menu_centerdiv"
-      );
-      var top_img_bottom_gra_menu_centerdiv_p = document.querySelectorAll(
-        ".top_img_bottom_gra_menu_centerdiv_p"
-      );
-      var body = document.querySelector("body");
-      body.style.overflowY = "scroll";
-
       if (max_600px.matches) {
       }
       if (min_600px_max_1000px.matches) {

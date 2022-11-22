@@ -1,35 +1,37 @@
 <template>
-  <div class="top_img">
-    <h2 class="top_img_h">P O R T F O L I O</h2>
-    <small class="top_img_h" style="top: 55%">
-      게임인스의 현재 진행한 작업물 입니다.
-    </small>
-  </div>
+  <div class="all_wrap">
+    <div class="top_img">
+      <h2 class="top_img_h">P O R T F O L I O</h2>
+      <small class="top_img_h" style="top: 55%">
+        게임인스의 현재 진행한 작업물 입니다.
+      </small>
+    </div>
 
-  <div class="portfo_con">
-    <div class="portfo_item">
-      <div class="portfo_box">
-        <img src="../../assets/port/pot1.jpg" alt="" class="portfo_con_img" />
-        <h1 class="portfo_box_h">TIKI TAKA</h1>
-      </div>
-      <div class="portfo_box">
-        <img
-          :src="`${state.pot2}`"
-          alt=""
-          class="portfo_con_img"
-          @mouseenter="pot4f()"
-          @mouseleave="pot4f_out()"
-        />
-        <h1 class="portfo_box_h">피파대낙.com</h1>
-      </div>
-      <div class="portfo_box">
-        <img src="../../assets/port/pot3.png" alt="" class="portfo_con_img" />
-        <h1 class="portfo_box_h">피파대리.com</h1>
+    <div class="portfo_con">
+      <div class="portfo_item">
+        <div class="portfo_box">
+          <img src="../../assets/port/pot1.jpg" alt="" class="portfo_con_img" />
+          <h1 class="portfo_box_h">TIKI TAKA</h1>
+        </div>
+        <div class="portfo_box">
+          <img
+            :src="`${state.pot2}`"
+            alt=""
+            class="portfo_con_img"
+            @mouseenter="pot4f()"
+            @mouseleave="pot4f_out()"
+          />
+          <h1 class="portfo_box_h">피파대낙.com</h1>
+        </div>
+        <div class="portfo_box">
+          <img src="../../assets/port/pot3.png" alt="" class="portfo_con_img" />
+          <h1 class="portfo_box_h">피파대리.com</h1>
+        </div>
       </div>
     </div>
-  </div>
 
-  <footer-1></footer-1>
+    <footer-1></footer-1>
+  </div>
 </template>
 
 <script>
@@ -74,6 +76,8 @@ export default {
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
       var portfo_con_img = document.querySelectorAll(".portfo_con_img");
+      var portfo_con = document.querySelector(".portfo_con");
+      var all_wrap = document.querySelector(".all_wrap");
 
       var body = document.querySelector("body");
       body.style.overflowY = "scroll";
