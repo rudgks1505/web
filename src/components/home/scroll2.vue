@@ -379,10 +379,10 @@ export default {
       slide_f();
       function slide_f(params) {
         home_con_item_slide_item[0].addEventListener("click", () => {
-          slide_line1[0].style.transition = "all 0.1s";
-          slide_line1[1].style.transition = "all 0.1s";
-          slide_line1[2].style.transition = "all 0.1s";
-          slide_line1[3].style.transition = "all 0.1s";
+          slide_line1[0].style.transition = "all 4s";
+          slide_line1[1].style.transition = "all 4s";
+          slide_line1[2].style.transition = "all 4s";
+          slide_line1[3].style.transition = "all 4s";
           home_back_con[1].style.top = "50%";
           home_back_con[1].style.opacity = "0";
           home_back_con[2].style.top = "50%";
@@ -393,13 +393,85 @@ export default {
           home_back2.style.transform = "translateX(0%)";
           home_back3.style.transform = "translateX(0%)";
           home_back4.style.transform = "translateX(0%)";
-          slide_line1[0].style.width = "0%";
+          slide_line1[0].style.width = "90%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
             home_back_con[0].style.top = "40%";
             home_back_con[0].style.opacity = "1";
+          }, 500);
+        });
+        home_con_item_slide_item[1].addEventListener("click", () => {
+          slide_line1[0].style.transition = "all 4s";
+          slide_line1[1].style.transition = "all 4s";
+          slide_line1[2].style.transition = "all 4s";
+          slide_line1[3].style.transition = "all 4s";
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+          home_back.style.transform = "translateX(-100%)";
+          home_back2.style.transform = "translateX(-100%)";
+          home_back3.style.transform = "translateX(-100%)";
+          home_back4.style.transform = "translateX(-100%)";
+          slide_line1[0].style.width = "90%";
+          slide_line1[1].style.width = "90%";
+          slide_line1[2].style.width = "0%";
+          slide_line1[3].style.width = "0%";
+          setTimeout(() => {
+            home_back_con[1].style.top = "40%";
+            home_back_con[1].style.opacity = "1";
+          }, 500);
+        });
+        home_con_item_slide_item[2].addEventListener("click", () => {
+          slide_line1[0].style.transition = "all 4s";
+          slide_line1[1].style.transition = "all 4s";
+          slide_line1[2].style.transition = "all 4s";
+          slide_line1[3].style.transition = "all 4s";
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+          home_back.style.transform = "translateX(-200%)";
+          home_back2.style.transform = "translateX(-200%)";
+          home_back3.style.transform = "translateX(-200%)";
+          home_back4.style.transform = "translateX(-200%)";
+          slide_line1[0].style.width = "90%";
+          slide_line1[1].style.width = "90%";
+          slide_line1[2].style.width = "90%";
+          slide_line1[3].style.width = "0%";
+          setTimeout(() => {
+            home_back_con[2].style.top = "40%";
+            home_back_con[2].style.opacity = "1";
+          }, 500);
+        });
+        home_con_item_slide_item[3].addEventListener("click", () => {
+          slide_line1[0].style.transition = "all 4s";
+          slide_line1[1].style.transition = "all 4s";
+          slide_line1[2].style.transition = "all 4s";
+          slide_line1[3].style.transition = "all 4s";
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
+          home_back_con[2].style.top = "50%";
+          home_back_con[2].style.opacity = "0";
+          home_back_con[3].style.top = "50%";
+          home_back_con[3].style.opacity = "0";
+          home_back.style.transform = "translateX(-300%)";
+          home_back2.style.transform = "translateX(-300%)";
+          home_back3.style.transform = "translateX(-300%)";
+          home_back4.style.transform = "translateX(-300%)";
+          slide_line1[0].style.width = "90%";
+          slide_line1[1].style.width = "90%";
+          slide_line1[2].style.width = "90%";
+          slide_line1[3].style.width = "90%";
+          setTimeout(() => {
+            home_back_con[3].style.top = "40%";
+            home_back_con[3].style.opacity = "1";
           }, 500);
         });
       }
