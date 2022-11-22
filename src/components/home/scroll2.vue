@@ -1,12 +1,18 @@
 <template>
   <div class="spinner">
+    <div class="spinner_nav"></div>
     <video
-      src="../../assets/explore/Ocean.mp4"
-      class="spinner_video_video"
+      src="../../assets/explore/People2.mp4"
+      class="spinner_video"
       autoplay
       muted
     ></video>
-    <div class="spinner_video"></div>
+    <div class="spinner_border_box">
+      <div class="spinner_border_box_h">
+        <h1 class="spinner_border_box_span1">SIMPLE IS</h1>
+        <h1 class="spinner_border_box_span2"><br />THE BEST!</h1>
+      </div>
+    </div>
   </div>
 
   <Nav class="aaa_nav"></Nav>
@@ -194,7 +200,14 @@ export default {
     onMounted(() => {
       var box = document.querySelector(".box");
       var spinner = document.querySelector(".spinner");
-      var spinner_video = document.querySelector(".spinner_video");
+      var spinner_border_box = document.querySelector(".spinner_border_box");
+      var spinner_border_box_span1 = document.querySelector(
+        ".spinner_border_box_span1"
+      );
+      var spinner_border_box_span2 = document.querySelector(
+        ".spinner_border_box_span2"
+      );
+
       var box1 = document.querySelector(".box1");
       var box2 = document.querySelector(".box2");
       var box3 = document.querySelector(".box3");
@@ -237,7 +250,6 @@ export default {
           repon_scroll();
         }
         if (min_1000px.matches) {
-          wheel_f();
         }
       }
 
@@ -355,18 +367,35 @@ export default {
 
       window.addEventListener("load", () => {
         setTimeout(() => {
-          spinner_video.style.border = "100px solid white";
+          spinner_border_box.style.border = "50px solid white";
+          spinner_border_box_span1.style.transform = "translateX(-50%)";
+          spinner_border_box_span1.style.opacity = "1";
           setTimeout(() => {
-            spinner_video.style.border = "0px solid white";
-          }, 4000);
-          //휠돌렷을시
-          gage_h[0].innerText = "1";
-          gage_item_color.style.transform = "translateY(0%)";
-          box_wrap.style.transform = `translateY(0px)`;
+            spinner_border_box_span2.style.transform = "translateX(50%)";
+            spinner_border_box_span2.style.opacity = "1";
+          }, 1000);
+          // setTimeout(() => {
+          //   spinner_border_box.style.border = "0px solid white";
+
+          //   setTimeout(() => {
+          //     spinner.style.opacity = "0";
+          //     setTimeout(() => {
+          //       spinner.style.display = "none";
+          //       slide_line1[0].style.width = "90%";
+          //       home_back_con[0].style.top = "40%";
+          //       home_back_con[0].style.opacity = "1";
+          //       //접근전까지 휠이벤 비활성화
+          //       if (min_1000px.matches) {
+          //         wheel_f();
+          //       }
+          //     }, 500);
+          //   }, 1000);
+          // }, 3000);
+
           setTimeout(() => {
             scrollTo(0, 0);
           }, 100);
-        }, 2000);
+        }, 1000);
       });
 
       //  스크롤
@@ -773,20 +802,53 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 1s;
 }
 
-.spinner_video {
+.spinner_border_box {
   width: 100%;
   height: 100%;
   background: transparent;
   position: absolute;
   top: 0px;
   border: 0px solid white;
-  transition: all 2s;
+  transition: all 0.7s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.spinner_video_video {
+.spinner_video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.spinner_border_box_h {
+  color: white;
+  font-size: 70px;
+  width: 1000px;
+  height: 500px;
+  transition: all 2s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner_border_box_span1 {
+  transition: all 2s;
+  opacity: 0;
+  transform: translateX(-100%);
+  display: inline;
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+}
+.spinner_border_box_span2 {
+  transition: all 2s;
+  opacity: 0;
+  transform: translateX(0%);
+  display: inline;
+  margin: 0px;
+  position: absolute;
+  top: -50px;
 }
 </style>

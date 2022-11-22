@@ -2,9 +2,24 @@
   <div class="nav_con">
     <div class="nav_con_gra"></div>
     <div class="nav_con_div">
-      <img src="../../assets/nav/logo.png" alt="" class="nav_con_img" />
-      <img src="../../assets/nav/mlogo.png" alt="" class="nav_con_img_m" />
-      <img src="../../assets/nav/tlogo.png" alt="" class="nav_con_img_t" />
+      <img
+        src="../../assets/nav/logo.png"
+        alt="logo"
+        class="nav_con_img"
+        @click="home_move()"
+      />
+      <img
+        src="../../assets/nav/mlogo.png"
+        alt="mlogo"
+        class="nav_con_img_m"
+        @click="home_move()"
+      />
+      <img
+        src="../../assets/nav/tlogo.png"
+        alt="tlogo"
+        class="nav_con_img_t"
+        @click="home_move()"
+      />
     </div>
 
     <div class="nav_con_center">
@@ -55,6 +70,9 @@ export default {
     //링크이동
     function intro_move(params) {
       location.href = "/intro";
+    }
+    function home_move(params) {
+      location.href = "/";
     }
     onMounted(() => {
       const nav_con_div_h = document.querySelectorAll(".nav_con_div_h");
@@ -124,6 +142,7 @@ export default {
     return {
       state,
       intro_move,
+      home_move,
     };
   },
 };
@@ -194,14 +213,17 @@ export default {
 .nav_con_img {
   width: 150px;
   height: 38px;
+  cursor: pointer;
 }
 .nav_con_img_m {
   width: 80px;
   height: 19.56px;
+  cursor: pointer;
 }
 .nav_con_img_t {
   width: 100px;
   height: 25.39px;
+  cursor: pointer;
 }
 .nav_con_div {
   display: flex;
