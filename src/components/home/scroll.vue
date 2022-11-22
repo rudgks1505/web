@@ -1,5 +1,6 @@
 <template>
-  <div></div>
+  <div class="ggg1"></div>
+  <div class="ggg2"></div>
 </template>
 
 <script>
@@ -18,5 +19,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.ggg1 {
+  width: 100%;
+  height: 100vh;
+  background: darkcyan;
+}
+.ggg2 {
+  width: 100%;
+  height: 100vh;
+  background: darkcyan;
+}
 </style>

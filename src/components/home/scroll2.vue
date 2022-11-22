@@ -14,9 +14,6 @@
       </div>
     </div>
   </div>
-
-  <Nav class="aaa_nav"></Nav>
-
   <div class="gage">
     <h1 class="gage_h">1</h1>
     <div class="gage_item">
@@ -222,6 +219,7 @@ export default {
       var home_back4 = document.querySelector(".home_back4");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
+      var slide_line = document.querySelectorAll(".slide_line");
       var gage_h = document.querySelectorAll(".gage_h");
       var gage_item_color = document.querySelector(".gage_item_color");
       var port1 = document.querySelector(".port1");
@@ -235,6 +233,7 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+      var gage_level = 0;
 
       //반응형
       window.addEventListener("resize", () => {
@@ -273,93 +272,135 @@ export default {
         });
       }
 
-      // 슬라이더함수
-      slide_f();
-      function slide_f(params) {
-        home_con_item_slide_item[0].addEventListener("click", () => {
-          home_back.style.transform = "translateX(0%)";
-          home_back2.style.transform = "translateX(0%)";
-          home_back3.style.transform = "translateX(0%)";
-          home_back4.style.transform = "translateX(0%)";
+      //슬라이더자동
+      function slide_auto(params) {
+        slide_line1[0].style.transition = "all 4s";
+        slide_line1[1].style.transition = "all 4s";
+        slide_line1[2].style.transition = "all 4s";
+        slide_line1[3].style.transition = "all 4s";
+        home_back_con[1].style.top = "50%";
+        home_back_con[1].style.opacity = "0";
+        home_back_con[2].style.top = "50%";
+        home_back_con[2].style.opacity = "0";
+        home_back_con[3].style.top = "50%";
+        home_back_con[3].style.opacity = "0";
+        home_back.style.transform = "translateX(0%)";
+        home_back2.style.transform = "translateX(0%)";
+        home_back3.style.transform = "translateX(0%)";
+        home_back4.style.transform = "translateX(0%)";
+        slide_line1[0].style.width = "90%";
+        slide_line1[1].style.width = "0%";
+        slide_line1[2].style.width = "0%";
+        slide_line1[3].style.width = "0%";
+        setTimeout(() => {
+          home_back_con[0].style.top = "40%";
+          home_back_con[0].style.opacity = "1";
+        }, 500);
 
-          setTimeout(() => {
-            home_back_con[0].style.top = "40%";
-            home_back_con[0].style.opacity = "1";
-          }, 800);
-          home_back_con[1].style.top = "50%";
-          home_back_con[1].style.opacity = "0";
+        setTimeout(() => {
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
           home_back_con[2].style.top = "50%";
           home_back_con[2].style.opacity = "0";
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
-
-          slide_line1[0].style.width = "90%";
-          slide_line1[1].style.width = "0%";
-          slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "0%";
-        });
-        home_con_item_slide_item[1].addEventListener("click", () => {
           home_back.style.transform = "translateX(-100%)";
           home_back2.style.transform = "translateX(-100%)";
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
+          slide_line1[0].style.width = "90%";
+          slide_line1[1].style.width = "90%";
+          slide_line1[2].style.width = "0%";
+          slide_line1[3].style.width = "0%";
           setTimeout(() => {
             home_back_con[1].style.top = "40%";
             home_back_con[1].style.opacity = "1";
-          }, 800);
-          home_back_con[0].style.top = "50%";
-          home_back_con[0].style.opacity = "0";
+          }, 500);
+          setTimeout(() => {
+            home_back_con[0].style.top = "50%";
+            home_back_con[0].style.opacity = "0";
+            home_back_con[1].style.top = "50%";
+            home_back_con[1].style.opacity = "0";
+            home_back_con[3].style.top = "50%";
+            home_back_con[3].style.opacity = "0";
+            home_back.style.transform = "translateX(-200%)";
+            home_back2.style.transform = "translateX(-200%)";
+            home_back3.style.transform = "translateX(-200%)";
+            home_back4.style.transform = "translateX(-200%)";
+            slide_line1[0].style.width = "90%";
+            slide_line1[1].style.width = "90%";
+            slide_line1[2].style.width = "90%";
+            slide_line1[3].style.width = "0%";
+            setTimeout(() => {
+              home_back_con[2].style.top = "40%";
+              home_back_con[2].style.opacity = "1";
+            }, 500);
+            setTimeout(() => {
+              home_back_con[0].style.top = "50%";
+              home_back_con[0].style.opacity = "0";
+              home_back_con[1].style.top = "50%";
+              home_back_con[1].style.opacity = "0";
+              home_back_con[2].style.top = "50%";
+              home_back_con[2].style.opacity = "0";
+              home_back.style.transform = "translateX(-300%)";
+              home_back2.style.transform = "translateX(-300%)";
+              home_back3.style.transform = "translateX(-300%)";
+              home_back4.style.transform = "translateX(-300%)";
+              slide_line1[0].style.width = "90%";
+              slide_line1[1].style.width = "90%";
+              slide_line1[2].style.width = "90%";
+              slide_line1[3].style.width = "90%";
+              setTimeout(() => {
+                home_back_con[3].style.top = "40%";
+                home_back_con[3].style.opacity = "1";
+              }, 500);
+              setTimeout(() => {
+                if (slide_line[0].clientWidth == slide_line1[0].clientWidth) {
+                  slide_line1[0].style.transition = "all 0.1s";
+                  slide_line1[1].style.transition = "all 0.1s";
+                  slide_line1[2].style.transition = "all 0.1s";
+                  slide_line1[3].style.transition = "all 0.1s";
+                  slide_line1[0].style.width = "0%";
+                  slide_line1[1].style.width = "0%";
+                  slide_line1[2].style.width = "0%";
+                  slide_line1[3].style.width = "0%";
+                }
+
+                setTimeout(() => {
+                  slide_auto();
+                }, 100);
+              }, 4000);
+            }, 4000);
+          }, 4000);
+        }, 4000);
+      }
+
+      // 슬라이더수동
+      slide_f();
+      function slide_f(params) {
+        home_con_item_slide_item[0].addEventListener("click", () => {
+          slide_line1[0].style.transition = "all 0.1s";
+          slide_line1[1].style.transition = "all 0.1s";
+          slide_line1[2].style.transition = "all 0.1s";
+          slide_line1[3].style.transition = "all 0.1s";
+          home_back_con[1].style.top = "50%";
+          home_back_con[1].style.opacity = "0";
           home_back_con[2].style.top = "50%";
           home_back_con[2].style.opacity = "0";
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
-
-          slide_line1[1].style.width = "90%";
+          home_back.style.transform = "translateX(0%)";
+          home_back2.style.transform = "translateX(0%)";
+          home_back3.style.transform = "translateX(0%)";
+          home_back4.style.transform = "translateX(0%)";
           slide_line1[0].style.width = "0%";
-          slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "0%";
-        });
-        home_con_item_slide_item[2].addEventListener("click", () => {
-          home_back.style.transform = "translateX(-200%)";
-          home_back2.style.transform = "translateX(-200%)";
-          home_back3.style.transform = "translateX(-200%)";
-          home_back4.style.transform = "translateX(-200%)";
-          setTimeout(() => {
-            home_back_con[2].style.top = "40%";
-            home_back_con[2].style.opacity = "1";
-          }, 800);
-          home_back_con[1].style.top = "50%";
-          home_back_con[1].style.opacity = "0";
-          home_back_con[0].style.top = "50%";
-          home_back_con[0].style.opacity = "0";
-          home_back_con[3].style.top = "50%";
-          home_back_con[3].style.opacity = "0";
-
-          slide_line1[2].style.width = "90%";
-          slide_line1[1].style.width = "0%";
-          slide_line1[0].style.width = "0%";
-          slide_line1[3].style.width = "0%";
-        });
-        home_con_item_slide_item[3].addEventListener("click", () => {
-          home_back.style.transform = "translateX(-300%)";
-          home_back2.style.transform = "translateX(-300%)";
-          home_back3.style.transform = "translateX(-300%)";
-          home_back4.style.transform = "translateX(-300%)";
-          setTimeout(() => {
-            home_back_con[3].style.top = "40%";
-            home_back_con[3].style.opacity = "1";
-          }, 800);
-          home_back_con[1].style.top = "50%";
-          home_back_con[1].style.opacity = "0";
-          home_back_con[2].style.top = "50%";
-          home_back_con[2].style.opacity = "0";
-          home_back_con[0].style.top = "50%";
-          home_back_con[0].style.opacity = "0";
-
-          slide_line1[3].style.width = "90%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
-          slide_line1[0].style.width = "0%";
+          slide_line1[3].style.width = "0%";
+          setTimeout(() => {
+            home_back_con[0].style.top = "40%";
+            home_back_con[0].style.opacity = "1";
+          }, 500);
         });
       }
 
@@ -374,23 +415,21 @@ export default {
             spinner_border_box_span2.style.transform = "translateX(50%)";
             spinner_border_box_span2.style.opacity = "1";
           }, 1000);
-          // setTimeout(() => {
-          //   spinner_border_box.style.border = "0px solid white";
+          setTimeout(() => {
+            spinner_border_box.style.border = "0px solid white";
 
-          //   setTimeout(() => {
-          //     spinner.style.opacity = "0";
-          //     setTimeout(() => {
-          //       spinner.style.display = "none";
-          //       slide_line1[0].style.width = "90%";
-          //       home_back_con[0].style.top = "40%";
-          //       home_back_con[0].style.opacity = "1";
-          //       //접근전까지 휠이벤 비활성화
-          //       if (min_1000px.matches) {
-          //         wheel_f();
-          //       }
-          //     }, 500);
-          //   }, 1000);
-          // }, 3000);
+            setTimeout(() => {
+              spinner.style.opacity = "0";
+              setTimeout(() => {
+                spinner.style.display = "none";
+                //접근전까지 휠이벤 비활성화
+                if (min_1000px.matches) {
+                  wheel_f();
+                  slide_auto();
+                }
+              }, 500);
+            }, 1000);
+          }, 3000);
 
           setTimeout(() => {
             scrollTo(0, 0);
@@ -583,12 +622,6 @@ export default {
   align-items: center;
   justify-content: center;
 }
-/* 네브바 */
-.aaa_nav {
-  position: fixed;
-  top: 0px;
-  z-index: 200;
-}
 /* 슬라이더클릭 */
 .home_con_slide {
   width: 100%;
@@ -633,7 +666,7 @@ export default {
   position: absolute;
   top: 0;
   z-index: 3;
-  transition: all 2s;
+  transition: all 4s;
   left: 5%;
 }
 /* 슬라이더 */
@@ -798,7 +831,6 @@ export default {
   top: 0px;
   z-index: 300;
   background: white;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;

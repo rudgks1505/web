@@ -29,25 +29,27 @@
         </h1>
         <div class="nav_con_line"></div>
         <div class="nav_con_div_dropmenu">
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move()">
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(1)">
             CEO인사말
           </h1>
-          <h1 class="nav_con_div_dropmenu_h">연혁</h1>
-          <h1 class="nav_con_div_dropmenu_h">조직도</h1>
-          <h1 class="nav_con_div_dropmenu_h">CI소개</h1>
-          <h1 class="nav_con_div_dropmenu_h">찾아오시는길</h1>
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(2)">연혁</h1>
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(3)">조직도</h1>
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(4)">CI소개</h1>
+          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(5)">
+            찾아오시는길
+          </h1>
         </div>
       </div>
       <div class="nav_con_div">
-        <h1 class="nav_con_div_h">포트폴리오</h1>
+        <h1 class="nav_con_div_h" @click="portfo_move()">포트폴리오</h1>
         <div class="nav_con_line"></div>
       </div>
       <div class="nav_con_div">
-        <h1 class="nav_con_div_h">문의&의뢰</h1>
+        <h1 class="nav_con_div_h" @click="qest_move()">문의&의뢰</h1>
         <div class="nav_con_line"></div>
       </div>
       <div class="nav_con_div">
-        <h1 class="nav_con_div_h">인재채용</h1>
+        <h1 class="nav_con_div_h" @click="hire_move()">인재채용</h1>
         <div class="nav_con_line"></div>
       </div>
     </div>
@@ -68,11 +70,20 @@ export default {
     });
 
     //링크이동
-    function intro_move(params) {
-      location.href = "/intro";
+    function intro_move(i) {
+      location.href = `/intro${i}`;
     }
     function home_move(params) {
       location.href = "/";
+    }
+    function portfo_move(params) {
+      location.href = "/portfo";
+    }
+    function qest_move(params) {
+      location.href = "/qest";
+    }
+    function hire_move(params) {
+      location.href = "/hire";
     }
     onMounted(() => {
       const nav_con_div_h = document.querySelectorAll(".nav_con_div_h");
@@ -111,6 +122,7 @@ export default {
         });
         nav_con_div_h[0].addEventListener("mouseenter", () => {
           nav_con_div_dropmenu.style.opacity = "1";
+          nav_con_div_dropmenu.style.visibility = "visible";
         });
       }
       for (let index = 0; index < nav_con_div_h.length; index++) {
@@ -121,6 +133,7 @@ export default {
 
       nav_con_div_dropmenu.addEventListener("mouseleave", () => {
         nav_con_div_dropmenu.style.opacity = "0";
+        nav_con_div_dropmenu.style.visibility = "hidden";
       });
 
       for (let index = 0; index < nav_con_div_dropmenu_h.length; index++) {
@@ -143,6 +156,9 @@ export default {
       state,
       intro_move,
       home_move,
+      portfo_move,
+      qest_move,
+      hire_move,
     };
   },
 };
@@ -208,7 +224,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  top: 0px;
+  z-index: 200;
 }
 .nav_con_img {
   width: 150px;
