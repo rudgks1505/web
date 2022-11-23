@@ -78,6 +78,8 @@ export default {
   width: 100%;
   display: flex;
   color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 .port2_item1_img {
   width: 360px;

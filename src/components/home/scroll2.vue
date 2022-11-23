@@ -14,12 +14,16 @@
       </div>
     </div>
   </div>
-  <div class="gage">
-    <h1 class="gage_h">1</h1>
-    <div class="gage_item">
-      <div class="gage_item_color"></div>
-    </div>
-    <h1 class="gage_h">4</h1>
+  <div class="gage_con">
+    <div
+      class="gage_item"
+      style="height: 50px; border-radius: 10px; background: #0053c9"
+    ></div>
+    <div class="gage_item"></div>
+    <div class="gage_item"></div>
+    <div class="gage_item"></div>
+    <div class="gage_item"></div>
+    <div class="gage_item"></div>
   </div>
 
   <div class="box">
@@ -166,6 +170,42 @@
           </div>
         </div>
       </div>
+      <div class="box5"></div>
+      <div class="box6">
+        <div class="intro6_back">
+          <div class="intro6_back_centerdiv">
+            <div>
+              <div style="display: flex; align-items: center">
+                <h1 class="intro6_back_centerdiv_h">LOCATION</h1>
+                <div class="intro6_back_line"></div>
+              </div>
+              <div style="margin-left: 290px">
+                <div class="intro6_textbox">
+                  <h3>(주)게임인스</h3>
+                  <p class="intro6_textbox_p">부산광역시 사상구 백양대로 684</p>
+                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.548042668115!2d128.9868924160836!3d35.1678907655588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568ea7f35096129%3A0x26e62be76f0388cf!2z67aA7IKw6rSR7Jet7IucIOyCrOyDgeq1rCDrsLHslpHrjIDroZwgNjg0!5e0!3m2!1sko!2skr!4v1668045718480!5m2!1sko!2skr"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="googlemap"
+                ></iframe>
+                <div class="intro6_textbox" style="margin-top: 85px">
+                  <h3>지하철</h3>
+                  <p>부산2호선 사상역</p>
+                </div>
+                <div class="intro6_textbox">
+                  <h3>버스</h3>
+                  <p class="intro6_textbox_p">
+                    지선 128-1, 133, 169-1, 62, 129-1 신라대 입구 하차
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="box4"><footer-1></footer-1></div>
     </div>
   </div>
@@ -195,24 +235,31 @@ export default {
     });
 
     onMounted(() => {
+      var body = document.querySelector("body");
       var box = document.querySelector(".box");
       var spinner = document.querySelector(".spinner");
       var spinner_border_box = document.querySelector(".spinner_border_box");
+      var spinner_border_box_h = document.querySelector(
+        ".spinner_border_box_h"
+      );
       var spinner_border_box_span1 = document.querySelector(
         ".spinner_border_box_span1"
       );
       var spinner_border_box_span2 = document.querySelector(
         ".spinner_border_box_span2"
       );
-
+      var gage_item = document.querySelectorAll(".gage_item");
       var box1 = document.querySelector(".box1");
       var box2 = document.querySelector(".box2");
       var box3 = document.querySelector(".box3");
       var box4 = document.querySelector(".box4");
+      var box5 = document.querySelector(".box5");
+      var box6 = document.querySelector(".box6");
       var box_wrap = document.querySelector(".box_wrap");
       var home_con_item_slide_item = document.querySelectorAll(
         ".home_con_item_slide_item"
       );
+      var home_con_h = document.querySelector(".home_con_h");
       var home_back = document.querySelector(".home_back");
       var home_back2 = document.querySelector(".home_back2");
       var home_back3 = document.querySelector(".home_back3");
@@ -220,8 +267,6 @@ export default {
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
       var slide_line = document.querySelectorAll(".slide_line");
-      var gage_h = document.querySelectorAll(".gage_h");
-      var gage_item_color = document.querySelector(".gage_item_color");
       var port1 = document.querySelector(".port1");
       var portline = document.querySelector(".portline");
       var portline_1 = document.querySelector(".portline_1");
@@ -233,7 +278,6 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
-      var gage_level = 0;
 
       //반응형
       window.addEventListener("resize", () => {
@@ -244,136 +288,139 @@ export default {
       function respon_f(params) {
         if (max_600px.matches) {
           repon_scroll();
+          load_f(0);
         }
         if (min_600px_max_1000px.matches) {
           repon_scroll();
+          load_f(0);
         }
         if (min_1000px.matches) {
+          load_f(50);
         }
       }
 
       //태블릿,모바일에서 스크롤이벤트
       function repon_scroll(params) {
-        box.addEventListener("scroll", () => {
-          if (scrollY >= window.innerHeight / 2) {
+        window.addEventListener("scroll", () => {
+          if (scrollY > window.innerHeight * 0.5) {
             portline.style.width = "100%";
             port1.style.transform = "translateX(0px)";
             port1.style.opacity = "1";
           }
-          // if (scrollY >= window.innerHeight) {
-          //   portline_1.style.width = "100%";
-          //   port2_item_item.style.transform = "translateY(0px)";
-          //   port2_item_item.style.opacity = "1";
-          //   port2_item1_l.style.transform = "translateY(0px)";
-          //   port2_item1_l.style.opacity = "1";
-          //   port2_item1_r.style.transform = "translateY(0px)";
-          //   port2_item1_r.style.opacity = "1";
-          // }
+          if (scrollY >= window.innerHeight * 1.5) {
+            portline_1.style.width = "100%";
+            port2_item_item.style.transform = "translateY(0px)";
+            port2_item_item.style.opacity = "1";
+            port2_item1_l.style.transform = "translateY(0px)";
+            port2_item1_l.style.opacity = "1";
+            port2_item1_r.style.transform = "translateY(0px)";
+            port2_item1_r.style.opacity = "1";
+          }
         });
       }
 
       //슬라이더자동
-      function slide_auto(params) {
-        slide_line1[0].style.transition = "all 4s";
-        slide_line1[1].style.transition = "all 4s";
-        slide_line1[2].style.transition = "all 4s";
-        slide_line1[3].style.transition = "all 4s";
-        home_back_con[1].style.top = "50%";
-        home_back_con[1].style.opacity = "0";
-        home_back_con[2].style.top = "50%";
-        home_back_con[2].style.opacity = "0";
-        home_back_con[3].style.top = "50%";
-        home_back_con[3].style.opacity = "0";
-        home_back.style.transform = "translateX(0%)";
-        home_back2.style.transform = "translateX(0%)";
-        home_back3.style.transform = "translateX(0%)";
-        home_back4.style.transform = "translateX(0%)";
-        slide_line1[0].style.width = "40%";
-        slide_line1[1].style.width = "0%";
-        slide_line1[2].style.width = "0%";
-        slide_line1[3].style.width = "0%";
-        setTimeout(() => {
-          home_back_con[0].style.top = "40%";
-          home_back_con[0].style.opacity = "1";
-        }, 500);
+      // function slide_auto(params) {
+      //   slide_line1[0].style.transition = "all 4s";
+      //   slide_line1[1].style.transition = "all 4s";
+      //   slide_line1[2].style.transition = "all 4s";
+      //   slide_line1[3].style.transition = "all 4s";
+      //   home_back_con[1].style.top = "50%";
+      //   home_back_con[1].style.opacity = "0";
+      //   home_back_con[2].style.top = "50%";
+      //   home_back_con[2].style.opacity = "0";
+      //   home_back_con[3].style.top = "50%";
+      //   home_back_con[3].style.opacity = "0";
+      //   home_back.style.transform = "translateX(0%)";
+      //   home_back2.style.transform = "translateX(0%)";
+      //   home_back3.style.transform = "translateX(0%)";
+      //   home_back4.style.transform = "translateX(0%)";
+      //   slide_line1[0].style.width = "40%";
+      //   slide_line1[1].style.width = "0%";
+      //   slide_line1[2].style.width = "0%";
+      //   slide_line1[3].style.width = "0%";
+      //   setTimeout(() => {
+      //     home_back_con[0].style.top = "40%";
+      //     home_back_con[0].style.opacity = "1";
+      //   }, 500);
 
-        setTimeout(() => {
-          home_back_con[0].style.top = "50%";
-          home_back_con[0].style.opacity = "0";
-          home_back_con[2].style.top = "50%";
-          home_back_con[2].style.opacity = "0";
-          home_back_con[3].style.top = "50%";
-          home_back_con[3].style.opacity = "0";
-          home_back.style.transform = "translateX(-100%)";
-          home_back2.style.transform = "translateX(-100%)";
-          home_back3.style.transform = "translateX(-100%)";
-          home_back4.style.transform = "translateX(-100%)";
-          slide_line1[0].style.width = "40%";
-          slide_line1[1].style.width = "40%";
-          slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "0%";
-          setTimeout(() => {
-            home_back_con[1].style.top = "40%";
-            home_back_con[1].style.opacity = "1";
-          }, 500);
-          setTimeout(() => {
-            home_back_con[0].style.top = "50%";
-            home_back_con[0].style.opacity = "0";
-            home_back_con[1].style.top = "50%";
-            home_back_con[1].style.opacity = "0";
-            home_back_con[3].style.top = "50%";
-            home_back_con[3].style.opacity = "0";
-            home_back.style.transform = "translateX(-200%)";
-            home_back2.style.transform = "translateX(-200%)";
-            home_back3.style.transform = "translateX(-200%)";
-            home_back4.style.transform = "translateX(-200%)";
-            slide_line1[0].style.width = "40%";
-            slide_line1[1].style.width = "40%";
-            slide_line1[2].style.width = "40%";
-            slide_line1[3].style.width = "0%";
-            setTimeout(() => {
-              home_back_con[2].style.top = "40%";
-              home_back_con[2].style.opacity = "1";
-            }, 500);
-            setTimeout(() => {
-              home_back_con[0].style.top = "50%";
-              home_back_con[0].style.opacity = "0";
-              home_back_con[1].style.top = "50%";
-              home_back_con[1].style.opacity = "0";
-              home_back_con[2].style.top = "50%";
-              home_back_con[2].style.opacity = "0";
-              home_back.style.transform = "translateX(-300%)";
-              home_back2.style.transform = "translateX(-300%)";
-              home_back3.style.transform = "translateX(-300%)";
-              home_back4.style.transform = "translateX(-300%)";
-              slide_line1[0].style.width = "40%";
-              slide_line1[1].style.width = "40%";
-              slide_line1[2].style.width = "40%";
-              slide_line1[3].style.width = "40%";
-              setTimeout(() => {
-                home_back_con[3].style.top = "40%";
-                home_back_con[3].style.opacity = "1";
-              }, 500);
-              setTimeout(() => {
-                if (slide_line[0].clientWidth == slide_line1[0].clientWidth) {
-                  slide_line1[0].style.transition = "all 0.1s";
-                  slide_line1[1].style.transition = "all 0.1s";
-                  slide_line1[2].style.transition = "all 0.1s";
-                  slide_line1[3].style.transition = "all 0.1s";
-                  slide_line1[0].style.width = "0%";
-                  slide_line1[1].style.width = "0%";
-                  slide_line1[2].style.width = "0%";
-                  slide_line1[3].style.width = "0%";
-                }
+      //   setTimeout(() => {
+      //     home_back_con[0].style.top = "50%";
+      //     home_back_con[0].style.opacity = "0";
+      //     home_back_con[2].style.top = "50%";
+      //     home_back_con[2].style.opacity = "0";
+      //     home_back_con[3].style.top = "50%";
+      //     home_back_con[3].style.opacity = "0";
+      //     home_back.style.transform = "translateX(-100%)";
+      //     home_back2.style.transform = "translateX(-100%)";
+      //     home_back3.style.transform = "translateX(-100%)";
+      //     home_back4.style.transform = "translateX(-100%)";
+      //     slide_line1[0].style.width = "40%";
+      //     slide_line1[1].style.width = "40%";
+      //     slide_line1[2].style.width = "0%";
+      //     slide_line1[3].style.width = "0%";
+      //     setTimeout(() => {
+      //       home_back_con[1].style.top = "40%";
+      //       home_back_con[1].style.opacity = "1";
+      //     }, 500);
+      //     setTimeout(() => {
+      //       home_back_con[0].style.top = "50%";
+      //       home_back_con[0].style.opacity = "0";
+      //       home_back_con[1].style.top = "50%";
+      //       home_back_con[1].style.opacity = "0";
+      //       home_back_con[3].style.top = "50%";
+      //       home_back_con[3].style.opacity = "0";
+      //       home_back.style.transform = "translateX(-200%)";
+      //       home_back2.style.transform = "translateX(-200%)";
+      //       home_back3.style.transform = "translateX(-200%)";
+      //       home_back4.style.transform = "translateX(-200%)";
+      //       slide_line1[0].style.width = "40%";
+      //       slide_line1[1].style.width = "40%";
+      //       slide_line1[2].style.width = "40%";
+      //       slide_line1[3].style.width = "0%";
+      //       setTimeout(() => {
+      //         home_back_con[2].style.top = "40%";
+      //         home_back_con[2].style.opacity = "1";
+      //       }, 500);
+      //       setTimeout(() => {
+      //         home_back_con[0].style.top = "50%";
+      //         home_back_con[0].style.opacity = "0";
+      //         home_back_con[1].style.top = "50%";
+      //         home_back_con[1].style.opacity = "0";
+      //         home_back_con[2].style.top = "50%";
+      //         home_back_con[2].style.opacity = "0";
+      //         home_back.style.transform = "translateX(-300%)";
+      //         home_back2.style.transform = "translateX(-300%)";
+      //         home_back3.style.transform = "translateX(-300%)";
+      //         home_back4.style.transform = "translateX(-300%)";
+      //         slide_line1[0].style.width = "40%";
+      //         slide_line1[1].style.width = "40%";
+      //         slide_line1[2].style.width = "40%";
+      //         slide_line1[3].style.width = "40%";
+      //         setTimeout(() => {
+      //           home_back_con[3].style.top = "40%";
+      //           home_back_con[3].style.opacity = "1";
+      //         }, 500);
+      //         setTimeout(() => {
+      //           if (slide_line[0].clientWidth == slide_line1[0].clientWidth) {
+      //             slide_line1[0].style.transition = "all 0.1s";
+      //             slide_line1[1].style.transition = "all 0.1s";
+      //             slide_line1[2].style.transition = "all 0.1s";
+      //             slide_line1[3].style.transition = "all 0.1s";
+      //             slide_line1[0].style.width = "0%";
+      //             slide_line1[1].style.width = "0%";
+      //             slide_line1[2].style.width = "0%";
+      //             slide_line1[3].style.width = "0%";
+      //           }
 
-                setTimeout(() => {
-                  slide_auto();
-                }, 100);
-              }, 4000);
-            }, 4000);
-          }, 4000);
-        }, 4000);
-      }
+      //           setTimeout(() => {
+      //             slide_auto();
+      //           }, 100);
+      //         }, 4000);
+      //       }, 4000);
+      //     }, 4000);
+      //   }, 4000);
+      // }
 
       // 슬라이더수동
       slide_f();
@@ -407,8 +454,8 @@ export default {
           slide_line1[1].style.transition = "all 4s";
           slide_line1[2].style.transition = "all 4s";
           slide_line1[3].style.transition = "all 4s";
-          home_back_con[1].style.top = "50%";
-          home_back_con[1].style.opacity = "0";
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
           home_back_con[2].style.top = "50%";
           home_back_con[2].style.opacity = "0";
           home_back_con[3].style.top = "50%";
@@ -417,7 +464,7 @@ export default {
           home_back2.style.transform = "translateX(-100%)";
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
-          slide_line1[0].style.width = "40%";
+          slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "40%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -433,16 +480,16 @@ export default {
           slide_line1[3].style.transition = "all 4s";
           home_back_con[1].style.top = "50%";
           home_back_con[1].style.opacity = "0";
-          home_back_con[2].style.top = "50%";
-          home_back_con[2].style.opacity = "0";
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
           home_back_con[3].style.top = "50%";
           home_back_con[3].style.opacity = "0";
           home_back.style.transform = "translateX(-200%)";
           home_back2.style.transform = "translateX(-200%)";
           home_back3.style.transform = "translateX(-200%)";
           home_back4.style.transform = "translateX(-200%)";
-          slide_line1[0].style.width = "40%";
-          slide_line1[1].style.width = "40%";
+          slide_line1[0].style.width = "0%";
+          slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "40%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
@@ -459,15 +506,15 @@ export default {
           home_back_con[1].style.opacity = "0";
           home_back_con[2].style.top = "50%";
           home_back_con[2].style.opacity = "0";
-          home_back_con[3].style.top = "50%";
-          home_back_con[3].style.opacity = "0";
+          home_back_con[0].style.top = "50%";
+          home_back_con[0].style.opacity = "0";
           home_back.style.transform = "translateX(-300%)";
           home_back2.style.transform = "translateX(-300%)";
           home_back3.style.transform = "translateX(-300%)";
           home_back4.style.transform = "translateX(-300%)";
-          slide_line1[0].style.width = "40%";
-          slide_line1[1].style.width = "40%";
-          slide_line1[2].style.width = "40%";
+          slide_line1[0].style.width = "0%";
+          slide_line1[1].style.width = "0%";
+          slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "40%";
           setTimeout(() => {
             home_back_con[3].style.top = "40%";
@@ -477,46 +524,200 @@ export default {
       }
 
       //로드시
+      function load_f(latex) {
+        window.addEventListener("load", () => {
+          body.style.overflowY = "hidden";
+          spinner_border_box_span1.style.transition = `all 2s`;
+          spinner_border_box_span2.style.transition = `all 2s`;
 
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          spinner_border_box.style.border = "50px solid white";
-          spinner_border_box_span1.style.transform = "translateX(-50%)";
-          spinner_border_box_span1.style.opacity = "1";
           setTimeout(() => {
-            spinner_border_box_span2.style.transform = "translateX(50%)";
-            spinner_border_box_span2.style.opacity = "1";
-          }, 1000);
-          setTimeout(() => {
-            spinner_border_box.style.border = "0px solid white";
+            if (min_1000px.matches) {
+              spinner_border_box.style.border = "50px solid white";
+            }
+            setTimeout(() => {
+              spinner_border_box_span1.style.transform = `translateX(-${latex}%)`;
+              spinner_border_box_span1.style.opacity = "1";
+            }, 100);
 
             setTimeout(() => {
-              spinner.style.opacity = "0";
-              setTimeout(() => {
-                spinner.style.display = "none";
-                //접근전까지 휠이벤 비활성화
-                if (min_1000px.matches) {
-                  wheel_f();
-                  slide_auto();
-                }
-              }, 500);
+              spinner_border_box_span2.style.transform = `translateX(${latex}%)`;
+              spinner_border_box_span2.style.opacity = "1";
             }, 1000);
-          }, 3000);
+            setTimeout(() => {
+              spinner_border_box.style.border = "0px solid white";
+              spinner_border_box_span1.style.transition = `all 0.1s`;
+              spinner_border_box_span2.style.transition = `all 0.1s`;
+              setTimeout(() => {
+                spinner.style.opacity = "0";
+                setTimeout(() => {
+                  setTimeout(() => {
+                    slide_line1[0].style.width = "40%";
+                    home_back_con[0].style.top = "40%";
+                    home_back_con[0].style.opacity = "1";
+                    spinner.style.display = "none";
+                  }, 1000);
+                  //접근전까지 휠이벤 비활성화
+                  if (min_1000px.matches) {
+                    wheel_f();
+                    body.style.overflowY = "hidden";
+                  }
+                }, 500);
+              }, 1000);
+            }, 3000);
 
+            setTimeout(() => {
+              scrollTo(0, 0);
+            }, 100);
+          }, 1000);
+        });
+      }
+
+      //카카오연결시 브라우저이동
+      /* [브라우저 ready 상태 정의 : 최초 호출 상태] */
+      document.addEventListener("DOMContentLoaded", ready);
+      function ready() {
+        console.log("");
+        console.log("[window ready] : [start]");
+        console.log("");
+
+        // [현재 접속된 url 정보 및 접속 브라우저 확인]
+        // [카카오톡 인앱 브라우저 >> 안드로이드 모바일 기종 인 경우 >> 크롬 브라우저 이동 실시]
+        var Url = location.href;
+        var Agent = navigator.userAgent.toLowerCase();
+        console.log("");
+        console.log("[window ready] : [접속 Url] : " + Url);
+        console.log("[window ready] : [접속 Agent] : " + Agent);
+        console.log("");
+        //alert(Agent);
+        if (Agent.includes("kakao")) {
+          // 카카오 브라우저로 실행 시킨 경우
+          // 먼저, 카카오 인앱 브라우저 닫기
+          location.href = "kakaotalk://inappbrowser/close";
+          if (navigator.userAgent.match(/iPhone|iPad/i)) {
+            // 아이폰 접속 경우
+            console.log("");
+            console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
+            console.log("");
+          } else {
+            // 안드로이드 접속 경우
+            console.log("");
+            console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
+            console.log("");
+            // 크롬으로 새창 열기
+            location.href =
+              "intent://" +
+              location.href.replace(/https?:\/\//i, "") +
+              "#Intent;scheme=http;package=com.android.chrome;end";
+          }
+        }
+      }
+
+      //게이지클릭
+      gege_item_f();
+      function gege_item_f(params) {
+        gage_item[0].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-0px)`;
+          gage_item[0].style.height = "50px";
+          gage_item[0].style.borderRadius = "10px";
+          gage_item[0].style.background = "#0053c9";
+          gage_item[1].style.height = "15px";
+          gage_item[1].style.borderRadius = "50%";
+          gage_item[1].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[3].style.height = "15px";
+          gage_item[3].style.borderRadius = "50%";
+          gage_item[3].style.background = "#808080";
+          gage_item[4].style.height = "15px";
+          gage_item[4].style.borderRadius = "50%";
+          gage_item[4].style.background = "#808080";
+          gage_item[5].style.height = "15px";
+          gage_item[5].style.borderRadius = "50%";
+          gage_item[5].style.background = "#808080";
+        });
+        gage_item[1].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
+          gage_item[1].style.height = "50px";
+          gage_item[1].style.borderRadius = "10px";
+          gage_item[1].style.background = "#0053c9";
+          gage_item[0].style.height = "15px";
+          gage_item[0].style.borderRadius = "50%";
+          gage_item[0].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[3].style.height = "15px";
+          gage_item[3].style.borderRadius = "50%";
+          gage_item[3].style.background = "#808080";
+          gage_item[4].style.height = "15px";
+          gage_item[4].style.borderRadius = "50%";
+          gage_item[4].style.background = "#808080";
+          gage_item[5].style.height = "15px";
+          gage_item[5].style.borderRadius = "50%";
+          gage_item[5].style.background = "#808080";
           setTimeout(() => {
-            scrollTo(0, 0);
-          }, 100);
-        }, 1000);
-      });
+            portline.style.width = "100%";
+            port1.style.transform = "translateX(0px)";
+            port1.style.opacity = "1";
+          }, 1000);
+        });
+        gage_item[2].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-${window.innerHeight * 2}px)`;
+          gage_item[2].style.height = "50px";
+          gage_item[2].style.borderRadius = "10px";
+          gage_item[2].style.background = "#0053c9";
+          gage_item[1].style.height = "15px";
+          gage_item[1].style.borderRadius = "50%";
+          gage_item[1].style.background = "#808080";
+          gage_item[0].style.height = "15px";
+          gage_item[0].style.borderRadius = "50%";
+          gage_item[0].style.background = "#808080";
+          gage_item[3].style.height = "15px";
+          gage_item[3].style.borderRadius = "50%";
+          gage_item[3].style.background = "#808080";
+          gage_item[4].style.height = "15px";
+          gage_item[4].style.borderRadius = "50%";
+          gage_item[4].style.background = "#808080";
+          gage_item[5].style.height = "15px";
+          gage_item[5].style.borderRadius = "50%";
+          gage_item[5].style.background = "#808080";
+          setTimeout(() => {
+            portline_1.style.width = "100%";
+            port2_item_item.style.transform = "translateY(0px)";
+            port2_item_item.style.opacity = "1";
+            port2_item1_l.style.transform = "translateY(0px)";
+            port2_item1_l.style.opacity = "1";
+            port2_item1_r.style.transform = "translateY(0px)";
+            port2_item1_r.style.opacity = "1";
+          }, 1000);
+        });
+        gage_item[3].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-${
+            window.innerHeight * 2 + box4.clientHeight
+          }px)`;
+          gage_item[3].style.height = "50px";
+          gage_item[3].style.borderRadius = "10px";
+          gage_item[3].style.background = "#0053c9";
+          gage_item[1].style.height = "15px";
+          gage_item[1].style.borderRadius = "50%";
+          gage_item[1].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[0].style.height = "15px";
+          gage_item[0].style.borderRadius = "50%";
+          gage_item[0].style.background = "#808080";
+        });
+      }
 
       //  스크롤
       function wheel_f() {
         window.addEventListener("wheel", (e) => {
           if (box1.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY < 0) {
-              gage_h[0].innerText = "2";
-              gage_item_color.style.transform = "translateY(100%)";
               box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
+              body.style.background = "black";
               setTimeout(() => {
                 portline.style.width = "100%";
                 port1.style.transform = "translateX(0px)";
@@ -525,17 +726,13 @@ export default {
             }
           } else if (box2.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
-              gage_h[0].innerText = "1";
-              gage_item_color.style.transform = "translateY(0%)";
               box_wrap.style.transform = `translateY(0px)`;
             } else if (e.wheelDeltaY < 0) {
-              gage_h[0].innerText = "3";
-              gage_h[0].style.color = "black";
-              gage_h[1].style.color = "black";
-              gage_item_color.style.transform = "translateY(200%)";
+              body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
               }px)`;
+
               setTimeout(() => {
                 portline_1.style.width = "100%";
                 port2_item_item.style.transform = "translateY(0px)";
@@ -548,16 +745,35 @@ export default {
             }
           } else if (box3.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
-              gage_h[0].innerText = "2";
-              gage_h[0].style.color = "white";
-              gage_h[1].style.color = "white";
-              gage_item_color.style.transform = "translateY(100%)";
+              body.style.background = "black";
               box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
             } else if (e.wheelDeltaY < 0) {
-              gage_h[0].innerText = "4";
-              gage_item_color.style.transform = "translateY(300%)";
+              body.style.background = "black";
               box_wrap.style.transform = `translateY(-${
-                window.innerHeight * 2 + box4.clientHeight
+                window.innerHeight * 3
+              }px)`;
+            }
+          } else if (box5.getBoundingClientRect().y === 0) {
+            if (e.wheelDeltaY > 0) {
+              body.style.background = "white";
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 2
+              }px)`;
+            } else if (e.wheelDeltaY < 0) {
+              body.style.background = "white";
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 4
+              }px)`;
+            }
+          } else if (box6.getBoundingClientRect().y === 0) {
+            if (e.wheelDeltaY > 0) {
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 3
+              }px)`;
+              body.style.background = "black";
+            } else if (e.wheelDeltaY < 0) {
+              box_wrap.style.transform = `translateY(-${
+                window.innerHeight * 4 + box4.clientHeight
               }px)`;
             }
           } else if (
@@ -565,10 +781,8 @@ export default {
             window.innerHeight - box4.clientHeight
           ) {
             if (e.wheelDeltaY > 0) {
-              gage_h[0].innerText = "3";
-              gage_item_color.style.transform = "translateY(200%)";
               box_wrap.style.transform = `translateY(-${
-                window.innerHeight * 2
+                window.innerHeight * 4
               }px)`;
             }
           }
@@ -585,14 +799,14 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
-  .home_con_h {
-    font-size: 30px;
-  }
   .gage {
     display: none;
   }
   .home_con_item {
     width: 300px;
+  }
+  .home_con_h {
+    font-size: 30px;
   }
   .port2_item1_img {
     width: 100px;
@@ -602,23 +816,38 @@ export default {
     font-size: 18px;
   }
   .port2_h3 {
-    font-size: 5px;
+    font-size: 10px;
   }
   .box {
     overflow: scroll;
     height: auto;
   }
+  .spinner_border_box_h {
+    font-size: 30px;
+  }
+  .spinner_border_box_span2 {
+    top: 0px;
+  }
+  .port2_item1_l {
+    width: 100%;
+  }
+  .port2_item1_r {
+    width: 100%;
+  }
+  .gage_con {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
-  .home_con_h {
-    font-size: 40px;
-  }
   .gage {
     display: none;
   }
   .home_con_item {
     width: 600px;
+  }
+  .home_con_h {
+    font-size: 40px;
   }
   .port2_item1_img {
     width: 185.57px;
@@ -634,17 +863,33 @@ export default {
     overflow: scroll;
     height: auto;
   }
+  .spinner_border_box_h {
+    font-size: 60px;
+  }
+
+  .spinner_border_box_span2 {
+    top: -50px;
+  }
+  .port2_item1_l {
+    width: 100%;
+  }
+  .port2_item1_r {
+    width: 100%;
+  }
+  .gage_con {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1025px) {
-  .home_con_h {
-    font-size: 70px;
-  }
   .gage {
     display: block;
   }
   .home_con_item {
     width: 1400px;
+  }
+  .home_con_h {
+    font-size: 70px;
   }
   .port2_item1_img {
     width: 360px;
@@ -659,6 +904,18 @@ export default {
   .box {
     overflow: hidden;
     height: 100vh;
+  }
+  .spinner_border_box_h {
+    font-size: 60px;
+  }
+  .port2_item1_l {
+    width: 50%;
+  }
+  .port2_item1_r {
+    width: 50%;
+  }
+  .gage_con {
+    display: block;
   }
 }
 * {
@@ -675,13 +932,22 @@ export default {
 .box2 {
   width: 100%;
   height: 100vh;
-  background: black;
 }
 .box3 {
   width: 100%;
   height: 100vh;
 }
 .box_wrap {
+  transition: all 1s;
+}
+.box5 {
+  width: 100%;
+  height: 100vh;
+  transition: all 1s;
+}
+.box6 {
+  width: 100%;
+  height: 100vh;
   transition: all 1s;
 }
 /* 배경전체틀 */
@@ -811,31 +1077,23 @@ export default {
   opacity: 0;
 }
 /* 게이지 */
-.gage {
+.gage_con {
   position: fixed;
   width: 100px;
+  height: auto;
   z-index: 100;
-  top: 30%;
   left: 100px;
+  top: 40%;
 }
 .gage_item {
-  width: 5px;
-  height: 150px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
   background: #808080;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
-.gage_h {
-  text-align: center;
-  color: white;
-  transition: all 0.5s;
-}
-.gage_item_color {
-  width: 5px;
-  height: 25%;
-  background: #0053c9;
-  transition: all 1s;
-}
+
 /* 포트라인 */
 .portline {
   width: 0px;
@@ -865,6 +1123,8 @@ export default {
   width: 100%;
   display: flex;
   color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 .port2_item1_img {
   display: block;
@@ -882,14 +1142,12 @@ export default {
   margin-bottom: 60px;
 }
 .port2_item1_l {
-  width: 50%;
   text-align: center;
   transition: all 1s;
   opacity: 0;
   transform: translateY(-50px);
 }
 .port2_item1_r {
-  width: 50%;
   text-align: center;
   transition: all 1s;
   opacity: 0;
@@ -928,31 +1186,104 @@ export default {
 }
 .spinner_border_box_h {
   color: white;
-  font-size: 70px;
-  width: 1000px;
-  height: 500px;
-  transition: all 2s;
+  width: 1400px;
+  height: 40%;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .spinner_border_box_span1 {
-  transition: all 2s;
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-150%);
   display: inline;
   position: absolute;
-  top: 0px;
+  top: 10%;
   margin: 0px;
 }
 .spinner_border_box_span2 {
-  transition: all 2s;
   opacity: 0;
-  transform: translateX(0%);
+  transform: translateX(-50%);
   display: inline;
+  top: 0px;
   margin: 0px;
   position: absolute;
-  top: -50px;
+}
+/* 구글22@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@media screen and (max-width: 600px) {
+  .googlemap {
+    width: 100%;
+    height: 460px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .googlemap {
+    width: 600px;
+    height: 460px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .googlemap {
+    width: 1000px;
+    height: 460px;
+  }
+}
+.intro6_back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.intro6_back_centerdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.intro6_back_centerdiv h3 {
+  font-size: 20px;
+}
+.intro6_textbox {
+  display: flex;
+  align-items: center;
+}
+.intro6_textbox h3 {
+  width: 110px;
+  font-size: 20px;
+}
+.intro6_textbox progress {
+  font-size: 20px;
+}
+.googlemap {
+  border: none;
+}
+.intro6_back_line {
+  width: 100%;
+  height: 6px;
+  background: black;
+  margin-left: 10px;
+}
+.intro6_back_centerdiv_h {
+  margin: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .intro6_back_centerdiv_h {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .intro6_back_centerdiv_h {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .intro6_back_centerdiv_h {
+    font-size: 60px;
+  }
 }
 </style>

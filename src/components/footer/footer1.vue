@@ -75,19 +75,19 @@ export default {
 <style scoped>
 @media screen and (max-width: 600px) {
   .bottom_nav_item_hbox {
-    font-size: 2.65px;
+    font-size: 10px;
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
   .bottom_nav_item_hbox {
-    font-size: 6.65px;
+    font-size: 15px;
   }
 }
 
 @media screen and (min-width: 1025px) {
   .bottom_nav_item_hbox {
-    font-size: 10px;
+    font-size: 18.72px;
   }
 }
 

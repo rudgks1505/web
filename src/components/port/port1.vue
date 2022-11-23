@@ -61,7 +61,7 @@ export default {
     font-size: 18px;
   }
   .port1_h3 {
-    font-size: 5px;
+    font-size: 10px;
   }
 }
 
