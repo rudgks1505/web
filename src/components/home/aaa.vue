@@ -73,6 +73,7 @@ export default {
   height: 1080px;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 }
 .simple {
   display: flex;
@@ -112,8 +113,7 @@ export default {
 .vision_flex {
   display: flex;
   justify-content: space-between;
-  margin-top: 440px;
-  padding: 0px 160px;
+  padding-right: 120px;
 }
 .vision_flex_h {
   color: #f6f6f6;
@@ -136,5 +136,6 @@ export default {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 40px;
 }
 </style>

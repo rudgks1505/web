@@ -9,6 +9,7 @@ import portfo from "../src/components/portfo/portfo.vue";
 import qest from "../src/components/qest/qest.vue";
 import hire from "../src/components/hire/hire.vue";
 import aaa from "../src/components/home/aaa.vue";
+import bbb from "../src/components/home/bbb.vue";
 
 
 const routes = [
@@ -62,6 +63,11 @@ const routes = [
         path: '/aaa',
         component: aaa,
         name: "aaa"
+    },
+    {
+        path: '/bbb',
+        component: bbb,
+        name: "bbb"
     },
 ];
 

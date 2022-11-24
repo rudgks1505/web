@@ -151,8 +151,89 @@
           </div>
         </div>
       </div>
-      <div class="box3"></div>
-      <div class="box5"></div>
+      <div class="box3">
+        <div class="ffff">
+          <div class="simple">
+            <h1 class="simple_h">"SIMPLE</h1>
+            <h1 class="simple_h1">IS</h1>
+          </div>
+          <h1 class="thebest">THE BEST"</h1>
+        </div>
+        <div class="flex_container">
+          <div class="monitor">
+            <div>
+              <div class="vision_flex">
+                <h1 class="vision_flex_h">VISION</h1>
+                <div class="vision_flex_div">
+                  <h3 style="margin: 0px; font-size: 20px">
+                    4차 산업혁명의 시작으로 어느 곳에서나 통합적이고 집약된
+                    커뮤니케이션 능력을 요구하는
+                  </h3>
+                  <h3 style="margin: 0px; font-size: 20px">
+                    시대에 맞추어 사람과 사람, 기술이 모여 더 나은 미래를
+                    논의하는 곳에 함께 하겠습니다.
+                  </h3>
+                  <h3 style="margin: 0px; font-size: 20px; margin-top: 20px">
+                    혁신적 사고와 미래 지향의 경영을 통해 지역사회와 상생하며
+                    함께 성장하는
+                  </h3>
+                  <h3 style="margin: 0px; font-size: 20px">
+                    기업이 되도록 최선을 다할 것을 약속드립니다.
+                  </h3>
+                </div>
+              </div>
+              <div class="aaa_img"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box5">
+        <div class="flex_container">
+          <div style="width: 100%">
+            <h1 class="gameins">GAMEINS SERVICE</h1>
+            <div class="gameins_img">
+              <h1 class="gameins_img_h">UI/UX 디자인</h1>
+              <h3 class="gameins_img_h1">
+                브랜드 가치를 높일 수 있는 모던 UI/UX개발
+              </h3>
+              <div class="gameins_img_line">
+                <div style="width: 40%">
+                  <div class="gameins_img_line_circle">
+                    <h1 class="gameins_img_line_circle_bottom">
+                      웹/앱 서비스개발
+                    </h1>
+                    <div class="gameins_img_line_circle_hover">
+                      <img
+                        src="../../assets/service/hoverimg.png"
+                        alt=""
+                        class="gameins_img_line_circle_hover_img"
+                      />
+                      <div class="gameins_img_line_circle_hover_circle"></div>
+                      <h1 class="gameins_img_line_circle_hover_h">
+                        웹/앱 서비스개발
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="gameins_img_line_circle1">
+                  <h1 class="gameins_img_line_circle1_bottom">UI/UX 디자인</h1>
+                  <div class="gameins_img_line_circle1_hover">
+                    <img
+                      src="../../assets/service/hoverimg.png"
+                      alt=""
+                      class="gameins_img_line_circle1_hover_img"
+                    />
+                    <div class="gameins_img_line_circle1_hover_circle"></div>
+                    <h1 class="gameins_img_line_circle1_hover_h">
+                      UI/UX 디자인
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="box6">
         <div class="intro6_back">
           <div class="intro6_back_centerdiv">
@@ -255,11 +336,34 @@ export default {
       var port2_item_item = document.querySelector(".port2_item_item");
       var port2_item1_l = document.querySelector(".port2_item1_l");
       var port2_item1_r = document.querySelector(".port2_item1_r");
+
+      var gameins_img = document.querySelector(".gameins_img");
       var max_600px = window.matchMedia("screen and (max-width: 600px)");
       var min_600px_max_1000px = window.matchMedia(
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+
+      //호버
+      var gameins_img_line_circle1_hover = document.querySelector(
+        ".gameins_img_line_circle1_hover"
+      );
+      var gameins_img_line_circle_hover = document.querySelector(
+        ".gameins_img_line_circle_hover"
+      );
+
+      gameins_img_line_circle1_hover.addEventListener("mouseenter", () => {
+        gameins_img_line_circle1_hover.style.opacity = "1";
+      });
+      gameins_img_line_circle1_hover.addEventListener("mouseleave", () => {
+        gameins_img_line_circle1_hover.style.opacity = "0";
+      });
+      gameins_img_line_circle_hover.addEventListener("mouseenter", () => {
+        gameins_img_line_circle_hover.style.opacity = "1";
+      });
+      gameins_img_line_circle_hover.addEventListener("mouseleave", () => {
+        gameins_img_line_circle_hover.style.opacity = "0";
+      });
 
       // 반응형;
       window.addEventListener("resize", () => {
@@ -537,7 +641,7 @@ export default {
                     home_back_con[0].style.top = "40%";
                     home_back_con[0].style.opacity = "1";
                     spinner.style.display = "none";
-                  }, 1000);
+                  }, 500);
                   //접근전까지 휠이벤 비활성화
                   if (min_1000px.matches) {
                     wheel_f();
@@ -715,19 +819,23 @@ export default {
               body.style.background = "black";
               box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
             } else if (e.wheelDeltaY < 0) {
-              body.style.background = "black";
+              body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 3
               }px)`;
+              setTimeout(() => {
+                gameins_img.style.width = "90%";
+                gameins_img.style.height = "600px";
+                gameins_img.style.marginBottom = "40px";
+                gameins_img.style.borderRadius = "60px";
+              }, 1000);
             }
           } else if (box5.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
-              body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
               }px)`;
             } else if (e.wheelDeltaY < 0) {
-              body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4
               }px)`;
@@ -740,7 +848,6 @@ export default {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 3
               }px)`;
-              body.style.background = "black";
             } else if (e.wheelDeltaY < 0) {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4 + box4.clientHeight
@@ -906,10 +1013,10 @@ export default {
 .box3 {
   width: 100%;
   height: 100vh;
-  background: darkcyan;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .box_wrap {
   transition: all 1s;
@@ -918,6 +1025,7 @@ export default {
   width: 100%;
   height: 100vh;
   transition: all 1s;
+  background: white;
 }
 .box6 {
   width: 100%;
@@ -1143,7 +1251,7 @@ export default {
 }
 .spinner_border_box_span1 {
   opacity: 0;
-  transform: translateX(-70%);
+  transform: translateX(-60%);
   display: inline;
   position: absolute;
   top: 10%;
@@ -1151,7 +1259,7 @@ export default {
 }
 .spinner_border_box_span2 {
   opacity: 0;
-  transform: translateX(30%);
+  transform: translateX(40%);
   display: inline;
   top: 0px;
   margin: 0px;
@@ -1250,4 +1358,241 @@ export default {
 }
 
 /* 박스3 */
+.ffff {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+}
+.flex_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.monitor {
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.simple {
+  display: flex;
+  margin-top: 60px;
+}
+.simple_h {
+  background: #3180f1;
+  width: 403.37px;
+  height: 104.55px;
+  margin: 0px;
+  font-size: 92.32px;
+  color: white;
+  line-height: 104.55px;
+  text-align: center;
+}
+.simple_h1 {
+  width: 103.37px;
+  height: 104.55px;
+  margin: 0px;
+  font-size: 92.32px;
+  color: #414141;
+  line-height: 104.55px;
+  text-align: center;
+}
+.thebest {
+  background: #3180f1;
+  width: 479.92px;
+  height: 104.55px;
+  margin: 0px;
+  font-size: 92.32px;
+  color: white;
+  line-height: 104.55px;
+  text-align: center;
+  margin-left: 251.08px;
+  margin-top: 9px;
+}
+.vision_flex {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 120px;
+}
+.vision_flex_h {
+  color: #f6f6f6;
+  font-size: 180px;
+  width: 638px;
+  margin: 0px;
+  height: 200px;
+}
+.vision_flex_div {
+  width: 745px;
+}
+.aaa_img {
+  background: url("../../assets/service/aaa2img.png");
+  background-position: center;
+  width: 1600px;
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+/* // 박스4 */
+.flex_container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh;
+}
+.monitor {
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.gameins {
+  font-size: 60px;
+  color: #262626;
+  text-align: center;
+  margin: 34px;
+}
+.gameins_img {
+  background-image: url("../../assets/service/bbbimg.png");
+  width: 100%;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1s;
+}
+.gameins_img_h {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-top: 100px;
+  margin-bottom: 0px;
+}
+.gameins_img_h1 {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.gameins_img_line {
+  width: 100%;
+  height: 4px;
+  background: white;
+  margin-top: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gameins_img_line_circle {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.gameins_img_line_circle1 {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.gameins_img_line_circle_hover {
+  width: 260px;
+  height: 260px;
+  background: #3180f1;
+  position: absolute;
+  right: -122px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  transition: all 1s;
+  opacity: 0;
+}
+.gameins_img_line_circle_hover_circle {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+.gameins_img_line_circle1_hover {
+  width: 260px;
+  height: 260px;
+  background: #3180f1;
+  position: absolute;
+  right: -122px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  transition: all 1s;
+  opacity: 0;
+}
+.gameins_img_line_circle1_hover_circle {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+}
+.gameins_img_line_circle_hover_img {
+  width: 36px;
+  height: 42.15px;
+  position: absolute;
+  top: 60px;
+}
+.gameins_img_line_circle_hover_h {
+  font-size: 26px;
+  color: white;
+  position: absolute;
+  top: 150px;
+  margin: 0px;
+}
+.gameins_img_line_circle1_hover_img {
+  width: 36px;
+  height: 42.15px;
+  position: absolute;
+  top: 60px;
+}
+.gameins_img_line_circle1_hover_h {
+  font-size: 26px;
+  color: white;
+  position: absolute;
+  top: 150px;
+  margin: 0px;
+}
+.gameins_img_line_circle_bottom {
+  position: absolute;
+  color: white;
+  font-size: 26px;
+  width: 186px;
+  height: 26px;
+  top: 11px;
+  left: -85px;
+}
+.gameins_img_line_circle1_bottom {
+  position: absolute;
+  color: white;
+  font-size: 26px;
+  width: 186px;
+  height: 26px;
+  top: 11px;
+  left: -65px;
+}
 </style>
