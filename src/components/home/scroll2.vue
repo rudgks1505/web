@@ -366,9 +366,7 @@ export default {
       });
 
       // 반응형;
-      window.addEventListener("resize", () => {
-        respon_f();
-      });
+      window.addEventListener("resize", () => {});
 
       respon_f();
       function respon_f(params) {
@@ -660,43 +658,43 @@ export default {
 
       //카카오연결시 브라우저이동
       /* [브라우저 ready 상태 정의 : 최초 호출 상태] */
-      document.addEventListener("DOMContentLoaded", ready);
-      function ready() {
-        console.log("");
-        console.log("[window ready] : [start]");
-        console.log("");
+      // document.addEventListener("DOMContentLoaded", ready);
+      // function ready() {
+      //   console.log("");
+      //   console.log("[window ready] : [start]");
+      //   console.log("");
 
-        // [현재 접속된 url 정보 및 접속 브라우저 확인]
-        // [카카오톡 인앱 브라우저 >> 안드로이드 모바일 기종 인 경우 >> 크롬 브라우저 이동 실시]
-        var Url = location.href;
-        var Agent = navigator.userAgent.toLowerCase();
-        console.log("");
-        console.log("[window ready] : [접속 Url] : " + Url);
-        console.log("[window ready] : [접속 Agent] : " + Agent);
-        console.log("");
-        //alert(Agent);
-        if (Agent.includes("kakao")) {
-          // 카카오 브라우저로 실행 시킨 경우
-          // 먼저, 카카오 인앱 브라우저 닫기
-          location.href = "kakaotalk://inappbrowser/close";
-          if (navigator.userAgent.match(/iPhone|iPad/i)) {
-            // 아이폰 접속 경우
-            console.log("");
-            console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
-            console.log("");
-          } else {
-            // 안드로이드 접속 경우
-            console.log("");
-            console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
-            console.log("");
-            // 크롬으로 새창 열기
-            location.href =
-              "intent://" +
-              location.href.replace(/https?:\/\//i, "") +
-              "#Intent;scheme=http;package=com.android.chrome;end";
-          }
-        }
-      }
+      //   // [현재 접속된 url 정보 및 접속 브라우저 확인]
+      //   // [카카오톡 인앱 브라우저 >> 안드로이드 모바일 기종 인 경우 >> 크롬 브라우저 이동 실시]
+      //   var Url = location.href;
+      //   var Agent = navigator.userAgent.toLowerCase();
+      //   console.log("");
+      //   console.log("[window ready] : [접속 Url] : " + Url);
+      //   console.log("[window ready] : [접속 Agent] : " + Agent);
+      //   console.log("");
+      //   //alert(Agent);
+      //   if (Agent.includes("kakao")) {
+      //     // 카카오 브라우저로 실행 시킨 경우
+      //     // 먼저, 카카오 인앱 브라우저 닫기
+      //     location.href = "kakaotalk://inappbrowser/close";
+      //     if (navigator.userAgent.match(/iPhone|iPad/i)) {
+      //       // 아이폰 접속 경우
+      //       console.log("");
+      //       console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
+      //       console.log("");
+      //     } else {
+      //       // 안드로이드 접속 경우
+      //       console.log("");
+      //       console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
+      //       console.log("");
+      //       // 크롬으로 새창 열기
+      //       location.href =
+      //         "intent://" +
+      //         location.href.replace(/https?:\/\//i, "") +
+      //         "#Intent;scheme=http;package=com.android.chrome;end";
+      //     }
+      //   }
+      // }
 
       //게이지클릭
       gege_item_f();
@@ -800,12 +798,19 @@ export default {
       //  스크롤
       function wheel_f() {
         window.addEventListener("wheel", (e) => {
-          if (box1.getBoundingClientRect().y === 0) {
+          console.log(Math.floor(box2.getBoundingClientRect().top));
+          if (
+            Math.floor(box1.getBoundingClientRect().top) === 0 ||
+            Math.floor(box1.getBoundingClientRect().top) === -1
+          ) {
             if (e.wheelDeltaY < 0) {
               box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
               body.style.background = "black";
             }
-          } else if (box2.getBoundingClientRect().y === 0) {
+          } else if (
+            Math.floor(box2.getBoundingClientRect().top) === 0 ||
+            Math.floor(box2.getBoundingClientRect().top) === -1
+          ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(0px)`;
             } else if (e.wheelDeltaY < 0) {
@@ -814,7 +819,10 @@ export default {
                 window.innerHeight * 2
               }px)`;
             }
-          } else if (box3.getBoundingClientRect().y === 0) {
+          } else if (
+            Math.floor(box3.getBoundingClientRect().top) === 0 ||
+            Math.floor(box3.getBoundingClientRect().top) === -1
+          ) {
             if (e.wheelDeltaY > 0) {
               body.style.background = "black";
               box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
@@ -830,7 +838,10 @@ export default {
                 gameins_img.style.borderRadius = "60px";
               }, 1000);
             }
-          } else if (box5.getBoundingClientRect().y === 0) {
+          } else if (
+            Math.floor(box5.getBoundingClientRect().top) === 0 ||
+            Math.floor(box5.getBoundingClientRect().top) === -1
+          ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
@@ -843,7 +854,10 @@ export default {
                 intro6_back_centerdiv_line.style.width = "100%";
               }, 1000);
             }
-          } else if (box6.getBoundingClientRect().y === 0) {
+          } else if (
+            Math.floor(box6.getBoundingClientRect().top) === 0 ||
+            Math.floor(box6.getBoundingClientRect().top) === -1
+          ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 3
@@ -854,8 +868,10 @@ export default {
               }px)`;
             }
           } else if (
-            box4.getBoundingClientRect().y ===
-            window.innerHeight - box4.clientHeight
+            Math.floor(box4.getBoundingClientRect().top) ===
+              window.innerHeight - box4.clientHeight ||
+            Math.floor(box4.getBoundingClientRect().top) ===
+              window.innerHeight - box4.clientHeight - 1
           ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(-${
