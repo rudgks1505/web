@@ -8,6 +8,7 @@ import intro5 from "../src/components/intro_component/intro5.vue";
 import portfo from "../src/components/portfo/portfo.vue";
 import qest from "../src/components/qest/qest.vue";
 import hire from "../src/components/hire/hire.vue";
+import aaa from "../src/components/home/aaa.vue";
 
 
 const routes = [
@@ -56,6 +57,11 @@ const routes = [
         path: '/hire',
         component: hire,
         name: "hire"
+    },
+    {
+        path: '/aaa',
+        component: aaa,
+        name: "aaa"
     },
 ];
 

@@ -37,6 +37,10 @@
                   <div>
                     <h1 class="home_con_h">
                       마음을 움직이는<br />스토리텔링 웹/앱 개발 기업
+                      <br />
+                      <span style="font-size: 24px"
+                        >웹/앱 개발의 자존심, 타협하지 않는 최고의 퀄리티</span
+                      >
                     </h1>
                   </div>
                 </div>
@@ -91,7 +95,8 @@
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
                   <div class="slide_line1"></div>
-                  <h3 style="margin-top: 0px">aaaaa</h3>
+                  <h3 style="margin: 0px">마음을 움직이는 스토리텔링</h3>
+                  <h3 style="margin: 0px">웹/앱 개발 기업</h3>
                 </div>
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
@@ -115,67 +120,44 @@
       </div>
       <div class="box2">
         <div class="home_con" style="height: 100%">
-          <div class="home_con_item" style="display: flex">
+          <div
+            class="home_con_item"
+            style="display: flex; color: white; text-align: center"
+          >
             <div>
-              <portline class="portline"></portline>
-              <Port1 class="port1"></Port1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="box3">
-        <div class="home_con" style="height: 100%">
-          <div class="home_con_item" style="display: flex">
-            <div>
-              <portline-1 class="portline_1"></portline-1>
-              <div class="port2_con">
-                <div class="port2_item_item">
-                  <h3 style="margin: 0px" class="port2_h3">
-                    다양한 플랫폼과 새로운 기술로 빠르게 변화하는 환경에
-                    능동적으로 대응하며,
-                  </h3>
-                  <h3 class="port2_h3">
-                    커뮤니케이션을 통한 유지보수로 클라이언트의 만족감을
-                    이어나갑니다.
-                  </h3>
-                </div>
-
-                <div class="port2_item1">
-                  <div class="port2_item1_l">
-                    <img
-                      src="../../assets/port2/img1.png"
-                      alt=""
-                      class="port2_item1_img"
-                    />
-                    <h1 class="port2_h1">웹/앱 서비스 개발</h1>
-                    <h3 class="port2_h3">
-                      웹/앱 기반 서비스로 쇼핑몰, 플랫폼, 커뮤니티 등 모든
-                      형태의 서비스 개발
-                    </h3>
-                  </div>
-                  <div class="port2_item1_r">
-                    <img
-                      src="../../assets/port2/img2.png"
-                      alt=""
-                      class="port2_item1_img"
-                    />
-                    <h1 class="port2_h1">UI/UX 디자인</h1>
-                    <h3 class="port2_h3">
-                      브랜드 가치를 높일 수 있는 모던 UI/UX개발
-                    </h3>
-                  </div>
-                </div>
+              <div class="box2_line"></div>
+              <h1 style="margin: 0px">
+                (주)게임인스는 기술 지향적 솔루션 구축,
+              </h1>
+              <h1 style="margin: 0px">
+                인터넷 플랫폼 서비스 개발 등 한 차원 높은 서비스를
+              </h1>
+              <h1 style="margin: 0px">
+                제공하기 위한 목표를 가지고 매년 성장 중인 Total IT활용 솔루션
+              </h1>
+              <div style="display: flex; justify-content: center">
+                <h1
+                  style="
+                    color: black;
+                    background: white;
+                    padding: 0px 15px;
+                    margin: 10px 0px;
+                  "
+                >
+                  개발 전문기업입니다.
+                </h1>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="box3"></div>
       <div class="box5"></div>
       <div class="box6">
         <div class="intro6_back">
           <div class="intro6_back_centerdiv">
             <div>
-              <div style="display: flex; align-items: center">
+              <div class="intro6_back_centerdiv_line">
                 <h1 class="intro6_back_centerdiv_h">LOCATION</h1>
                 <div class="intro6_back_line"></div>
               </div>
@@ -215,16 +197,13 @@
 import { onMounted, reactive } from "vue";
 import Footer1 from "../footer/footer1.vue";
 import Nav from "../nav/nav.vue";
-import Portline from "../port/portline.vue";
-import Port1 from "../port/port1.vue";
+
 import Portline1 from "../port/portline1.vue";
 import { useRouter } from "vue-router";
 export default {
   components: {
     Footer1,
     Nav,
-    Portline,
-    Port1,
     Portline1,
   },
 
@@ -267,6 +246,9 @@ export default {
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
       var slide_line = document.querySelectorAll(".slide_line");
+      var intro6_back_centerdiv_line = document.querySelector(
+        ".intro6_back_centerdiv_line"
+      );
       var port1 = document.querySelector(".port1");
       var portline = document.querySelector(".portline");
       var portline_1 = document.querySelector(".portline_1");
@@ -279,7 +261,7 @@ export default {
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
 
-      //반응형
+      // 반응형;
       window.addEventListener("resize", () => {
         respon_f();
       });
@@ -440,7 +422,7 @@ export default {
           home_back2.style.transform = "translateX(0%)";
           home_back3.style.transform = "translateX(0%)";
           home_back4.style.transform = "translateX(0%)";
-          slide_line1[0].style.width = "40%";
+          slide_line1[0].style.width = "270px";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -465,7 +447,7 @@ export default {
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
           slide_line1[0].style.width = "0%";
-          slide_line1[1].style.width = "40%";
+          slide_line1[1].style.width = "270px";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
@@ -490,7 +472,7 @@ export default {
           home_back4.style.transform = "translateX(-200%)";
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
-          slide_line1[2].style.width = "40%";
+          slide_line1[2].style.width = "270px";
           slide_line1[3].style.width = "0%";
           setTimeout(() => {
             home_back_con[2].style.top = "40%";
@@ -515,7 +497,7 @@ export default {
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "40%";
+          slide_line1[3].style.width = "270px";
           setTimeout(() => {
             home_back_con[3].style.top = "40%";
             home_back_con[3].style.opacity = "1";
@@ -523,7 +505,7 @@ export default {
         });
       }
 
-      //로드시
+      // 로드시;
       function load_f(latex) {
         window.addEventListener("load", () => {
           body.style.overflowY = "hidden";
@@ -551,7 +533,7 @@ export default {
                 spinner.style.opacity = "0";
                 setTimeout(() => {
                   setTimeout(() => {
-                    slide_line1[0].style.width = "40%";
+                    slide_line1[0].style.width = "270px";
                     home_back_con[0].style.top = "40%";
                     home_back_con[0].style.opacity = "1";
                     spinner.style.display = "none";
@@ -718,11 +700,6 @@ export default {
             if (e.wheelDeltaY < 0) {
               box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
               body.style.background = "black";
-              setTimeout(() => {
-                portline.style.width = "100%";
-                port1.style.transform = "translateX(0px)";
-                port1.style.opacity = "1";
-              }, 1000);
             }
           } else if (box2.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
@@ -732,16 +709,6 @@ export default {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
               }px)`;
-
-              setTimeout(() => {
-                portline_1.style.width = "100%";
-                port2_item_item.style.transform = "translateY(0px)";
-                port2_item_item.style.opacity = "1";
-                port2_item1_l.style.transform = "translateY(0px)";
-                port2_item1_l.style.opacity = "1";
-                port2_item1_r.style.transform = "translateY(0px)";
-                port2_item1_r.style.opacity = "1";
-              }, 1000);
             }
           } else if (box3.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
@@ -764,6 +731,9 @@ export default {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4
               }px)`;
+              setTimeout(() => {
+                intro6_back_centerdiv_line.style.width = "100%";
+              }, 1000);
             }
           } else if (box6.getBoundingClientRect().y === 0) {
             if (e.wheelDeltaY > 0) {
@@ -936,6 +906,10 @@ export default {
 .box3 {
   width: 100%;
   height: 100vh;
+  background: darkcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .box_wrap {
   transition: all 1s;
@@ -987,15 +961,14 @@ export default {
   color: white;
   cursor: pointer;
   position: relative;
-  text-align: center;
+  padding-left: 40px;
 }
 .slide_line {
-  width: 40%;
+  width: 270px;
   height: 2px;
   background: gray;
   position: absolute;
   top: 0;
-  left: 30%;
 }
 .slide_line1 {
   width: 0%;
@@ -1005,7 +978,6 @@ export default {
   top: 0;
   z-index: 3;
   transition: all 4s;
-  left: 30%;
 }
 /* 슬라이더 */
 .home_con_h {
@@ -1015,9 +987,6 @@ export default {
   transition: all 0.5s;
   opacity: 1;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
 .home_con_hcon {
@@ -1094,27 +1063,6 @@ export default {
   cursor: pointer;
 }
 
-/* 포트라인 */
-.portline {
-  width: 0px;
-  margin-bottom: 50px;
-  transition: all 1s;
-}
-.portline_1 {
-  width: 0px;
-  margin-bottom: 50px;
-  transition: all 1s;
-}
-.port1 {
-  transform: translateX(200px);
-  transition: all 1s;
-  opacity: 0;
-  color: white;
-}
-.portline1 {
-  width: 0px;
-  margin-bottom: 50px;
-}
 /* 포트2 */
 .port2_con {
   width: 100%;
@@ -1195,7 +1143,7 @@ export default {
 }
 .spinner_border_box_span1 {
   opacity: 0;
-  transform: translateX(-150%);
+  transform: translateX(-70%);
   display: inline;
   position: absolute;
   top: 10%;
@@ -1203,7 +1151,7 @@ export default {
 }
 .spinner_border_box_span2 {
   opacity: 0;
-  transform: translateX(-50%);
+  transform: translateX(30%);
   display: inline;
   top: 0px;
   margin: 0px;
@@ -1268,6 +1216,13 @@ export default {
 .intro6_back_centerdiv_h {
   margin: 0px;
 }
+.intro6_back_centerdiv_line {
+  display: flex;
+  align-items: center;
+  transition: all 1s;
+  width: 0px;
+  overflow: hidden;
+}
 
 @media screen and (max-width: 600px) {
   .intro6_back_centerdiv_h {
@@ -1286,4 +1241,13 @@ export default {
     font-size: 60px;
   }
 }
+.box2_line {
+  width: 80px;
+  height: 6px;
+  background: #0053c9;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 박스3 */
 </style>

@@ -215,7 +215,7 @@ export default {
     width: 200px;
   }
   .nav_con {
-    height: 120px;
+    height: 88px;
   }
 }
 
