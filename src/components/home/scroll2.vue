@@ -10,7 +10,7 @@
     <div class="spinner_border_box">
       <div class="spinner_border_box_h">
         <h1 class="spinner_border_box_span1">SIMPLE IS</h1>
-        <h1 class="spinner_border_box_span2"><br />THE BEST!</h1>
+        <h1 class="spinner_border_box_span2">THE BEST!</h1>
       </div>
     </div>
   </div>
@@ -124,28 +124,19 @@
             class="home_con_item"
             style="display: flex; color: white; text-align: center"
           >
-            <div>
+            <div style="position: relative">
               <div class="box2_line"></div>
-              <h1 style="margin: 0px">
+              <h1 class="ment1" style="margin: 0px">
                 (주)게임인스는 기술 지향적 솔루션 구축,
               </h1>
-              <h1 style="margin: 0px">
+              <h1 class="ment2" style="margin: 0px">
                 인터넷 플랫폼 서비스 개발 등 한 차원 높은 서비스를
               </h1>
-              <h1 style="margin: 0px">
+              <h1 class="ment3" style="margin: 0px">
                 제공하기 위한 목표를 가지고 매년 성장 중인 Total IT활용 솔루션
               </h1>
-              <div style="display: flex; justify-content: center">
-                <h1
-                  style="
-                    color: black;
-                    background: white;
-                    padding: 0px 15px;
-                    margin: 10px 0px;
-                  "
-                >
-                  개발 전문기업입니다.
-                </h1>
+              <div class="ment4">
+                <h1>개발 전문기업입니다.</h1>
               </div>
             </div>
           </div>
@@ -237,7 +228,7 @@
       <div class="box6">
         <div class="intro6_back">
           <div class="intro6_back_centerdiv">
-            <div>
+            <div style="width: 1600px">
               <div class="intro6_back_centerdiv_line">
                 <h1 class="intro6_back_centerdiv_h">LOCATION</h1>
                 <div class="intro6_back_line"></div>
@@ -324,6 +315,7 @@ export default {
       var home_back2 = document.querySelector(".home_back2");
       var home_back3 = document.querySelector(".home_back3");
       var home_back4 = document.querySelector(".home_back4");
+      var aaa_img = document.querySelector(".aaa_img");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
       var slide_line = document.querySelectorAll(".slide_line");
@@ -336,13 +328,43 @@ export default {
       var port2_item_item = document.querySelector(".port2_item_item");
       var port2_item1_l = document.querySelector(".port2_item1_l");
       var port2_item1_r = document.querySelector(".port2_item1_r");
-
+      var vision_flex_div = document.querySelector(".vision_flex_div");
       var gameins_img = document.querySelector(".gameins_img");
       var max_600px = window.matchMedia("screen and (max-width: 600px)");
       var min_600px_max_1000px = window.matchMedia(
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+      var simple = document.querySelector(".simple");
+      var thebest = document.querySelector(".thebest");
+
+      //플립
+      var box2_line = document.querySelector(".box2_line");
+      var ment1 = document.querySelector(".ment1");
+      var ment2 = document.querySelector(".ment2");
+      var ment3 = document.querySelector(".ment3");
+      var ment4 = document.querySelector(".ment4");
+      function flip(params) {
+        setTimeout(() => {
+          box2_line.style.opacity = "1";
+          setTimeout(() => {
+            ment1.style.transform = "scaleY(1)";
+            ment1.style.opacity = "1";
+            setTimeout(() => {
+              ment2.style.transform = "scaleY(1)";
+              ment2.style.opacity = "1";
+              setTimeout(() => {
+                ment3.style.transform = "scaleY(1)";
+                ment3.style.opacity = "1";
+                setTimeout(() => {
+                  ment4.style.transform = "scaleY(1)";
+                  ment4.style.opacity = "1";
+                }, 300);
+              }, 300);
+            }, 300);
+          }, 300);
+        }, 100);
+      }
 
       //호버
       var gameins_img_line_circle1_hover = document.querySelector(
@@ -372,14 +394,14 @@ export default {
       function respon_f(params) {
         if (max_600px.matches) {
           repon_scroll();
-          load_f(0);
+          load_f();
         }
         if (min_600px_max_1000px.matches) {
           repon_scroll();
-          load_f(0);
+          load_f();
         }
         if (min_1000px.matches) {
-          load_f(50);
+          load_f(10);
         }
       }
 
@@ -621,7 +643,7 @@ export default {
             setTimeout(() => {
               spinner_border_box_span1.style.transform = `translateX(-${latex}%)`;
               spinner_border_box_span1.style.opacity = "1";
-            }, 100);
+            }, 500);
 
             setTimeout(() => {
               spinner_border_box_span2.style.transform = `translateX(${latex}%)`;
@@ -629,25 +651,29 @@ export default {
             }, 1000);
             setTimeout(() => {
               spinner_border_box.style.border = "0px solid white";
-              spinner_border_box_span1.style.transition = `all 0.1s`;
-              spinner_border_box_span2.style.transition = `all 0.1s`;
+              spinner_border_box_span1.style.transition = `all 0.5s`;
+              spinner_border_box_span2.style.transition = `all 0.5s`;
               setTimeout(() => {
+                spinner_border_box_span1.style.opacity = `0`;
+                spinner_border_box_span2.style.opacity = `0`;
+                // setTimeout(() => {
                 spinner.style.opacity = "0";
                 setTimeout(() => {
-                  setTimeout(() => {
-                    slide_line1[0].style.width = "270px";
-                    home_back_con[0].style.top = "40%";
-                    home_back_con[0].style.opacity = "1";
-                    spinner.style.display = "none";
-                  }, 500);
-                  //접근전까지 휠이벤 비활성화
-                  if (min_1000px.matches) {
-                    wheel_f();
-                    body.style.overflowY = "hidden";
-                  }
-                }, 500);
+                  slide_line1[0].style.width = "270px";
+                  home_back_con[0].style.top = "40%";
+                  home_back_con[0].style.opacity = "1";
+                }, 400);
+                //접근전까지 휠이벤 비활성화
+                if (min_1000px.matches) {
+                  wheel_f();
+                  body.style.overflowY = "hidden";
+                }
+                setTimeout(() => {
+                  spinner.style.display = "none";
+                }, 1000);
+                // }, 400);
               }, 1000);
-            }, 3000);
+            }, 2000);
 
             setTimeout(() => {
               scrollTo(0, 0);
@@ -798,6 +824,12 @@ export default {
       //  스크롤
       function wheel_f() {
         window.addEventListener("wheel", (e) => {
+          //휠돌렷을시 높이 재정비
+          box1.style.height = `${window.innerHeight}`;
+          box2.style.height = `${window.innerHeight}`;
+          box3.style.height = `${window.innerHeight}`;
+          box5.style.height = `${window.innerHeight}`;
+          box6.style.height = `${window.innerHeight}`;
           console.log(Math.floor(box2.getBoundingClientRect().top));
           if (
             Math.floor(box1.getBoundingClientRect().top) === 0 ||
@@ -806,6 +838,7 @@ export default {
             if (e.wheelDeltaY < 0) {
               box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
               body.style.background = "black";
+              flip();
             }
           } else if (
             Math.floor(box2.getBoundingClientRect().top) === 0 ||
@@ -818,6 +851,21 @@ export default {
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
               }px)`;
+              setTimeout(() => {
+                simple.style.transform = "translateX(0px)";
+                simple.style.opacity = "1";
+                setTimeout(() => {
+                  thebest.style.transform = "translateX(251.08px)";
+                  thebest.style.opacity = "1";
+                  setTimeout(() => {
+                    vision_flex_div.style.transform = "translateX(0px)";
+                    vision_flex_div.style.opacity = "1";
+                    setTimeout(() => {
+                      aaa_img.style.borderRadius = "50px";
+                    }, 500);
+                  }, 500);
+                }, 500);
+              }, 500);
             }
           } else if (
             Math.floor(box3.getBoundingClientRect().top) === 0 ||
@@ -832,11 +880,13 @@ export default {
                 window.innerHeight * 3
               }px)`;
               setTimeout(() => {
-                gameins_img.style.width = "90%";
+                gameins_img.style.width = "auto";
                 gameins_img.style.height = "600px";
                 gameins_img.style.marginBottom = "40px";
+                gameins_img.style.marginRight = "40px";
+                gameins_img.style.marginLeft = "40px";
                 gameins_img.style.borderRadius = "60px";
-              }, 1000);
+              }, 500);
             }
           } else if (
             Math.floor(box5.getBoundingClientRect().top) === 0 ||
@@ -852,7 +902,7 @@ export default {
               }px)`;
               setTimeout(() => {
                 intro6_back_centerdiv_line.style.width = "100%";
-              }, 1000);
+              }, 500);
             }
           } else if (
             Math.floor(box6.getBoundingClientRect().top) === 0 ||
@@ -870,8 +920,8 @@ export default {
           } else if (
             Math.floor(box4.getBoundingClientRect().top) ===
               window.innerHeight - box4.clientHeight ||
-            Math.floor(box4.getBoundingClientRect().top) ===
-              window.innerHeight - box4.clientHeight - 1
+            Math.floor(box4.getBoundingClientRect().top) - 1 ===
+              window.innerHeight - box4.clientHeight
           ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(-${
@@ -999,7 +1049,7 @@ export default {
     height: 100vh;
   }
   .spinner_border_box_h {
-    font-size: 60px;
+    font-size: 100px;
   }
   .port2_item1_l {
     width: 50%;
@@ -1259,27 +1309,28 @@ export default {
 .spinner_border_box_h {
   color: white;
   width: 1400px;
-  height: 40%;
+  height: 500px;
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .spinner_border_box_span1 {
-  opacity: 0;
-  transform: translateX(-60%);
   display: inline;
   position: absolute;
-  top: 10%;
+  transform: translateX(-20%);
+  top: 0px;
+  left: 0px;
   margin: 0px;
+  opacity: 0;
 }
 .spinner_border_box_span2 {
-  opacity: 0;
-  transform: translateX(40%);
   display: inline;
-  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  transform: translateX(0%);
   margin: 0px;
   position: absolute;
+  opacity: 0;
 }
 /* 구글22@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 @media screen and (max-width: 600px) {
@@ -1298,8 +1349,8 @@ export default {
 
 @media screen and (min-width: 1025px) {
   .googlemap {
-    width: 1000px;
-    height: 460px;
+    width: 100%;
+    height: 560px;
   }
 }
 .intro6_back {
@@ -1365,19 +1416,12 @@ export default {
     font-size: 60px;
   }
 }
-.box2_line {
-  width: 80px;
-  height: 6px;
-  background: #0053c9;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* 박스3 */
 .ffff {
   position: absolute;
   top: 10vh;
   left: 0;
+  transition: all 1s;
 }
 .flex_container {
   display: flex;
@@ -1396,6 +1440,9 @@ export default {
 .simple {
   display: flex;
   margin-top: 60px;
+  transform: translateX(-100px);
+  transition: all 1s;
+  opacity: 0;
 }
 .simple_h {
   background: #3180f1;
@@ -1425,8 +1472,10 @@ export default {
   color: white;
   line-height: 104.55px;
   text-align: center;
-  margin-left: 251.08px;
   margin-top: 9px;
+  transform: translateX(151.08px);
+  transition: all 1s;
+  opacity: 0;
 }
 .vision_flex {
   display: flex;
@@ -1442,6 +1491,9 @@ export default {
 }
 .vision_flex_div {
   width: 745px;
+  transition: all 1s;
+  transform: translateX(-100px);
+  opacity: 0;
 }
 .aaa_img {
   background: url("../../assets/service/aaa2img.png");
@@ -1455,6 +1507,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+  transition: all 1s;
 }
 /* // 박스4 */
 .flex_container {
@@ -1485,8 +1538,6 @@ export default {
   background-size: cover;
   padding: 1px;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
   transition: all 1s;
 }
 .gameins_img_h {
@@ -1539,7 +1590,7 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 20%;
-  transition: all 1s;
+  transition: all 0.5s;
   opacity: 0;
 }
 .gameins_img_line_circle_hover_circle {
@@ -1558,7 +1609,7 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 20%;
-  transition: all 1s;
+  transition: all 0.5s;
   opacity: 0;
 }
 .gameins_img_line_circle1_hover_circle {
@@ -1610,5 +1661,47 @@ export default {
   height: 26px;
   top: 11px;
   left: -65px;
+}
+/* 멘트 */
+.box2_line {
+  width: 80px;
+  height: 6px;
+  background: #0053c9;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1s;
+  opacity: 0;
+}
+.ment1 {
+  position: relative;
+  transition: all 1s;
+  transform: scaleY(-1);
+  opacity: 0;
+}
+.ment2 {
+  position: relative;
+  transition: all 1s;
+  transform: scaleY(-1);
+  opacity: 0;
+}
+.ment3 {
+  position: relative;
+  transition: all 1s;
+  transform: scaleY(-1);
+  opacity: 0;
+}
+.ment4 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transition: all 1s;
+  transform: scaleY(-1);
+  opacity: 0;
+}
+.ment4 h1 {
+  color: black;
+  background: white;
+  padding: 0px 15px;
+  margin: 10px 0px;
 }
 </style>

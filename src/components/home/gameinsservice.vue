@@ -99,8 +99,9 @@ export default {
 }
 .gameins_img {
   background-image: url("../../assets/service/bbbimg.png");
-  width: 100%;
+  width: auto;
   height: 700px;
+  margin: 0px 40px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 1px;

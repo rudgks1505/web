@@ -87,7 +87,7 @@ export default {
 
 @media screen and (min-width: 1025px) {
   .bottom_nav_item_hbox {
-    font-size: 18.72px;
+    font-size: 14.72px;
   }
 }
 

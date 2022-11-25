@@ -1,228 +1,212 @@
 <template>
-  <div class="all_wrap">
-    <div class="top_img">
-      <h2 class="top_img_h">P O R T F O L I O</h2>
-      <small class="top_img_h" style="top: 55%">
-        게임인스의 현재 진행한 작업물 입니다.
-      </small>
-    </div>
-
-    <div class="portfo_con">
-      <div class="portfo_item">
-        <div class="portfo_box">
-          <img src="../../assets/port/pot1.jpg" alt="" class="portfo_con_img" />
-          <h1 class="portfo_box_h">TIKI TAKA</h1>
-        </div>
-        <div class="portfo_box">
-          <img
-            :src="`${state.pot2}`"
-            alt=""
-            class="portfo_con_img"
-            @mouseenter="pot4f()"
-            @mouseleave="pot4f_out()"
-          />
-          <h1 class="portfo_box_h">피파대낙.com</h1>
-        </div>
-        <div class="portfo_box">
-          <img src="../../assets/port/pot3.png" alt="" class="portfo_con_img" />
-          <h1 class="portfo_box_h">피파대리.com</h1>
+  <div class="portfo_con">
+    <div class="portfo_con_gra"></div>
+    <div class="portfo_item">
+      <div class="portfo_item_img1"></div>
+      <div class="portfo_item_img2"></div>
+      <div class="portfo_item_img3"></div>
+      <div class="portfo_item_img4">
+        <div class="portfo_item_img4_btn">
+          <h1>MORE +</h1>
         </div>
       </div>
     </div>
+    <div class="portfo_con_back">
+      <div>
+        <div class="portfo_con_back_center"></div>
+        <h1 class="portfo_con_h">VIEW ALL PORTFOLIO</h1>
+      </div>
+    </div>
+  </div>
 
-    <footer-1></footer-1>
+  <div class="portfo_pop">
+    <h1 class="portfo_pop_h">PORTFOLIO</h1>
+    <div>
+      <div class="portfo_pop_line"></div>
+      <h1 class="portfo_pop_web">WEB PORTFOLIO</h1>
+      <div class="portfo_pop_item"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import { onMounted, reactive } from "vue";
-import { useRouter } from "vue-router";
-
-import Footer1 from "../footer/footer1.vue";
-
+import { onMounted, reactive, toRefs } from "vue";
 export default {
-  components: {
-    Footer1,
-  },
-
   setup() {
-    const router = useRouter();
     const state = reactive({
-      pot2: require("../../assets/port/pot2.png"),
       count: 0,
-      imgnum: 2,
-      styleObject: {},
-      styleObject1: {},
-      styleObject2: {},
-      styleObject3: {},
-      styleObject4: {},
-      styleObject5: {},
     });
-
-    function routertest(params) {
-      router.push("/");
-    }
-    function pot4f() {
-      state.pot2 = require("../../assets/port/pot4.png");
-    }
-    function pot4f_out() {
-      state.pot2 = require("../../assets/port/pot2.png");
-    }
-
     onMounted(() => {
-      var max_600px = window.matchMedia("screen and (max-width: 600px)");
-      var min_600px_max_1000px = window.matchMedia(
-        "screen and (min-width: 600px) and (max-width: 1025px)"
+      var portfo_item_img1 = document.querySelector(".portfo_item_img1");
+      var portfo_item_img2 = document.querySelector(".portfo_item_img2");
+      var portfo_item_img3 = document.querySelector(".portfo_item_img3");
+      var portfo_item_img4 = document.querySelector(".portfo_item_img4");
+      var portfo_pop = document.querySelector(".portfo_pop");
+      var portfo_item_img4_btn = document.querySelector(
+        ".portfo_item_img4_btn"
       );
-      var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
-      var portfo_con_img = document.querySelectorAll(".portfo_con_img");
-      var portfo_con = document.querySelector(".portfo_con");
-      var all_wrap = document.querySelector(".all_wrap");
+      var portfo_con_h = document.querySelector(".portfo_con_h");
 
-      var body = document.querySelector("body");
-      body.style.overflowY = "scroll";
-
-      portfo_con_img[0].addEventListener("click", () => {
-        window.open(
-          "http://xn--ef5bu9n7vbido5j.com/?page=0&sort=1&mod=0",
-          "_blank"
-        );
+      //팝업
+      portfo_item_img4_btn.addEventListener("click", () => {
+        portfo_pop.style.display = "flex";
       });
-      portfo_con_img[1].addEventListener("click", () => {
-        window.open("http://xn--b20bo9bg52c82b.com/?openchat=1", "_blank");
-      });
-      portfo_con_img[2].addEventListener("click", () => {
-        window.open("http://xn--vk1bo0k01x85b.com/", "_blank");
+      portfo_con_h.addEventListener("click", () => {
+        portfo_pop.style.display = "flex";
       });
 
-      if (max_600px.matches) {
-      }
-      if (min_600px_max_1000px.matches) {
-      }
-      if (min_1000px.matches) {
-      }
+      //슬라이드
+      window.addEventListener("wheel", (e) => {
+        console.log(portfo_item_img1.getBoundingClientRect().x);
+        if (portfo_item_img1.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-100% - 20px))`;
+          }
+        } else if (portfo_item_img2.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-200% - 40px))`;
+          } else if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(0px)`;
+            portfo_item_img2.style.transform = `translateX(0px)`;
+            portfo_item_img3.style.transform = `translateX(0px)`;
+            portfo_item_img4.style.transform = `translateX(0px)`;
+          }
+        } else if (portfo_item_img3.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-300% - 60px))`;
+          } else if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-100% - 20px))`;
+          }
+        } else if (portfo_item_img4.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-200% - 40px))`;
+          }
+        }
+      });
     });
 
     return {
       state,
-      routertest,
-      pot4f,
-      pot4f_out,
     };
   },
 };
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-  .top_img_bottom_gra_menu {
-    display: none;
-  }
-  .portfo_item img {
-    width: 250px;
-    height: 150px;
-  }
-  .top_img_h {
-    font-size: 20px;
-  }
-  .portfo_box_h {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 1025px) {
-  .top_img_bottom_gra_menu {
-    display: none;
-  }
-  .portfo_box {
-    width: auto;
-  }
-  .portfo_item img {
-    width: 380px;
-    height: 280px;
-  }
-  .top_img_h {
-    font-size: 40px;
-  }
-  .portfo_box_h {
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .top_img_bottom_gra_menu {
-    display: flex;
-  }
-  .portfo_box {
-    width: auto;
-  }
-  .portfo_item img {
-    width: 380px;
-    height: 280px;
-  }
-  .top_img_h {
-    font-size: 40px;
-  }
-  .portfo_box_h {
-    font-size: 24px;
-  }
-}
-
-p {
-  font-weight: bold;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.top_img {
+.portfo_con {
   width: 100%;
-  height: 419px;
-  background: url("../../assets/port/port_back.jpg");
-  background-size: cover;
-  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
   position: relative;
+  background: url("../../assets/protfo/back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.top_img_gra {
+.portfo_con_gra {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.top_img_h {
-  position: absolute;
-  top: 40%;
-  color: white;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-}
-.portfo_con {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  min-height: 934px;
-  margin-top: 140px;
-  padding-bottom: 140px;
+  background: rgba(0, 0, 0, 0.6);
 }
 .portfo_item {
-  width: 1200px;
+  width: 100%;
+  height: 319px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  position: absolute;
+  left: 0px;
+  overflow: hidden;
+  z-index: 30;
 }
-.portfo_item img {
+.portfo_item_img1 {
+  width: 567.11px;
+  height: 100%;
+  background: url("../../assets/protfo/slideimg1.png");
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+.portfo_item_img2 {
+  width: 567.11px;
+  height: 100%;
+  background: url("../../assets/protfo/slideimg2.png");
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+.portfo_item_img3 {
+  width: 567.11px;
+  height: 100%;
+  background: url("../../assets/protfo/slideimg1.png");
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+.portfo_item_img4 {
+  width: 567.11px;
+  height: 100%;
+  background: url("../../assets/protfo/slideimg2.png");
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+  position: relative;
+}
+.portfo_item_img4_btn {
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  border-radius: 50px;
+  border: 1px solid white;
+  right: -200px;
+  top: 40%;
   cursor: pointer;
 }
-.portfo_item h1 {
+.portfo_item_img4_btn h1 {
   margin: 0px;
+  color: white;
+  line-height: 60px;
+  text-align: center;
 }
-.portfo_con_img {
+.portfo_con_h {
+  color: white;
+  font-size: 60px;
+  margin: 0px;
+  margin-left: 20px;
   cursor: pointer;
 }
+.portfo_con_back {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+}
+.portfo_con_back_center {
+  width: 100%;
+  height: 400px;
+}
+
+/* //aaaaaaaaaaaaaaaaaaaa */
 </style>

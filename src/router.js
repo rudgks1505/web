@@ -8,8 +8,12 @@ import intro5 from "../src/components/intro_component/intro5.vue";
 import portfo from "../src/components/portfo/portfo.vue";
 import qest from "../src/components/qest/qest.vue";
 import hire from "../src/components/hire/hire.vue";
-import aaa from "../src/components/home/aaa.vue";
-import bbb from "../src/components/home/bbb.vue";
+import vision from "./components/home/vision.vue";
+import gameinsservice from "./components/home/gameinsservice.vue";
+import introvideo from "./components/home/introvideo.vue";
+import ment from "./components/home/ment.vue";
+import pop from "./components/portfo/pop.vue";
+
 
 
 const routes = [
@@ -60,14 +64,29 @@ const routes = [
         name: "hire"
     },
     {
-        path: '/aaa',
-        component: aaa,
-        name: "aaa"
+        path: '/vision',
+        component: vision,
+        name: "vision"
     },
     {
-        path: '/bbb',
-        component: bbb,
-        name: "bbb"
+        path: '/gameinsservice',
+        component: gameinsservice,
+        name: "gameinsservice"
+    },
+    {
+        path: '/introvideo',
+        component: introvideo,
+        name: "introvideo"
+    },
+    {
+        path: '/ment',
+        component: ment,
+        name: "ment"
+    },
+    {
+        path: '/pop',
+        component: pop,
+        name: "pop"
     },
 ];
 
