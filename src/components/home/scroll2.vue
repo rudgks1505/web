@@ -359,10 +359,10 @@ export default {
                 setTimeout(() => {
                   ment4.style.transform = "scaleY(1)";
                   ment4.style.opacity = "1";
-                }, 300);
-              }, 300);
-            }, 300);
-          }, 300);
+                }, 200);
+              }, 200);
+            }, 200);
+          }, 200);
         }, 100);
       }
 
@@ -1538,7 +1538,7 @@ export default {
   background-size: cover;
   padding: 1px;
   position: relative;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .gameins_img_h {
   text-align: center;

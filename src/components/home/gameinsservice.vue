@@ -52,6 +52,7 @@ export default {
     });
 
     onMounted(() => {
+      var gameins_img = document.querySelector(".gameins_img");
       var gameins_img_line_circle1_hover = document.querySelector(
         ".gameins_img_line_circle1_hover"
       );
@@ -71,6 +72,15 @@ export default {
       gameins_img_line_circle_hover.addEventListener("mouseleave", () => {
         gameins_img_line_circle_hover.style.opacity = "0";
       });
+
+      setTimeout(() => {
+        gameins_img.style.width = "auto";
+        gameins_img.style.height = "600px";
+        gameins_img.style.marginBottom = "40px";
+        gameins_img.style.marginRight = "40px";
+        gameins_img.style.marginLeft = "40px";
+        gameins_img.style.borderRadius = "60px";
+      }, 1000);
     });
 
     return {
@@ -99,13 +109,13 @@ export default {
 }
 .gameins_img {
   background-image: url("../../assets/service/bbbimg.png");
-  width: auto;
+  width: 100%;
   height: 700px;
-  margin: 0px 40px;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1px;
   position: relative;
+  padding: 1px;
+  transition: all 0.5s;
 }
 .gameins_img_h {
   text-align: center;
