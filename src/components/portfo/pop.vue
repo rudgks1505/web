@@ -1,19 +1,21 @@
 <template>
-  <div class="portfo_pop">
-    <h1 class="portfo_pop_h">PORTFOLIO</h1>
-    <div>
-      <div class="portfo_pop_line"></div>
-      <h1 class="portfo_pop_web">
-        <span style="color: black">WEB</span> PORTFOLIO
-      </h1>
-      <div class="portfo_pop_item"></div>
-      <div class="portfo_pop_item1">
-        <div class="portfo_pop_item1_img"></div>
-        <div class="portfo_pop_item1_img1"></div>
+  <div class="pop_wrap">
+    <div class="portfo_pop">
+      <h1 class="portfo_pop_h">PORTFOLIO</h1>
+      <div style="position: relative; z-index: 2">
+        <div class="portfo_pop_line"></div>
+        <h1 class="portfo_pop_web">
+          <span style="color: black">WEB</span> PORTFOLIO
+        </h1>
+        <div class="portfo_pop_item"></div>
+        <div class="portfo_pop_item1">
+          <div class="portfo_pop_item1_img"></div>
+          <div class="portfo_pop_item1_img1"></div>
+        </div>
       </div>
     </div>
+    <footer-1></footer-1>
   </div>
-  <p>asdads</p>
 </template>
 
 <script>
@@ -38,12 +40,15 @@ export default {
 </script>
 
 <style scoped>
-.portfo_pop {
+.pop_wrap {
   width: 100%;
   background: white;
   position: absolute;
   top: 0px;
   z-index: 50;
+}
+.portfo_pop {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -59,8 +64,6 @@ export default {
 .portfo_pop_item {
   width: 1200px;
   height: 765px;
-  z-index: 2;
-  position: relative;
   background-image: url("../../assets/protfo/popimg1.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,8 +75,6 @@ export default {
   margin: 0px;
   line-height: 60px;
   margin-bottom: 20px;
-  position: relative;
-  z-index: 2;
 }
 .portfo_pop_line {
   width: 50px;
