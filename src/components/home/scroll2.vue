@@ -79,7 +79,9 @@
             <h3 style="color: #3180f1" class="menu_item1_menu_h">CI소개</h3>
             <h3 class="menu_item1_menu_h">찾아오시는길</h3>
           </div>
+
           <h1 class="menu_item1_h" @click="portfo_move()">PORTFOLIO</h1>
+          <h1 class="menu_item1_h">STORY</h1>
           <h1 class="menu_item1_h">문의&의뢰</h1>
           <h1 class="menu_item1_h">인재채용</h1>
         </div>
@@ -163,20 +165,22 @@
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
                   <div class="slide_line1"></div>
-                  <h3 style="margin: 0px">게임인스의</h3>
-                  <h3 style="margin: 0px">현재진행형 포트폴리오</h3>
+                  <h3 style="margin: 0px">PORTFOLIO</h3>
                 </div>
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
                   <div class="slide_line1"></div>
-                  <h3 style="margin: 0px">게임인스만의</h3>
-                  <h3 style="margin: 0px">고객 니즈 맞춤 설계</h3>
+                  <h3 style="margin: 0px">STORY</h3>
                 </div>
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
                   <div class="slide_line1"></div>
-                  <h3 style="margin: 0px">게임인스는</h3>
-                  <h3 style="margin: 0px">도전하는 인재를 찾습니다.</h3>
+                  <h3 style="margin: 0px">문의&의뢰</h3>
+                </div>
+                <div class="home_con_item_slide_item">
+                  <div class="slide_line"></div>
+                  <div class="slide_line1"></div>
+                  <h3 style="margin: 0px">인재채용</h3>
                 </div>
               </div>
             </div>
@@ -389,6 +393,7 @@ export default {
       var home_con_item_slide_item = document.querySelectorAll(
         ".home_con_item_slide_item"
       );
+      var menu_item1_h = document.querySelectorAll(".menu_item1_h");
       var home_con_h = document.querySelector(".home_con_h");
       var home_back = document.querySelector(".home_back");
       var home_back2 = document.querySelector(".home_back2");
@@ -397,6 +402,7 @@ export default {
       var aaa_img = document.querySelector(".aaa_img");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
+      var slide_line = document.querySelectorAll(".slide_line");
       var intro6_back_centerdiv_line = document.querySelector(
         ".intro6_back_centerdiv_line"
       );
@@ -503,7 +509,21 @@ export default {
       });
 
       // 반응형;
-      window.addEventListener("resize", () => {});
+      resize_f();
+      function resize_f(params) {
+        for (let index = 0; index < home_con_item_slide_item.length; index++) {
+          slide_line[
+            index
+          ].style.width = `${home_con_item_slide_item[index].clientWidth}px`;
+        }
+      }
+      window.addEventListener("resize", () => {
+        for (let index = 0; index < home_con_item_slide_item.length; index++) {
+          slide_line[
+            index
+          ].style.width = `${home_con_item_slide_item[index].clientWidth}px`;
+        }
+      });
 
       respon_f();
       function respon_f(params) {
@@ -644,6 +664,7 @@ export default {
           slide_line1[1].style.transition = "all 4s";
           slide_line1[2].style.transition = "all 4s";
           slide_line1[3].style.transition = "all 4s";
+          slide_line1[4].style.transition = "all 4s";
           home_back_con[1].style.top = "50%";
           home_back_con[1].style.opacity = "0";
           home_back_con[2].style.top = "50%";
@@ -654,10 +675,11 @@ export default {
           home_back2.style.transform = "translateX(0%)";
           home_back3.style.transform = "translateX(0%)";
           home_back4.style.transform = "translateX(0%)";
-          slide_line1[0].style.width = "270px";
+          slide_line1[0].style.width = "240px";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
+          slide_line1[4].style.width = "0%";
           setTimeout(() => {
             home_back_con[0].style.top = "40%";
             home_back_con[0].style.opacity = "1";
@@ -668,6 +690,7 @@ export default {
           slide_line1[1].style.transition = "all 4s";
           slide_line1[2].style.transition = "all 4s";
           slide_line1[3].style.transition = "all 4s";
+          slide_line1[4].style.transition = "all 4s";
           home_back_con[0].style.top = "50%";
           home_back_con[0].style.opacity = "0";
           home_back_con[2].style.top = "50%";
@@ -679,9 +702,10 @@ export default {
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
           slide_line1[0].style.width = "0%";
-          slide_line1[1].style.width = "270px";
+          slide_line1[1].style.width = "240px";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
+          slide_line1[4].style.width = "0%";
           setTimeout(() => {
             home_back_con[1].style.top = "40%";
             home_back_con[1].style.opacity = "1";
@@ -692,6 +716,7 @@ export default {
           slide_line1[1].style.transition = "all 4s";
           slide_line1[2].style.transition = "all 4s";
           slide_line1[3].style.transition = "all 4s";
+          slide_line1[4].style.transition = "all 4s";
           home_back_con[1].style.top = "50%";
           home_back_con[1].style.opacity = "0";
           home_back_con[0].style.top = "50%";
@@ -704,8 +729,9 @@ export default {
           home_back4.style.transform = "translateX(-200%)";
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
-          slide_line1[2].style.width = "270px";
+          slide_line1[2].style.width = "240px";
           slide_line1[3].style.width = "0%";
+          slide_line1[4].style.width = "0%";
           setTimeout(() => {
             home_back_con[2].style.top = "40%";
             home_back_con[2].style.opacity = "1";
@@ -716,6 +742,7 @@ export default {
           slide_line1[1].style.transition = "all 4s";
           slide_line1[2].style.transition = "all 4s";
           slide_line1[3].style.transition = "all 4s";
+          slide_line1[4].style.transition = "all 4s";
           home_back_con[1].style.top = "50%";
           home_back_con[1].style.opacity = "0";
           home_back_con[2].style.top = "50%";
@@ -729,7 +756,8 @@ export default {
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "270px";
+          slide_line1[3].style.width = "240px";
+          slide_line1[4].style.width = "0%";
           setTimeout(() => {
             home_back_con[3].style.top = "40%";
             home_back_con[3].style.opacity = "1";
@@ -767,7 +795,7 @@ export default {
                 // setTimeout(() => {
                 spinner.style.opacity = "0";
                 setTimeout(() => {
-                  slide_line1[0].style.width = "270px";
+                  slide_line1[0].style.width = `${home_con_item_slide_item[0].clientWidth}`;
                   home_back_con[0].style.top = "40%";
                   home_back_con[0].style.opacity = "1";
                 }, 400);
@@ -853,6 +881,7 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
+          nav_con_gra.style.background = "rgba(0, 0, 0, 0.3)";
         });
         gage_item[1].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
@@ -874,6 +903,10 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
+
+          body.style.background = "black";
+          flip();
+          nav_con_gra.style.background = "rgba(0, 0, 0, 0.3)";
         });
         gage_item[2].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${window.innerHeight * 2}px)`;
@@ -895,6 +928,24 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
+
+          body.style.background = "white";
+          setTimeout(() => {
+            simple.style.transform = "translateX(0px)";
+            simple.style.opacity = "1";
+            setTimeout(() => {
+              thebest.style.transform = "translateX(251.08px)";
+              thebest.style.opacity = "1";
+              setTimeout(() => {
+                vision_flex_div.style.transform = "translateX(0px)";
+                vision_flex_div.style.opacity = "1";
+                setTimeout(() => {
+                  aaa_img.style.borderRadius = "50px";
+                }, 500);
+              }, 500);
+            }, 500);
+          }, 500);
+          nav_con_gra.style.background = "rgba(0, 0, 0, 0.3)";
         });
         gage_item[3].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${window.innerHeight * 3}px)`;
@@ -916,6 +967,17 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
+
+          body.style.background = "white";
+          setTimeout(() => {
+            gameins_img.style.width = "auto";
+            gameins_img.style.height = "600px";
+            gameins_img.style.marginBottom = "40px";
+            gameins_img.style.marginRight = "40px";
+            gameins_img.style.marginLeft = "40px";
+            gameins_img.style.borderRadius = "60px";
+          }, 500);
+          nav_con_gra.style.background = "rgba(0, 0, 0, 0.3)";
         });
         gage_item[4].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${window.innerHeight * 4}px)`;
@@ -937,6 +999,11 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
+
+          nav_con_gra.style.background = "black";
+          setTimeout(() => {
+            intro6_back_centerdiv_line.style.width = "100%";
+          }, 500);
         });
         gage_item[5].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${
@@ -1306,7 +1373,7 @@ export default {
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
   .gage {
-    display: none;
+    display: block;
   }
   .home_con_item {
     width: 600px;
@@ -1326,11 +1393,32 @@ export default {
     top: -50px;
   }
   .gage_con {
-    display: none;
+    display: block;
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
+  .gage {
+    display: block;
+  }
+  .home_con_item {
+    width: 1400px;
+  }
+  .home_con_h {
+    font-size: 70px;
+  }
+  .box {
+    overflow: hidden;
+    height: 100vh;
+  }
+  .spinner_border_box_h {
+    font-size: 100px;
+  }
+  .gage_con {
+    display: block;
+  }
+}
+@media screen and (min-width: 1300px) {
   .gage {
     display: block;
   }
@@ -1420,15 +1508,14 @@ export default {
   height: 100%;
 }
 .home_con_item_slide_item {
-  width: 25%;
+  width: 20%;
   height: 60px;
   color: white;
   cursor: pointer;
   position: relative;
-  padding-left: 40px;
+  margin-left: 40px;
 }
 .slide_line {
-  width: 270px;
   height: 2px;
   background: gray;
   position: absolute;
@@ -1525,6 +1612,7 @@ export default {
   background: #808080;
   margin-bottom: 30px;
   cursor: pointer;
+  transition: all 0.5s;
 }
 
 /* 포트2 */
@@ -1611,7 +1699,13 @@ export default {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
+  .googlemap {
+    width: 100%;
+    height: 560px;
+  }
+}
+@media screen and (min-width: 1300px) {
   .googlemap {
     width: 100%;
     height: 560px;
@@ -1675,7 +1769,12 @@ export default {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
+  .intro6_back_centerdiv_h {
+    font-size: 60px;
+  }
+}
+@media screen and (min-width: 1300px) {
   .intro6_back_centerdiv_h {
     font-size: 60px;
   }
@@ -2010,7 +2109,24 @@ export default {
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
+  .nav_con_img {
+    display: block;
+  }
+  .nav_con_img_m {
+    display: none;
+  }
+  .nav_con_img_t {
+    display: none;
+  }
+  .nav_con_div {
+    width: 200px;
+  }
+  .nav_con {
+    height: 88px;
+  }
+}
+@media screen and (min-width: 1300px) {
   .nav_con_img {
     display: block;
   }

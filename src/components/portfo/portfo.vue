@@ -53,6 +53,7 @@
             <h3 class="menu_item1_menu_h">찾아오시는길</h3>
           </div>
           <h1 class="menu_item1_h" @click="portfo_move()">PORTFOLIO</h1>
+          <h1 class="menu_item1_h">STORY</h1>
           <h1 class="menu_item1_h">문의&의뢰</h1>
           <h1 class="menu_item1_h">인재채용</h1>
         </div>
