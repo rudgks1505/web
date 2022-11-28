@@ -23,44 +23,11 @@
       />
     </div>
 
-    <div class="nav_con_center">
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" style="width: 200px; text-align: center">
-          회사소개
-        </h1>
-        <div class="nav_con_line"></div>
-        <div class="nav_con_div_dropmenu">
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(1)">
-            CEO인사말
-          </h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(2)">연혁</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(3)">조직도</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(4)">CI소개</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(5)">
-            찾아오시는길
-          </h1>
-        </div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="portfo_move()">포트폴리오</h1>
-        <div class="nav_con_line"></div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="qest_move()">문의&의뢰</h1>
-        <div class="nav_con_line"></div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="hire_move()">인재채용</h1>
-        <div class="nav_con_line"></div>
-      </div>
-    </div>
-
     <div class="nav_con_div">
       <img src="../../assets/nav/menu_btn.png" alt="" class="nav_con_btnimg" />
+      <img src="../../assets/menu/xbtn.png" alt="" class="nav_xbtn" />
     </div>
   </div>
-
-  <!-- 메뉴 -->
   <div class="menu_back">
     <div class="menu_con">
       <div class="menu_item">
@@ -85,7 +52,7 @@
             <h3 style="color: #3180f1" class="menu_item1_menu_h">CI소개</h3>
             <h3 class="menu_item1_menu_h">찾아오시는길</h3>
           </div>
-          <h1 class="menu_item1_h">PORTFOLIO</h1>
+          <h1 class="menu_item1_h" @click="portfo_move()">PORTFOLIO</h1>
           <h1 class="menu_item1_h">문의&의뢰</h1>
           <h1 class="menu_item1_h">인재채용</h1>
         </div>
@@ -95,7 +62,6 @@
 
   <div class="portfo_con">
     <div class="portfo_con_gra"></div>
-
     <div class="portfo_item">
       <div class="portfo_item_img1"></div>
       <div class="portfo_item_img2"></div>
@@ -209,6 +175,21 @@ export default {
       var plus = document.querySelector(".plus");
       var menu_item1_line = document.querySelector(".menu_item1_line");
 
+      //xbtn
+      var xclick = 0;
+      var nav_con_btnimg = document.querySelector(".nav_con_btnimg");
+      var nav_xbtn = document.querySelector(".nav_xbtn");
+
+      nav_con_btnimg.addEventListener("click", () => {
+        nav_con_btnimg.style.display = "none";
+        nav_xbtn.style.display = "block";
+      });
+      nav_xbtn.addEventListener("click", () => {
+        nav_con_btnimg.style.display = "block";
+        nav_xbtn.style.display = "none";
+        menu_back.style.display = "none";
+      });
+
       //메뉴
       var menu_mun = 0;
       nav_con_btnimg.addEventListener("click", () => {
@@ -239,55 +220,7 @@ export default {
       }
 
       // 반응형
-      window.addEventListener("resize", () => {
-        respon_f();
-      });
-      respon_f();
-      function respon_f(params) {
-        if (max_600px.matches) {
-          nav_con_center.style.display = "none";
-        } else if (min_600px_max_1000px.matches) {
-          nav_con_center.style.display = "none";
-        } else if (min_1000px.matches) {
-          nav_con_center.style.display = "flex";
-        }
-      }
-
-      //네브바효과
-      for (let index = 0; index < nav_con_div_h.length; index++) {
-        nav_con_div_h[index].addEventListener("mouseenter", () => {
-          nav_con_line[index].style.width = "60px";
-        });
-        nav_con_div_h[0].addEventListener("mouseenter", () => {
-          nav_con_div_dropmenu.style.opacity = "1";
-          nav_con_div_dropmenu.style.visibility = "visible";
-        });
-      }
-      for (let index = 0; index < nav_con_div_h.length; index++) {
-        nav_con_div_dropmenu.addEventListener("mouseleave", () => {
-          nav_con_line[index].style.width = "0px";
-        });
-      }
-
-      nav_con_div_dropmenu.addEventListener("mouseleave", () => {
-        nav_con_div_dropmenu.style.opacity = "0";
-        nav_con_div_dropmenu.style.visibility = "hidden";
-      });
-
-      for (let index = 0; index < nav_con_div_dropmenu_h.length; index++) {
-        nav_con_div_dropmenu_h[index].addEventListener("mouseenter", () => {
-          nav_con_div_dropmenu_h[index].style.color = "white";
-        });
-        nav_con_div_dropmenu_h[index].addEventListener("mouseleave", () => {
-          nav_con_div_dropmenu_h[index].style.color = "gray";
-        });
-      }
-
-      for (let index = 1; index < nav_con_div_h.length; index++) {
-        nav_con_div_h[index].addEventListener("mouseleave", () => {
-          nav_con_line[index].style.width = "0px";
-        });
-      }
+      window.addEventListener("resize", () => {});
 
       //팝업
       portfo_item_img4_btn.addEventListener("click", () => {
@@ -644,35 +577,14 @@ export default {
 .nav_con_btnimg {
   width: 28px;
   height: 12px;
+  display: block;
   cursor: pointer;
 }
-.nav_con_line {
-  width: 0px;
-  height: 2px;
-  background: white;
-  position: absolute;
-  top: 35px;
-  transition: all 0.5s;
-}
-.nav_con_div_dropmenu {
-  position: absolute;
-  top: 40px;
-  left: 65px;
-
-  display: flex;
-  width: 300%;
-  justify-content: space-between;
-  color: gray;
-  opacity: 0;
-  transition: all 0.5s;
-}
-.nav_con_div_dropmenu_h {
-  transition: all 0.5s;
+.nav_xbtn {
+  width: 20px;
+  height: 20px;
+  display: none;
   cursor: pointer;
-  font-size: 16px;
-}
-.nav_con_center {
-  display: flex;
 }
 .nav_con_gra {
   position: absolute;
@@ -691,13 +603,14 @@ export default {
 }
 
 /* 메뉴 */
+
 .menu_back {
   width: 100%;
   height: 100vh;
   position: absolute;
   background: black;
   top: 0;
-  z-index: 1000;
+  z-index: 199;
   display: none;
   justify-content: center;
   align-items: center;

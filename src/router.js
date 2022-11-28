@@ -13,6 +13,7 @@ import gameinsservice from "./components/home/gameinsservice.vue";
 import introvideo from "./components/home/introvideo.vue";
 import ment from "./components/home/ment.vue";
 import pop from "./components/portfo/pop.vue";
+import circle from "./components/test/circle.vue";
 
 
 
@@ -87,6 +88,11 @@ const routes = [
         path: '/pop',
         component: pop,
         name: "pop"
+    },
+    {
+        path: '/circle',
+        component: circle,
+        name: "circle"
     },
 ];
 

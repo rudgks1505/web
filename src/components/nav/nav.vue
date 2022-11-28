@@ -28,17 +28,6 @@
           회사소개
         </h1>
         <div class="nav_con_line"></div>
-        <div class="nav_con_div_dropmenu">
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(1)">
-            CEO인사말
-          </h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(2)">연혁</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(3)">조직도</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(4)">CI소개</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(5)">
-            찾아오시는길
-          </h1>
-        </div>
       </div>
       <div class="nav_con_div">
         <h1 class="nav_con_div_h" @click="portfo_move()">포트폴리오</h1>

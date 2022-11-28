@@ -50,40 +50,40 @@
       />
     </div>
 
-    <div class="nav_con_center">
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" style="width: 200px; text-align: center">
-          회사소개
-        </h1>
-        <div class="nav_con_line"></div>
-        <div class="nav_con_div_dropmenu">
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(1)">
-            CEO인사말
-          </h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(2)">연혁</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(3)">조직도</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(4)">CI소개</h1>
-          <h1 class="nav_con_div_dropmenu_h" @click="intro_move(5)">
-            찾아오시는길
-          </h1>
-        </div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="portfo_move()">포트폴리오</h1>
-        <div class="nav_con_line"></div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="qest_move()">문의&의뢰</h1>
-        <div class="nav_con_line"></div>
-      </div>
-      <div class="nav_con_div">
-        <h1 class="nav_con_div_h" @click="hire_move()">인재채용</h1>
-        <div class="nav_con_line"></div>
-      </div>
-    </div>
-
     <div class="nav_con_div">
       <img src="../../assets/nav/menu_btn.png" alt="" class="nav_con_btnimg" />
+      <img src="../../assets/menu/xbtn.png" alt="" class="nav_xbtn" />
+    </div>
+  </div>
+  <div class="menu_back">
+    <div class="menu_con">
+      <div class="menu_item">
+        <div style="color: white">
+          <img src="../../assets/menu/blogo.png" alt="" />
+          <h3 style="margin-bottom: 0px">Address</h3>
+          <h3 style="margin-top: 0px">부산광역시 사상구 백양대로684 5층</h3>
+          <h3 style="margin-bottom: 0px">E-mail</h3>
+          <h3 style="margin-top: 0px">gameinscokr@naver.com</h3>
+        </div>
+      </div>
+      <div class="menu_item1">
+        <div style="color: white">
+          <h1 class="menu_item1_h" style="margin-bottom: 0px">
+            기업소개 <span style="color: #3180f1" class="plus">+</span>
+            <div class="menu_item1_line"></div>
+          </h1>
+          <div class="menu_item1_menu">
+            <h3 class="menu_item1_menu_h">CEO인사말</h3>
+            <h3 class="menu_item1_menu_h">연혁</h3>
+            <h3 class="menu_item1_menu_h">조직도</h3>
+            <h3 style="color: #3180f1" class="menu_item1_menu_h">CI소개</h3>
+            <h3 class="menu_item1_menu_h">찾아오시는길</h3>
+          </div>
+          <h1 class="menu_item1_h" @click="portfo_move()">PORTFOLIO</h1>
+          <h1 class="menu_item1_h">문의&의뢰</h1>
+          <h1 class="menu_item1_h">인재채용</h1>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -397,16 +397,11 @@ export default {
       var aaa_img = document.querySelector(".aaa_img");
       var home_back_con = document.querySelectorAll(".home_back_con");
       var slide_line1 = document.querySelectorAll(".slide_line1");
-      var slide_line = document.querySelectorAll(".slide_line");
       var intro6_back_centerdiv_line = document.querySelector(
         ".intro6_back_centerdiv_line"
       );
       var port1 = document.querySelector(".port1");
       var portline = document.querySelector(".portline");
-      var portline_1 = document.querySelector(".portline_1");
-      var port2_item_item = document.querySelector(".port2_item_item");
-      var port2_item1_l = document.querySelector(".port2_item1_l");
-      var port2_item1_r = document.querySelector(".port2_item1_r");
       var vision_flex_div = document.querySelector(".vision_flex_div");
       var gameins_img = document.querySelector(".gameins_img");
       var max_600px = window.matchMedia("screen and (max-width: 600px)");
@@ -417,66 +412,46 @@ export default {
       var simple = document.querySelector(".simple");
       var thebest = document.querySelector(".thebest");
       // 네브바
-      const nav_con_div_h = document.querySelectorAll(".nav_con_div_h");
-      const nav_con_line = document.querySelectorAll(".nav_con_line");
-      const nav_con_div_dropmenu_h = document.querySelectorAll(
-        ".nav_con_div_dropmenu_h"
-      );
-      const nav_con_center = document.querySelector(".nav_con_center");
       const nav_con_gra = document.querySelector(".nav_con_gra");
-      const nav_con_div_dropmenu = document.querySelector(
-        ".nav_con_div_dropmenu"
-      );
-
       // 반응형
-      window.addEventListener("resize", () => {
-        respon_f();
+      window.addEventListener("resize", () => {});
+
+      //xbtn
+      var xclick = 0;
+      var nav_con_btnimg = document.querySelector(".nav_con_btnimg");
+      var nav_xbtn = document.querySelector(".nav_xbtn");
+      var nav_con_btnimg = document.querySelector(".nav_con_btnimg");
+      var menu_back = document.querySelector(".menu_back");
+      var menu_item1_menu = document.querySelector(".menu_item1_menu");
+      var menu_item1_h = document.querySelectorAll(".menu_item1_h");
+      var plus = document.querySelector(".plus");
+
+      nav_con_btnimg.addEventListener("click", () => {
+        nav_con_btnimg.style.display = "none";
+        nav_xbtn.style.display = "block";
       });
-      respon_f();
-      function respon_f(params) {
-        if (max_600px.matches) {
-          nav_con_center.style.display = "none";
-        } else if (min_600px_max_1000px.matches) {
-          nav_con_center.style.display = "none";
-        } else if (min_1000px.matches) {
-          nav_con_center.style.display = "flex";
+      nav_xbtn.addEventListener("click", () => {
+        nav_con_btnimg.style.display = "block";
+        nav_xbtn.style.display = "none";
+        menu_back.style.display = "none";
+      });
+
+      //메뉴
+      var menu_mun = 0;
+      nav_con_btnimg.addEventListener("click", () => {
+        menu_back.style.display = "flex";
+      });
+      menu_item1_h[0].addEventListener("click", () => {
+        if (menu_mun === 0) {
+          menu_item1_menu.style.height = "200px";
+          plus.style.display = "none";
+          menu_mun = 1;
+        } else if (menu_mun === 1) {
+          menu_item1_menu.style.height = "0px";
+          plus.style.display = "inline";
+          menu_mun = 0;
         }
-      }
-      //네브바효과
-      for (let index = 0; index < nav_con_div_h.length; index++) {
-        nav_con_div_h[index].addEventListener("mouseenter", () => {
-          nav_con_line[index].style.width = "60px";
-        });
-        nav_con_div_h[0].addEventListener("mouseenter", () => {
-          nav_con_div_dropmenu.style.opacity = "1";
-          nav_con_div_dropmenu.style.visibility = "visible";
-        });
-      }
-      for (let index = 0; index < nav_con_div_h.length; index++) {
-        nav_con_div_dropmenu.addEventListener("mouseleave", () => {
-          nav_con_line[index].style.width = "0px";
-        });
-      }
-
-      nav_con_div_dropmenu.addEventListener("mouseleave", () => {
-        nav_con_div_dropmenu.style.opacity = "0";
-        nav_con_div_dropmenu.style.visibility = "hidden";
       });
-
-      for (let index = 0; index < nav_con_div_dropmenu_h.length; index++) {
-        nav_con_div_dropmenu_h[index].addEventListener("mouseenter", () => {
-          nav_con_div_dropmenu_h[index].style.color = "white";
-        });
-        nav_con_div_dropmenu_h[index].addEventListener("mouseleave", () => {
-          nav_con_div_dropmenu_h[index].style.color = "gray";
-        });
-      }
-
-      for (let index = 1; index < nav_con_div_h.length; index++) {
-        nav_con_div_h[index].addEventListener("mouseleave", () => {
-          nav_con_line[index].style.width = "0px";
-        });
-      }
 
       //플립
       var box2_line = document.querySelector(".box2_line");
@@ -554,13 +529,6 @@ export default {
             port1.style.opacity = "1";
           }
           if (scrollY >= window.innerHeight * 1.5) {
-            portline_1.style.width = "100%";
-            port2_item_item.style.transform = "translateY(0px)";
-            port2_item_item.style.opacity = "1";
-            port2_item1_l.style.transform = "translateY(0px)";
-            port2_item1_l.style.opacity = "1";
-            port2_item1_r.style.transform = "translateY(0px)";
-            port2_item1_r.style.opacity = "1";
           }
         });
       }
@@ -906,11 +874,6 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
-          setTimeout(() => {
-            portline.style.width = "100%";
-            port1.style.transform = "translateX(0px)";
-            port1.style.opacity = "1";
-          }, 1000);
         });
         gage_item[2].addEventListener("click", () => {
           box_wrap.style.transform = `translateY(-${window.innerHeight * 2}px)`;
@@ -932,32 +895,71 @@ export default {
           gage_item[5].style.height = "15px";
           gage_item[5].style.borderRadius = "50%";
           gage_item[5].style.background = "#808080";
-          setTimeout(() => {
-            portline_1.style.width = "100%";
-            port2_item_item.style.transform = "translateY(0px)";
-            port2_item_item.style.opacity = "1";
-            port2_item1_l.style.transform = "translateY(0px)";
-            port2_item1_l.style.opacity = "1";
-            port2_item1_r.style.transform = "translateY(0px)";
-            port2_item1_r.style.opacity = "1";
-          }, 1000);
         });
         gage_item[3].addEventListener("click", () => {
-          box_wrap.style.transform = `translateY(-${
-            window.innerHeight * 2 + box4.clientHeight
-          }px)`;
+          box_wrap.style.transform = `translateY(-${window.innerHeight * 3}px)`;
           gage_item[3].style.height = "50px";
           gage_item[3].style.borderRadius = "10px";
           gage_item[3].style.background = "#0053c9";
           gage_item[1].style.height = "15px";
           gage_item[1].style.borderRadius = "50%";
           gage_item[1].style.background = "#808080";
-          gage_item[2].style.height = "15px";
-          gage_item[2].style.borderRadius = "50%";
-          gage_item[2].style.background = "#808080";
           gage_item[0].style.height = "15px";
           gage_item[0].style.borderRadius = "50%";
           gage_item[0].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[4].style.height = "15px";
+          gage_item[4].style.borderRadius = "50%";
+          gage_item[4].style.background = "#808080";
+          gage_item[5].style.height = "15px";
+          gage_item[5].style.borderRadius = "50%";
+          gage_item[5].style.background = "#808080";
+        });
+        gage_item[4].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-${window.innerHeight * 4}px)`;
+          gage_item[4].style.height = "50px";
+          gage_item[4].style.borderRadius = "10px";
+          gage_item[4].style.background = "#0053c9";
+          gage_item[1].style.height = "15px";
+          gage_item[1].style.borderRadius = "50%";
+          gage_item[1].style.background = "#808080";
+          gage_item[0].style.height = "15px";
+          gage_item[0].style.borderRadius = "50%";
+          gage_item[0].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[3].style.height = "15px";
+          gage_item[3].style.borderRadius = "50%";
+          gage_item[3].style.background = "#808080";
+          gage_item[5].style.height = "15px";
+          gage_item[5].style.borderRadius = "50%";
+          gage_item[5].style.background = "#808080";
+        });
+        gage_item[5].addEventListener("click", () => {
+          box_wrap.style.transform = `translateY(-${
+            window.innerHeight * 4 + box4.clientHeight
+          }px)`;
+          gage_item[5].style.height = "50px";
+          gage_item[5].style.borderRadius = "10px";
+          gage_item[5].style.background = "#0053c9";
+          gage_item[1].style.height = "15px";
+          gage_item[1].style.borderRadius = "50%";
+          gage_item[1].style.background = "#808080";
+          gage_item[0].style.height = "15px";
+          gage_item[0].style.borderRadius = "50%";
+          gage_item[0].style.background = "#808080";
+          gage_item[2].style.height = "15px";
+          gage_item[2].style.borderRadius = "50%";
+          gage_item[2].style.background = "#808080";
+          gage_item[3].style.height = "15px";
+          gage_item[3].style.borderRadius = "50%";
+          gage_item[3].style.background = "#808080";
+          gage_item[4].style.height = "15px";
+          gage_item[4].style.borderRadius = "50%";
+          gage_item[4].style.background = "#808080";
         });
       }
 
@@ -970,7 +972,6 @@ export default {
           box3.style.height = `${window.innerHeight}`;
           box5.style.height = `${window.innerHeight}`;
           box6.style.height = `${window.innerHeight}`;
-          console.log(Math.floor(box2.getBoundingClientRect().top));
           if (
             Math.floor(box1.getBoundingClientRect().top) === 0 ||
             Math.floor(box1.getBoundingClientRect().top) === -1
@@ -979,6 +980,25 @@ export default {
               box_wrap.style.transform = `translateY(${-window.innerHeight}px)`;
               body.style.background = "black";
               flip();
+              //gage
+              gage_item[1].style.height = "50px";
+              gage_item[1].style.borderRadius = "10px";
+              gage_item[1].style.background = "#0053c9";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
             }
           } else if (
             Math.floor(box2.getBoundingClientRect().top) === 0 ||
@@ -986,7 +1006,45 @@ export default {
           ) {
             if (e.wheelDeltaY > 0) {
               box_wrap.style.transform = `translateY(0px)`;
+              //gage
+              gage_item[0].style.height = "50px";
+              gage_item[0].style.borderRadius = "10px";
+              gage_item[0].style.background = "#0053c9";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
             } else if (e.wheelDeltaY < 0) {
+              //gage
+              gage_item[2].style.height = "50px";
+              gage_item[2].style.borderRadius = "10px";
+              gage_item[2].style.background = "#0053c9";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
@@ -1014,7 +1072,45 @@ export default {
             if (e.wheelDeltaY > 0) {
               body.style.background = "black";
               box_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
+              //gage
+              gage_item[1].style.height = "50px";
+              gage_item[1].style.borderRadius = "10px";
+              gage_item[1].style.background = "#0053c9";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
             } else if (e.wheelDeltaY < 0) {
+              //gage
+              gage_item[3].style.height = "50px";
+              gage_item[3].style.borderRadius = "10px";
+              gage_item[3].style.background = "#0053c9";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               body.style.background = "white";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 3
@@ -1033,10 +1129,48 @@ export default {
             Math.floor(box5.getBoundingClientRect().top) === -1
           ) {
             if (e.wheelDeltaY > 0) {
+              //gage
+              gage_item[2].style.height = "50px";
+              gage_item[2].style.borderRadius = "10px";
+              gage_item[2].style.background = "#0053c9";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 2
               }px)`;
             } else if (e.wheelDeltaY < 0) {
+              //gage
+              gage_item[4].style.height = "50px";
+              gage_item[4].style.borderRadius = "10px";
+              gage_item[4].style.background = "#0053c9";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               nav_con_gra.style.background = "black";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4
@@ -1050,11 +1184,49 @@ export default {
             Math.floor(box6.getBoundingClientRect().top) === -1
           ) {
             if (e.wheelDeltaY > 0) {
+              //gage
+              gage_item[3].style.height = "50px";
+              gage_item[3].style.borderRadius = "10px";
+              gage_item[3].style.background = "#0053c9";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               nav_con_gra.style.background = "rgba(0, 0, 0, 0.3)";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 3
               }px)`;
             } else if (e.wheelDeltaY < 0) {
+              //gage
+              gage_item[5].style.height = "50px";
+              gage_item[5].style.borderRadius = "10px";
+              gage_item[5].style.background = "#0053c9";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[4].style.height = "15px";
+              gage_item[4].style.borderRadius = "50%";
+              gage_item[4].style.background = "#808080";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4 + box4.clientHeight
               }px)`;
@@ -1066,6 +1238,25 @@ export default {
               window.innerHeight - box4.clientHeight
           ) {
             if (e.wheelDeltaY > 0) {
+              //gage
+              gage_item[4].style.height = "50px";
+              gage_item[4].style.borderRadius = "10px";
+              gage_item[4].style.background = "#0053c9";
+              gage_item[1].style.height = "15px";
+              gage_item[1].style.borderRadius = "50%";
+              gage_item[1].style.background = "#808080";
+              gage_item[2].style.height = "15px";
+              gage_item[2].style.borderRadius = "50%";
+              gage_item[2].style.background = "#808080";
+              gage_item[3].style.height = "15px";
+              gage_item[3].style.borderRadius = "50%";
+              gage_item[3].style.background = "#808080";
+              gage_item[0].style.height = "15px";
+              gage_item[0].style.borderRadius = "50%";
+              gage_item[0].style.background = "#808080";
+              gage_item[5].style.height = "15px";
+              gage_item[5].style.borderRadius = "50%";
+              gage_item[5].style.background = "#808080";
               box_wrap.style.transform = `translateY(-${
                 window.innerHeight * 4
               }px)`;
@@ -1098,16 +1289,6 @@ export default {
   .home_con_h {
     font-size: 30px;
   }
-  .port2_item1_img {
-    width: 100px;
-    height: 100px;
-  }
-  .port2_h1 {
-    font-size: 18px;
-  }
-  .port2_h3 {
-    font-size: 10px;
-  }
   .box {
     overflow: scroll;
     height: auto;
@@ -1117,12 +1298,6 @@ export default {
   }
   .spinner_border_box_span2 {
     top: 0px;
-  }
-  .port2_item1_l {
-    width: 100%;
-  }
-  .port2_item1_r {
-    width: 100%;
   }
   .gage_con {
     display: none;
@@ -1139,16 +1314,6 @@ export default {
   .home_con_h {
     font-size: 40px;
   }
-  .port2_item1_img {
-    width: 185.57px;
-    height: 185.57px;
-  }
-  .port2_h1 {
-    font-size: 28px;
-  }
-  .port2_h3 {
-    font-size: 15px;
-  }
   .box {
     overflow: scroll;
     height: auto;
@@ -1159,12 +1324,6 @@ export default {
 
   .spinner_border_box_span2 {
     top: -50px;
-  }
-  .port2_item1_l {
-    width: 100%;
-  }
-  .port2_item1_r {
-    width: 100%;
   }
   .gage_con {
     display: none;
@@ -1181,28 +1340,12 @@ export default {
   .home_con_h {
     font-size: 70px;
   }
-  .port2_item1_img {
-    width: 360px;
-    height: 360px;
-  }
-  .port2_h1 {
-    font-size: 32px;
-  }
-  .port2_h3 {
-    font-size: 18.72px;
-  }
   .box {
     overflow: hidden;
     height: 100vh;
   }
   .spinner_border_box_h {
     font-size: 100px;
-  }
-  .port2_item1_l {
-    width: 50%;
-  }
-  .port2_item1_r {
-    width: 50%;
   }
   .gage_con {
     display: block;
@@ -1395,33 +1538,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
-.port2_item1_img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.port2_item1_h {
-  text-align: center;
-}
-.port2_item_item {
-  transition: all 1s;
-  transform: translateY(50px);
-  color: black;
-  opacity: 0;
-  margin-bottom: 60px;
-}
-.port2_item1_l {
-  text-align: center;
-  transition: all 1s;
-  opacity: 0;
-  transform: translateY(-50px);
-}
-.port2_item1_r {
-  text-align: center;
-  transition: all 1s;
-  opacity: 0;
-  transform: translateY(-50px);
-}
+
 /* 스피너 */
 .spinner {
   width: 100%;
@@ -1940,43 +2057,10 @@ export default {
   justify-content: center;
   position: relative;
 }
-.nav_con_div_h {
-  font-size: 16px;
-  transition: all 0.5s;
-  cursor: pointer;
-  color: white;
-}
 .nav_con_btnimg {
   width: 28px;
   height: 12px;
-}
-.nav_con_line {
-  width: 0px;
-  height: 2px;
-  background: white;
-  position: absolute;
-  top: 35px;
-  transition: all 0.5s;
-}
-.nav_con_div_dropmenu {
-  position: absolute;
-  top: 40px;
-  left: 65px;
-
-  display: flex;
-  width: 300%;
-  justify-content: space-between;
-  color: gray;
-  opacity: 0;
-  transition: all 0.5s;
-}
-.nav_con_div_dropmenu_h {
-  transition: all 0.5s;
   cursor: pointer;
-  font-size: 16px;
-}
-.nav_con_center {
-  display: flex;
 }
 .nav_con_gra {
   position: absolute;
@@ -1984,5 +2068,66 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   transition: all 1s;
+}
+.nav_xbtn {
+  width: 20px;
+  height: 20px;
+  display: none;
+  cursor: pointer;
+}
+/* 메뉴 */
+
+.menu_back {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: black;
+  top: 0;
+  z-index: 199;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.menu_con {
+  width: 900px;
+  height: 600px;
+  display: flex;
+}
+.menu_item {
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu_item1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu_item1_h {
+  font-size: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.menu_item1_line {
+  width: 25px;
+  height: 5px;
+  background: #3180f1;
+  position: absolute;
+  right: 40px;
+  top: 37px;
+}
+.menu_item1_menu {
+  height: 0px;
+  overflow: hidden;
+  transition: all 1s;
+}
+.menu_item1_menu_h {
+  margin: 0px;
+  font-size: 28px;
 }
 </style>
