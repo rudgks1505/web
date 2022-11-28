@@ -95,7 +95,7 @@ export default {
   width: 606px;
   height: 100%;
   position: relative;
-  background-image: url("../../assets/protfo/popimg1.png");
+  background-image: url("../../assets/protfo/slideimg1.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -103,7 +103,7 @@ export default {
   width: 574px;
   height: 100%;
   position: relative;
-  background-image: url("../../assets/protfo/popimg1.png");
+  background-image: url("../../assets/protfo/slideimg2.png");
   background-size: cover;
   background-repeat: no-repeat;
 }

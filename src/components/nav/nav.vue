@@ -92,6 +92,7 @@ export default {
         ".nav_con_div_dropmenu_h"
       );
       const nav_con_center = document.querySelector(".nav_con_center");
+      const nav_con_gra = document.querySelector(".nav_con_gra");
       const nav_con_div_dropmenu = document.querySelector(
         ".nav_con_div_dropmenu"
       );
@@ -100,6 +101,11 @@ export default {
         "screen and (min-width: 600px) and (max-width: 1025px)"
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+
+      //배경변화
+      window.addEventListener("wheel", () => {
+        console.log(scrollY);
+      });
 
       // 반응형
       window.addEventListener("resize", () => {
