@@ -102,7 +102,7 @@
                     <h1 class="home_con_h">
                       마음을 움직이는<br />스토리텔링 웹/앱 개발 기업
                       <br />
-                      <span style="font-size: 24px"
+                      <span style="font-size: 0.5em"
                         >웹/앱 개발의 자존심, 타협하지 않는 최고의 퀄리티</span
                       >
                     </h1>
@@ -675,7 +675,7 @@ export default {
           home_back2.style.transform = "translateX(0%)";
           home_back3.style.transform = "translateX(0%)";
           home_back4.style.transform = "translateX(0%)";
-          slide_line1[0].style.width = "240px";
+          slide_line1[0].style.width = `${home_con_item_slide_item[0].clientWidth}px`;
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
@@ -702,7 +702,7 @@ export default {
           home_back3.style.transform = "translateX(-100%)";
           home_back4.style.transform = "translateX(-100%)";
           slide_line1[0].style.width = "0%";
-          slide_line1[1].style.width = "240px";
+          slide_line1[1].style.width = `${home_con_item_slide_item[0].clientWidth}px`;
           slide_line1[2].style.width = "0%";
           slide_line1[3].style.width = "0%";
           slide_line1[4].style.width = "0%";
@@ -729,7 +729,7 @@ export default {
           home_back4.style.transform = "translateX(-200%)";
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
-          slide_line1[2].style.width = "240px";
+          slide_line1[2].style.width = `${home_con_item_slide_item[0].clientWidth}px`;
           slide_line1[3].style.width = "0%";
           slide_line1[4].style.width = "0%";
           setTimeout(() => {
@@ -756,7 +756,7 @@ export default {
           slide_line1[0].style.width = "0%";
           slide_line1[1].style.width = "0%";
           slide_line1[2].style.width = "0%";
-          slide_line1[3].style.width = "240px";
+          slide_line1[3].style.width = `${home_con_item_slide_item[0].clientWidth}px`;
           slide_line1[4].style.width = "0%";
           setTimeout(() => {
             home_back_con[3].style.top = "40%";
@@ -1351,10 +1351,10 @@ export default {
     display: none;
   }
   .home_con_item {
-    width: 300px;
+    width: 600px;
   }
   .home_con_h {
-    font-size: 30px;
+    font-size: 20px;
   }
   .box {
     overflow: scroll;
@@ -1369,6 +1369,12 @@ export default {
   .gage_con {
     display: none;
   }
+  .home_con_item_slide_item {
+    font-size: 5.72px;
+  }
+  .home_con_item_slide_item {
+    margin: 0px 5px;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
@@ -1376,7 +1382,7 @@ export default {
     display: block;
   }
   .home_con_item {
-    width: 600px;
+    width: 1025px;
   }
   .home_con_h {
     font-size: 40px;
@@ -1395,6 +1401,12 @@ export default {
   .gage_con {
     display: block;
   }
+  .home_con_item_slide_item {
+    font-size: 10.72px;
+  }
+  .home_con_item_slide_item {
+    margin: 0px 20px;
+  }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1300px) {
@@ -1402,7 +1414,7 @@ export default {
     display: block;
   }
   .home_con_item {
-    width: 1400px;
+    width: 1300px;
   }
   .home_con_h {
     font-size: 70px;
@@ -1416,6 +1428,12 @@ export default {
   }
   .gage_con {
     display: block;
+  }
+  .home_con_item_slide_item {
+    font-size: 15.72px;
+  }
+  .home_con_item_slide_item {
+    margin: 0px 20px;
   }
 }
 @media screen and (min-width: 1300px) {
@@ -1437,6 +1455,12 @@ export default {
   }
   .gage_con {
     display: block;
+  }
+  .home_con_item_slide_item {
+    font-size: 18.72px;
+  }
+  .home_con_item_slide_item {
+    margin: 0px 20px;
   }
 }
 * {
@@ -1513,7 +1537,6 @@ export default {
   color: white;
   cursor: pointer;
   position: relative;
-  margin-left: 40px;
 }
 .slide_line {
   height: 2px;
@@ -1602,7 +1625,7 @@ export default {
   width: 100px;
   height: auto;
   z-index: 100;
-  left: 100px;
+  left: 50px;
   top: 40%;
 }
 .gage_item {

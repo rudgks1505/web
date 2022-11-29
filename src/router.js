@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import scroll2 from "../src/components/home/scroll2.vue";
-import intro1 from "../src/components/intro_component/intro1.vue";
-import intro2 from "../src/components/intro_component/intro2.vue";
+import scrolltest from "../src/components/test/scrolltest.vue";
+import slide from "./components/intro_component/slide.vue";
 import intro3 from "../src/components/intro_component/intro3.vue";
 import intro4 from "../src/components/intro_component/intro4.vue";
 import intro5 from "../src/components/intro_component/intro5.vue";
@@ -14,7 +14,7 @@ import introvideo from "./components/home/introvideo.vue";
 import ment from "./components/home/ment.vue";
 import pop from "./components/portfo/pop.vue";
 import circle from "./components/test/circle.vue";
-
+import test from "./components/intro_component/test.vue";
 
 
 const routes = [
@@ -25,14 +25,14 @@ const routes = [
         name: "scroll2"
     },
     {
-        path: '/intro1',
-        component: intro1,
-        name: "intro1"
+        path: '/scrolltest',
+        component: scrolltest,
+        name: "scrolltest"
     },
     {
-        path: '/intro2',
-        component: intro2,
-        name: "intro2"
+        path: '/slide',
+        component: slide,
+        name: "slide"
     },
     {
         path: '/intro3',
@@ -93,6 +93,11 @@ const routes = [
         path: '/circle',
         component: circle,
         name: "circle"
+    },
+    {
+        path: '/test',
+        component: test,
+        name: "test"
     },
 ];
 
