@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import scroll2 from "../src/components/home/scroll2.vue";
 import scrolltest from "../src/components/test/scrolltest.vue";
-import slide from "./components/intro_component/slide.vue";
-import intro3 from "../src/components/intro_component/intro3.vue";
+import slide from "./components/slide/slide.vue";
+import slide_bottom from "./components/slide/slide_bottom.vue";
+import slide1 from "./components/intro_component/slide1.vue";
 import intro4 from "../src/components/intro_component/intro4.vue";
-import intro5 from "../src/components/intro_component/intro5.vue";
 import portfo from "../src/components/portfo/portfo.vue";
 import qest from "../src/components/qest/qest.vue";
 import hire from "../src/components/hire/hire.vue";
@@ -15,6 +15,9 @@ import ment from "./components/home/ment.vue";
 import pop from "./components/portfo/pop.vue";
 import circle from "./components/test/circle.vue";
 import test from "./components/intro_component/test.vue";
+import story from "./components/story/story.vue";
+import storyintro from "./components/story/storyintro.vue";
+import ceo from "./components/story/ceo.vue";
 
 
 const routes = [
@@ -35,9 +38,14 @@ const routes = [
         name: "slide"
     },
     {
-        path: '/intro3',
-        component: intro3,
-        name: "intro3"
+        path: '/slide_bottom',
+        component: slide_bottom,
+        name: "slide_bottom"
+    },
+    {
+        path: '/slide1',
+        component: slide1,
+        name: "slide1"
     },
     {
         path: '/intro4',
@@ -45,9 +53,9 @@ const routes = [
         name: "intro4"
     },
     {
-        path: '/intro5',
-        component: intro5,
-        name: "intro5"
+        path: '/ceo',
+        component: ceo,
+        name: "ceo"
     },
     {
         path: '/portfo',
@@ -98,6 +106,16 @@ const routes = [
         path: '/test',
         component: test,
         name: "test"
+    },
+    {
+        path: '/story',
+        component: story,
+        name: "story"
+    },
+    {
+        path: '/storyintro',
+        component: storyintro,
+        name: "storyintro"
     },
 ];
 
