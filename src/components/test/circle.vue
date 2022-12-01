@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div class="count_motion on"></div>
-    <div class="count_txt">Go</div>
-  </div>
+  <div class="aaa"></div>
 </template>
 
 <script>
@@ -22,126 +19,21 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
-.count_motion {
-  height: 178px;
-  position: relative;
-  width: 178px;
-  border-radius: 100%;
-  border: 10px solid transparent;
-  border-color: #00baff #fff #fff #fff;
-  transform-origin: 50% 50%;
-  background-color: #313e51;
-}
-.count_motion.on {
-  -moz-animation: rotate-loading 1.5s linear 0s infinite normal;
-  -moz-transform-origin: 50% 50%;
-  -o-animation: rotate-loading 1.5s linear 0s infinite normal;
-  -o-transform-origin: 50% 50%;
-  -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;
-  -webkit-transform-origin: 50% 50%;
-
-  animation: rotate-loading 1.5s linear 0s infinite normal;
+@media screen and (max-height: 750px) {
 }
 
-.count_txt {
-  color: #ffffff;
-  font-size: 48px;
-  font-weight: bold;
-  margin-top: 71px;
-  margin-left: 16px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  width: 147px;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: -15px;
+@media screen and (max-width: 600px) and (min-height: 750px) {
 }
 
-@keyframes rotate-loading {
-  0% {
-    transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-  }
+@media screen and (min-width: 600px) and (max-width: 1025px) and (min-height: 750px) {
 }
-@-moz-keyframes rotate-loading {
-  0% {
-    transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-  }
+@media screen and (min-width: 1025px) and (max-width: 1600px) and (min-height: 750px) {
 }
-@-moz-keyframes rotate-loading {
-  0% {
-    transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-  }
+@media screen and (min-width: 1600px) {
 }
-@-webkit-keyframes rotate-loading {
-  0% {
-    transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-  }
-}
-@-o-keyframes rotate-loading {
-  0% {
-    transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-  }
+
+.aaa {
+  width: 100%;
+  height: 100vh;
 }
 </style>

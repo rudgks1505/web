@@ -7,11 +7,8 @@
       </div>
       <div class="ceo_ment">
         <div class="ceo_ment_ment">
-          <h1 class="ceo_ment_ment_h" style="margin-top: 20px">"SIMPLE IS</h1>
-          <h1 class="ceo_ment_ment_h" style="margin-left: 100px">THE BEST"</h1>
-          <h3 class="ceo_ment_ment_h1">
-            게임인스는 SIMPLE IS THE BEST를 지향합니다.
-          </h3>
+          <h1 class="ceo_ment_ment_h">"SIMPLE IS THE BEST"</h1>
+
           <h3 style="margin: 0px" class="ceo_ment_ment_h1">
             어떠한 복잡한 기능을 가진 서비스도 정말 필요한 요소인지 우선
             파악하고,
@@ -40,10 +37,12 @@
 
           <div class="ceo_ment_ment_div">
             <h3 class="ceo_ment_ment_h1">(주)게임인스 대표이사 김웅겸</h3>
-            <img src="../../assets/story/sign.png" alt="" />
+            <img src="../../assets/story/sign.png" alt="" class="sign" />
           </div>
         </div>
-        <div class="ceo_ment_img"></div>
+        <div class="ceo_ment_img_div">
+          <div class="ceo_ment_img"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -70,7 +69,6 @@ export default {
   .ceo_ment_img {
     width: 348px;
     height: 344px;
-    border-bottom: 1px solid black;
   }
   .ceo_ment {
     justify-content: center;
@@ -79,10 +77,10 @@ export default {
     font-size: 20px;
   }
   .ceo_ment_ment_h1 {
-    font-size: 13px;
+    font-size: 12px;
   }
   .ceo_wrap_h {
-    font-size: 30px;
+    font-size: 20px;
   }
   .ceo_wrap_line {
     height: 5px;
@@ -97,28 +95,42 @@ export default {
     align-items: flex-start;
     flex-wrap: wrap-reverse;
   }
+  .ceo_con {
+    align-items: center;
+  }
+  .ceo_ment_img_div {
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+  .sign {
+    width: 75.48px;
+    height: 44.27px;
+  }
+  .ceo_ment_ment {
+    width: 347px;
+  }
 }
 
-@media screen and (min-width: 600px) and (max-width: 1025px) {
+@media screen and (min-width: 600px) and (max-width: 1230px) {
   .ceo_ment_img {
-    width: 520px;
-    height: 500px;
-    border-bottom: 1px solid black;
+    width: 348px;
+    height: 344px;
   }
   .ceo_ment {
     justify-content: center;
   }
   .ceo_ment_ment_h {
-    font-size: 25px;
+    font-size: 36px;
   }
+
   .ceo_ment_ment_h1 {
-    font-size: 13px;
+    font-size: 16px;
   }
   .ceo_wrap_h {
-    font-size: 30px;
+    font-size: 46px;
   }
   .ceo_wrap_line {
-    height: 3px;
+    height: 5px;
   }
   .ceo_ment {
     border-bottom: none;
@@ -130,12 +142,21 @@ export default {
     align-items: flex-start;
     flex-wrap: wrap-reverse;
   }
+  .ceo_con {
+    align-items: center;
+  }
+  .ceo_ment_img_div {
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+  .ceo_ment_ment {
+    width: 347px;
+  }
 }
-@media screen and (min-width: 1025px) and (max-width: 1600px) {
+@media screen and (min-width: 1230px) and (max-width: 1600px) {
   .ceo_ment_img {
     width: 653px;
-    height: 601px;
-    border-bottom: none;
+    height: 551px;
   }
   .ceo_ment {
     justify-content: space-between;
@@ -161,13 +182,22 @@ export default {
   .ceo_ment {
     align-items: flex-end;
     flex-wrap: nowrap;
+  }
+  .ceo_con {
+    align-items: center;
+  }
+  .ceo_ment_img_div {
+    width: auto;
+    border-bottom: none;
+  }
+  .ceo_ment_ment {
+    width: 547px;
   }
 }
 @media screen and (min-width: 1600px) {
   .ceo_ment_img {
     width: 653px;
-    height: 601px;
-    border-bottom: none;
+    height: 551px;
   }
   .ceo_ment {
     justify-content: space-between;
@@ -193,6 +223,16 @@ export default {
   .ceo_ment {
     align-items: flex-end;
     flex-wrap: nowrap;
+  }
+  .ceo_con {
+    align-items: center;
+  }
+  .ceo_ment_img_div {
+    width: auto;
+    border-bottom: none;
+  }
+  .ceo_ment_ment {
+    width: 547px;
   }
 }
 * {
@@ -202,12 +242,11 @@ export default {
 .ceo_con {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100vh;
 }
 .ceo_wrap {
-  width: 1600px;
+  width: 1300px;
 }
 .ceo_wrap_h {
   margin: 0px;
@@ -219,20 +258,33 @@ export default {
 }
 .ceo_ment {
   width: 100%;
+  height: 650px;
   display: flex;
-  padding: 0px 20px;
+  position: relative;
 }
 .ceo_ment_img {
   background-image: url("../../assets/story/ceo.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .ceo_ment_ment_h {
   margin: 0px;
+  font-size: 108.88px;
+  position: absolute;
+  top: 0px;
 }
+
 .ceo_ment_ment_div {
   width: 100%;
   display: flex;
   align-items: center;
+}
+.sign {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 </style>

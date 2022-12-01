@@ -18,6 +18,7 @@ import test from "./components/intro_component/test.vue";
 import story from "./components/story/story.vue";
 import storyintro from "./components/story/storyintro.vue";
 import ceo from "./components/story/ceo.vue";
+import intro from "../src/components/intro_component/intro3.vue";
 
 
 const routes = [
@@ -116,6 +117,11 @@ const routes = [
         path: '/storyintro',
         component: storyintro,
         name: "storyintro"
+    },
+    {
+        path: '/intro',
+        component: intro,
+        name: "intro"
     },
 ];
 

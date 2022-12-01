@@ -1,115 +1,96 @@
 <template>
-  <div class="top_img">
-    <div class="top_img_gra"></div>
-
-    <h3 class="top_img_h">회사소개</h3>
-
-    <div class="top_img_bottom_gra">
-      <div
-        class="top_img_bottom_gra_menu_centerdiv"
-        :style="state.styleObject1"
-        @click="nav_routera(1)"
-      >
-        <p class="top_img_bottom_gra_menu_centerdiv_p">CEO 인사말</p>
-      </div>
-      <div
-        class="top_img_bottom_gra_menu_centerdiv"
-        :style="state.styleObject2"
-        @click="nav_routera(2)"
-      >
-        <p class="top_img_bottom_gra_menu_centerdiv_p">연혁</p>
-      </div>
-      <div
-        class="top_img_bottom_gra_menu_centerdiv"
-        :style="state.styleObject3"
-        @click="nav_routera(3)"
-      >
-        <p class="top_img_bottom_gra_menu_centerdiv_p">조직도</p>
-      </div>
-      <div
-        class="top_img_bottom_gra_menu_centerdiv"
-        :style="state.styleObject4"
-        @click="nav_routera(4)"
-      >
-        <p class="top_img_bottom_gra_menu_centerdiv_p">CI 소개</p>
-      </div>
-      <div
-        class="top_img_bottom_gra_menu_centerdiv"
-        :style="state.styleObject5"
-        @click="nav_routera(5)"
-      >
-        <p class="top_img_bottom_gra_menu_centerdiv_p">찾아오시는길</p>
+  <div class="spinner">
+    <div class="spinner_nav"></div>
+    <video
+      src="../../assets/explore/People2.mp4"
+      class="spinner_video"
+      autoplay
+      muted
+    ></video>
+    <div class="spinner_border_box">
+      <div class="spinner_border_box_h">
+        <h1 class="spinner_border_box_span1">SIMPLE IS</h1>
+        <h1 class="spinner_border_box_span2">THE BEST!</h1>
       </div>
     </div>
   </div>
-
-  <!-- 밑에글 -->
-  <div class="intro4_back">
-    <div class="intro4_back_centerdiv">
-      <img src="../../assets/wallpaper/member.png" alt="" />
-    </div>
-  </div>
-  <footer-1></footer-1>
 </template>
 
 <script>
-import { onMounted, reactive, ref, watch, watchEffect } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import Footer1 from "../footer/footer1.vue";
+import { onMounted, reactive, toRefs } from "vue";
 
 export default {
-  components: { Footer1 },
   setup() {
-    const router = useRouter();
-
     const state = reactive({
       count: 0,
-      styleObject: {},
-      styleObject1: {},
-      styleObject2: {},
-      styleObject3: {},
-      styleObject4: {},
-      styleObject5: {},
     });
 
-    function routertest(params) {
-      router.push("/");
-    }
-    function nav_routera(i) {
-      router.push(`/intro${i}`);
-    }
-
-    function bordercolor(params) {
-      state.styleObject3.borderBottom = "3px solid #3180F1";
-      state.styleObject.borderBottom = "none";
-      state.styleObject2.borderBottom = "none";
-      state.styleObject1.borderBottom = "none";
-      state.styleObject4.borderBottom = "none";
-      state.styleObject5.borderBottom = "none";
-    }
-
-    bordercolor();
-
     onMounted(() => {
-      var max_600px = window.matchMedia("screen and (max-width: 600px)");
-      var min_600px_max_1000px = window.matchMedia(
-        "screen and (min-width: 600px) and (max-width: 1025px)"
-      );
-      var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
+      load_f();
+      function load_f(latex) {
+        window.addEventListener("load", () => {
+          var body = document.querySelector("body");
+          var box = document.querySelector(".box");
+          var spinner = document.querySelector(".spinner");
+          var spinner_border_box = document.querySelector(
+            ".spinner_border_box"
+          );
+          var spinner_border_box_h = document.querySelector(
+            ".spinner_border_box_h"
+          );
+          var spinner_border_box_span1 = document.querySelector(
+            ".spinner_border_box_span1"
+          );
+          var spinner_border_box_span2 = document.querySelector(
+            ".spinner_border_box_span2"
+          );
+          var max_600px = window.matchMedia("screen and (max-width: 600px)");
+          var min_600px_max_1000px = window.matchMedia(
+            "screen and (min-width: 600px) and (max-width: 1025px)"
+          );
+          var min_1000px_max_1600px = window.matchMedia(
+            "screen and (min-width: 1025px) and (max-width: 1600px)"
+          );
+          var min_1600px = window.matchMedia("screen and (min-width: 1600px)");
+          body.style.overflowY = "hidden";
+          spinner_border_box_span1.style.transition = `all 2s`;
+          spinner_border_box_span2.style.transition = `all 2s`;
 
-      if (max_600px.matches) {
-      }
-      if (min_600px_max_1000px.matches) {
-      }
-      if (min_1000px.matches) {
+          setTimeout(() => {
+            spinner_border_box.style.border = "50px solid white";
+            setTimeout(() => {
+              spinner_border_box_span1.style.transform = `translateX(${0}%)`;
+              spinner_border_box_span1.style.opacity = "1";
+            }, 500);
+
+            setTimeout(() => {
+              spinner_border_box_span2.style.transform = `translateX(${0}%)`;
+              spinner_border_box_span2.style.opacity = "1";
+            }, 1000);
+
+            setTimeout(() => {
+              spinner_border_box.style.border = "0px solid white";
+              spinner_border_box_span1.style.transition = `all 0.5s`;
+              spinner_border_box_span2.style.transition = `all 0.5s`;
+              setTimeout(() => {
+                spinner_border_box_span1.style.opacity = `0`;
+                spinner_border_box_span2.style.opacity = `0`;
+                setTimeout(() => {
+                  slide_line1[0].style.width = `${home_con_item_slide_item[0].clientWidth}`;
+                }, 400);
+              }, 1000);
+            }, 2000);
+
+            setTimeout(() => {
+              scrollTo(0, 0);
+            }, 100);
+          }, 1000);
+        });
       }
     });
 
     return {
       state,
-      routertest,
-      bordercolor,
-      nav_routera,
     };
   },
 };
@@ -117,108 +98,110 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  .spinner_border_box_h {
+    font-size: 30px;
+    height: 150px;
+  }
+  .spinner_border_box_span1 {
+    transform: translateX(-20%);
+  }
+  .spinner_border_box_span2 {
+    transform: translateX(-20%);
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1025px) {
+  .spinner_border_box_h {
+    font-size: 50px;
+    height: 300px;
+  }
+  .spinner_border_box_span1 {
+    transform: translateX(-20%);
+  }
+  .spinner_border_box_span2 {
+    transform: translateX(-20%);
+  }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) and (max-width: 1600px) {
+  .spinner_border_box_h {
+    font-size: 70px;
+    height: 400px;
+  }
+  .spinner_border_box_span1 {
+    transform: translateX(-20%);
+  }
+  .spinner_border_box_span2 {
+    transform: translateX(-20%);
+  }
 }
-
-p {
-  font-weight: bold;
+@media screen and (min-width: 1600px) {
+  .spinner_border_box_h {
+    font-size: 100px;
+    height: 600px;
+  }
+  .spinner_border_box_span1 {
+    transform: translateX(-20%);
+  }
+  .spinner_border_box_span2 {
+    transform: translateX(-20%);
+  }
 }
-
 * {
   box-sizing: border-box;
 }
-
-/* @@@@@@@ */
-.top_img {
+/* 스피너 */
+.spinner {
   width: 100%;
-  height: 419px;
-  background-image: url("../../assets/wallpaper/businessman32136591.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.top_img_gra {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  height: 100vh;
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.top_img_bottom_gra {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to top, black, rgba(0, 0, 0, 0));
-  height: 66px;
-  display: flex;
-  justify-content: center;
-}
-
-.top_img_bottom_gra_menu {
-  position: absolute;
-  bottom: 0;
-  width: auto;
-  margin-right: 250px;
-}
-
-.top_img_bottom_gra_menu_centerdiv {
-  width: 140px;
-  height: auto;
+  top: 0px;
+  z-index: 300;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  transition: all 1s;
 }
 
-.top_img_bottom_gra_menu_centerdiv_p {
-  margin: 0px;
-  color: white;
-  font-size: 20px;
-}
-
-.top_img_h {
+.spinner_border_box {
+  width: 100%;
+  height: 100%;
+  background: transparent;
   position: absolute;
-  top: 40%;
+  top: 0px;
+  border: 0px solid white;
+  transition: all 0.7s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner_video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.spinner_border_box_h {
   color: white;
-  font-size: 40px;
-  width: 100%;
-  text-align: center;
-  margin: 0;
-}
-
-/* 22@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-@media screen and (min-width: 600px) and (max-width: 1025px) {
-  .intro4_back_centerdiv img {
-    width: 600px;
-    height: 600px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .intro4_back_centerdiv img {
-    width: 1000px;
-    height: 600px;
-  }
-}
-.intro4_back {
+  width: 1400px;
+  position: relative;
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 934px;
 }
-.intro4_back_centerdiv {
-  width: 1200px;
-  display: flex;
-  justify-content: center;
-  margin: 140px 0px;
+.spinner_border_box_span1 {
+  display: inline;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  opacity: 0;
+}
+.spinner_border_box_span2 {
+  display: inline;
+  bottom: 0px;
+  right: 0px;
+  margin: 0px;
+  position: absolute;
+  opacity: 0;
 }
 </style>

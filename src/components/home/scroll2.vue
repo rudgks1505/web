@@ -159,8 +159,7 @@
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
                   <div class="slide_line1"></div>
-                  <h3 style="margin: 0px">마음을 움직이는 스토리텔링</h3>
-                  <h3 style="margin: 0px">웹/앱 개발 기업</h3>
+                  <h3 style="margin: 0px">기업소개</h3>
                 </div>
                 <div class="home_con_item_slide_item">
                   <div class="slide_line"></div>
