@@ -6,6 +6,7 @@
         <div class="port_box1_img1"></div>
         <div class="port_box1_img2"></div>
         <div class="port_box1_img3"></div>
+        <div class="port_box1_img4"></div>
 
         <div class="port_box1_btnbox">
           <button class="port_box1_btn">1</button>
@@ -20,6 +21,7 @@
         <div class="port_box2_item1"><p>2</p></div>
         <div class="port_box2_item2"><p>3</p></div>
         <div class="port_box2_item3"><p>4</p></div>
+        <div class="port_box2_item4"><p>5</p></div>
       </div>
       <div class="port_box3">3</div>
       <div class="port_box4">4</div>
@@ -44,11 +46,13 @@ export default {
       var port_box2_item1 = document.querySelector(".port_box2_item1");
       var port_box2_item2 = document.querySelector(".port_box2_item2");
       var port_box2_item3 = document.querySelector(".port_box2_item3");
+      var port_box2_item4 = document.querySelector(".port_box2_item4");
       var port_box1_btn = document.querySelectorAll(".port_box1_btn");
       var port_box1_img = document.querySelector(".port_box1_img");
       var port_box1_img1 = document.querySelector(".port_box1_img1");
       var port_box1_img2 = document.querySelector(".port_box1_img2");
       var port_box1_img3 = document.querySelector(".port_box1_img3");
+      var port_box1_img4 = document.querySelector(".port_box1_img4");
       var port_wrap = document.querySelector(".port_wrap");
       var port_box1 = document.querySelector(".port_box1");
       var port_box2 = document.querySelector(".port_box2");
@@ -66,10 +70,8 @@ export default {
       respon_f();
       function respon_f(params) {
         if (max_600px.matches) {
-          touch_f();
         }
         if (min_600px_max_1000px.matches) {
-          touch_f();
         }
         if (min_1000px.matches) {
           wheel_f();
@@ -77,20 +79,20 @@ export default {
         }
       }
 
-      //터치이벤트
-      function touch_f(params) {
-        port_wrap.addEventListener("touchmove", (e) => {
-          touch_arr.push(e.targetTouches[0].clientY);
+      // //터치이벤트
+      // function touch_f(params) {
+      //   port_wrap.addEventListener("touchmove", (e) => {
+      //     touch_arr.push(e.targetTouches[0].clientY);
 
-          if (touch_arr[0] > touch_arr[1]) {
-            port_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
-            touch_arr = [];
-          } else if (touch_arr[0] < touch_arr[1]) {
-            port_wrap.style.transform = `translateY(-${0}px)`;
-            touch_arr = [];
-          }
-        });
-      }
+      //     if (touch_arr[0] > touch_arr[1]) {
+      //       port_wrap.style.transform = `translateY(-${window.innerHeight}px)`;
+      //       touch_arr = [];
+      //     } else if (touch_arr[0] < touch_arr[1]) {
+      //       port_wrap.style.transform = `translateY(-${0}px)`;
+      //       touch_arr = [];
+      //     }
+      //   });
+      // }
       //휠이벤트
       function wheel_f() {
         window.addEventListener("wheel", (e) => {
@@ -171,45 +173,66 @@ export default {
           port_box1_img1.style.transform = "translateX(0%)";
           port_box1_img2.style.transform = "translateX(0%)";
           port_box1_img3.style.transform = "translateX(0%)";
+          port_box1_img4.style.transform = "translateX(0%)";
 
           //박스2
           port_box2_item.style.transform = "translateX(0%)";
           port_box2_item1.style.transform = "translateX(0%)";
           port_box2_item2.style.transform = "translateX(0%)";
           port_box2_item3.style.transform = "translateX(0%)";
+          port_box2_item4.style.transform = "translateX(0%)";
         });
         port_box1_btn[1].addEventListener("click", () => {
           port_box1_img.style.transform = "translateX(-100%)";
           port_box1_img1.style.transform = "translateX(-100%)";
           port_box1_img2.style.transform = "translateX(-100%)";
           port_box1_img3.style.transform = "translateX(-100%)";
+          port_box1_img4.style.transform = "translateX(-100%)";
           //박스2
           port_box2_item.style.transform = "translateX(-100%)";
           port_box2_item1.style.transform = "translateX(-100%)";
           port_box2_item2.style.transform = "translateX(-100%)";
           port_box2_item3.style.transform = "translateX(-100%)";
+          port_box2_item4.style.transform = "translateX(-100%)";
         });
         port_box1_btn[2].addEventListener("click", () => {
           port_box1_img.style.transform = "translateX(-200%)";
           port_box1_img1.style.transform = "translateX(-200%)";
           port_box1_img2.style.transform = "translateX(-200%)";
           port_box1_img3.style.transform = "translateX(-200%)";
+          port_box1_img4.style.transform = "translateX(-200%)";
           //박스2
           port_box2_item.style.transform = "translateX(-200%)";
           port_box2_item1.style.transform = "translateX(-200%)";
           port_box2_item2.style.transform = "translateX(-200%)";
           port_box2_item3.style.transform = "translateX(-200%)";
+          port_box2_item4.style.transform = "translateX(-200%)";
         });
         port_box1_btn[3].addEventListener("click", () => {
           port_box1_img.style.transform = "translateX(-300%)";
           port_box1_img1.style.transform = "translateX(-300%)";
           port_box1_img2.style.transform = "translateX(-300%)";
           port_box1_img3.style.transform = "translateX(-300%)";
+          port_box1_img4.style.transform = "translateX(-300%)";
           //박스2
           port_box2_item.style.transform = "translateX(-300%)";
           port_box2_item1.style.transform = "translateX(-300%)";
           port_box2_item2.style.transform = "translateX(-300%)";
           port_box2_item3.style.transform = "translateX(-300%)";
+          port_box2_item4.style.transform = "translateX(-300%)";
+        });
+        port_box1_btn[4].addEventListener("click", () => {
+          port_box1_img.style.transform = "translateX(-400%)";
+          port_box1_img1.style.transform = "translateX(-400%)";
+          port_box1_img2.style.transform = "translateX(-400%)";
+          port_box1_img3.style.transform = "translateX(-400%)";
+          port_box1_img4.style.transform = "translateX(-400%)";
+          //박스2
+          port_box2_item.style.transform = "translateX(-400%)";
+          port_box2_item1.style.transform = "translateX(-400%)";
+          port_box2_item2.style.transform = "translateX(-400%)";
+          port_box2_item3.style.transform = "translateX(-400%)";
+          port_box2_item4.style.transform = "translateX(-400%)";
         });
       }
     });
@@ -311,6 +334,14 @@ export default {
   background-size: cover;
   transition: all 1s;
 }
+.port_box1_img4 {
+  background-image: url("../../assets/slide/slide3.jpg");
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  transition: all 1s;
+}
 /* 박스2 */
 .port_box2_item {
   width: 100%;
@@ -339,5 +370,12 @@ export default {
   flex-shrink: 0;
   background-size: cover;
   background: silver;
+}
+.port_box2_item4 {
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background: sandybrown;
 }
 </style>
