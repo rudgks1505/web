@@ -62,6 +62,7 @@ export default {
   .perdi {
     width: 464px;
     height: 603px;
+    background-position-y: 50px;
   }
   .aaa_container_p {
     font-size: 157px;
