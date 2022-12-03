@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (min-width: 1024px) and (max-width: 1600px) {
   .aaa_container {
     width: 1024px;
     height: 720px;
@@ -75,7 +75,7 @@ export default {
     height: 70px;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1600px) {
   .aaa_container {
     width: 1320px;
     height: 900px;
@@ -113,7 +113,7 @@ export default {
 }
 .perdi {
   background-image: url("../../assets/story/perdi.png");
-  background-size: cover;
+  background-size: contain;
   position: absolute;
   bottom: 0px;
   right: 30px;
