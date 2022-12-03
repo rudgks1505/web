@@ -1,8 +1,26 @@
 <template>
   <div class="port_con">
     <div class="port_wrap">
-      <div class="port_box1">1</div>
-      <div class="port_box2">2</div>
+      <div class="port_box1">
+        <div class="port_box1_img"></div>
+        <div class="port_box1_img1"></div>
+        <div class="port_box1_img2"></div>
+        <div class="port_box1_img3"></div>
+
+        <div class="port_box1_btnbox">
+          <button class="port_box1_btn">1</button>
+          <button class="port_box1_btn">2</button>
+          <button class="port_box1_btn">3</button>
+          <button class="port_box1_btn">4</button>
+          <button class="port_box1_btn">5</button>
+        </div>
+      </div>
+      <div class="port_box2">
+        <div class="port_box2_item"><p>1</p></div>
+        <div class="port_box2_item1"><p>2</p></div>
+        <div class="port_box2_item2"><p>3</p></div>
+        <div class="port_box2_item3"><p>4</p></div>
+      </div>
       <div class="port_box3">3</div>
       <div class="port_box4">4</div>
       <div class="port_box5">5</div>
@@ -22,6 +40,15 @@ export default {
       count: 0,
     });
     onMounted(() => {
+      var port_box2_item = document.querySelector(".port_box2_item");
+      var port_box2_item1 = document.querySelector(".port_box2_item1");
+      var port_box2_item2 = document.querySelector(".port_box2_item2");
+      var port_box2_item3 = document.querySelector(".port_box2_item3");
+      var port_box1_btn = document.querySelectorAll(".port_box1_btn");
+      var port_box1_img = document.querySelector(".port_box1_img");
+      var port_box1_img1 = document.querySelector(".port_box1_img1");
+      var port_box1_img2 = document.querySelector(".port_box1_img2");
+      var port_box1_img3 = document.querySelector(".port_box1_img3");
       var port_wrap = document.querySelector(".port_wrap");
       var port_box1 = document.querySelector(".port_box1");
       var port_box2 = document.querySelector(".port_box2");
@@ -36,9 +63,6 @@ export default {
       );
       var min_1000px = window.matchMedia("screen and (min-width: 1025px)");
 
-      let vh = window.innerHeight * 0.01;
-
-      document.querySelector(".port_con").style.setProperty("--vh", `${vh}px`);
       respon_f();
       function respon_f(params) {
         if (max_600px.matches) {
@@ -49,6 +73,7 @@ export default {
         }
         if (min_1000px.matches) {
           wheel_f();
+          slide_f();
         }
       }
 
@@ -66,7 +91,7 @@ export default {
           }
         });
       }
-
+      //휠이벤트
       function wheel_f() {
         window.addEventListener("wheel", (e) => {
           //휠돌렷을시 높이 재정비
@@ -139,6 +164,54 @@ export default {
           }
         });
       }
+      //박스1슬라이더
+      function slide_f(params) {
+        port_box1_btn[0].addEventListener("click", () => {
+          port_box1_img.style.transform = "translateX(0%)";
+          port_box1_img1.style.transform = "translateX(0%)";
+          port_box1_img2.style.transform = "translateX(0%)";
+          port_box1_img3.style.transform = "translateX(0%)";
+
+          //박스2
+          port_box2_item.style.transform = "translateX(0%)";
+          port_box2_item1.style.transform = "translateX(0%)";
+          port_box2_item2.style.transform = "translateX(0%)";
+          port_box2_item3.style.transform = "translateX(0%)";
+        });
+        port_box1_btn[1].addEventListener("click", () => {
+          port_box1_img.style.transform = "translateX(-100%)";
+          port_box1_img1.style.transform = "translateX(-100%)";
+          port_box1_img2.style.transform = "translateX(-100%)";
+          port_box1_img3.style.transform = "translateX(-100%)";
+          //박스2
+          port_box2_item.style.transform = "translateX(-100%)";
+          port_box2_item1.style.transform = "translateX(-100%)";
+          port_box2_item2.style.transform = "translateX(-100%)";
+          port_box2_item3.style.transform = "translateX(-100%)";
+        });
+        port_box1_btn[2].addEventListener("click", () => {
+          port_box1_img.style.transform = "translateX(-200%)";
+          port_box1_img1.style.transform = "translateX(-200%)";
+          port_box1_img2.style.transform = "translateX(-200%)";
+          port_box1_img3.style.transform = "translateX(-200%)";
+          //박스2
+          port_box2_item.style.transform = "translateX(-200%)";
+          port_box2_item1.style.transform = "translateX(-200%)";
+          port_box2_item2.style.transform = "translateX(-200%)";
+          port_box2_item3.style.transform = "translateX(-200%)";
+        });
+        port_box1_btn[3].addEventListener("click", () => {
+          port_box1_img.style.transform = "translateX(-300%)";
+          port_box1_img1.style.transform = "translateX(-300%)";
+          port_box1_img2.style.transform = "translateX(-300%)";
+          port_box1_img3.style.transform = "translateX(-300%)";
+          //박스2
+          port_box2_item.style.transform = "translateX(-300%)";
+          port_box2_item1.style.transform = "translateX(-300%)";
+          port_box2_item2.style.transform = "translateX(-300%)";
+          port_box2_item3.style.transform = "translateX(-300%)";
+        });
+      }
     });
 
     return {
@@ -161,7 +234,7 @@ export default {
 .port_con {
   overflow: hidden;
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
 }
 .port_wrap {
   transition: all 1s;
@@ -170,11 +243,17 @@ export default {
   width: 100%;
   height: 100vh;
   background: darkcyan;
+  position: relative;
+  display: flex;
+  overflow: hidden;
 }
 .port_box2 {
   width: 100%;
   height: 100vh;
   background: darkgoldenrod;
+  position: relative;
+  display: flex;
+  overflow: hidden;
 }
 .port_box3 {
   width: 100%;
@@ -193,5 +272,72 @@ export default {
 }
 .port_box6 {
   width: 100%;
+}
+/* 박스1 */
+.port_box1_btnbox {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+}
+.port_box1_img {
+  background-image: url("../../assets/slide/slide1.jpg");
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  transition: all 1s;
+}
+.port_box1_img1 {
+  background-image: url("../../assets/slide/slide2.jpg");
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  transition: all 1s;
+}
+.port_box1_img2 {
+  background-image: url("../../assets/slide/slide3.jpg");
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  transition: all 1s;
+}
+.port_box1_img3 {
+  background-image: url("../../assets/slide/slide4.jpg");
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  transition: all 1s;
+}
+/* 박스2 */
+.port_box2_item {
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background: red;
+}
+.port_box2_item1 {
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background: blue;
+}
+.port_box2_item2 {
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background: salmon;
+}
+.port_box2_item3 {
+  width: 100%;
+  height: 100vh;
+  flex-shrink: 0;
+  background-size: cover;
+  background: silver;
 }
 </style>
